@@ -129,19 +129,21 @@ bool Line::is_intersection(Line &a_line) {
 	//DBG("Line %p", &a_line);
 
 	//siehe Vorlesung Folie 2-19
+	//both give 0 -> kollinear und überlappend
+	if ( clockwise(m_start, m_end, a_line.m_start) == 0 && clockwise(m_start, m_end, a_line.m_end) == 0) {
+		//Test ob Koliniear oder Überlappend
+
+	}
 	//one clockwise, the other anti-clockwise
-	if ( (clockwise(m_start, m_end, a_line.m_start)*clockwise(m_start, m_end, a_line.m_end)) <= 0
+	else if ( (clockwise(m_start, m_end, a_line.m_start)*clockwise(m_start, m_end, a_line.m_end)) <= 0
 		  && clockwise(a_line.m_start, a_line.m_end, m_start)*clockwise(a_line.m_start, a_line.m_end, m_end) <= 0 ) {
 
+		//->Schnittpunkt!!
 	}
 
-	//both give 0 -> kollinear und überlappend
-	else if ( clockwise(m_start, m_end, a_line.m_start) == 0 && clockwise(m_start, m_end, a_line.m_end) == 0) {
-
-	}
 	//both clockwise / anticlockwise -> on the same side
 	else {
-
+		//kein Schnittpunkt!
 	}
 
 	return true;
