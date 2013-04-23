@@ -230,6 +230,30 @@ bool  LineFile::stop_timer() {
 	return true;
 }
 
+/*
+ * Ermittelt ob r rechts oder links der Strecke liegt. Liegt er links,
+ * ist das Dreieck gegen den Uhrzeigersinn (anticlockwise-> kleiner 0) aufgespannt.
+ * Liegt es rechts (-> >0) wird es im Urzeigersinn aufgespannt, liegt der Punkt
+ * auf der Strecke ( -> 0 ) ergibt sich ein Schnittpunkt.
+ */
+int LineFile::clockwise(Point &a_p, Point &a_q, Point &a_r){
+
+	//x und y koordinaten der Punkte
+	double p1,p2,q1,q2,r1,r2, result;
+
+	p1=a_p.get_x();
+	p2=a_p.get_y();
+	q1=a_q.get_x();
+	q2=a_q.get_y();
+	r1=a_r.get_x();
+	r2=a_r.get_y();
+
+
+	result=(p2*r1)-(q2*r1)+(q1*r2)-(p1*r2)-(p2*q1)+(p1*q2);
+
+	return result;
+}
+
 void LineFile::print_delta_time() {
 
 	DBG();

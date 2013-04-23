@@ -6,6 +6,7 @@
  */
 
 #include "Line.h"
+#include "LineFile.h"
 #include "log.h"
 
 using namespace std;
@@ -76,6 +77,30 @@ bool Line::check_is_line() {
 }
 
 /*
+ * Ermittelt ob r rechts oder links der Strecke liegt. Liegt er links,
+ * ist das Dreieck gegen den Uhrzeigersinn (anticlockwise-> kleiner 0) aufgespannt.
+ * Liegt es rechts (-> >0) wird es im Urzeigersinn aufgespannt, liegt der Punkt
+ * auf der Strecke ( -> 0 ) ergibt sich ein Schnittpunkt.
+ */
+int Line::clockwise(Point &a_p, Point &a_q, Point &a_r){
+
+	//x und y koordinaten der Punkte
+	double p1,p2,q1,q2,r1,r2, result;
+
+	p1=a_p.get_x();
+	p2=a_p.get_y();
+	q1=a_q.get_x();
+	q2=a_q.get_y();
+	r1=a_r.get_x();
+	r2=a_r.get_y();
+
+
+	result=(p2*r1)-(q2*r1)+(q1*r2)-(p1*r2)-(p2*q1)+(p1*q2);
+
+	return result;
+}
+
+/*
  *
  */
 bool Line::get_is_line() {
@@ -103,10 +128,25 @@ bool Line::is_intersection(Line &a_line) {
 
 	//DBG("Line %p", &a_line);
 
+	//siehe Vorlesung Folie 2-19
+	//one clockwise, the other anti-clockwise
+	if ( (clockwise(m_start, m_end, a_line.m_start)*clockwise(m_start, m_end, a_line.m_end)) <= 0
+		  && clockwise(a_line.m_start, a_line.m_end, m_start)*clockwise(a_line.m_start, a_line.m_end, m_end) <= 0 ) {
 
+	}
+
+	//both give 0 -> kollinear und überlappend
+	else if ( clockwise(m_start, m_end, a_line.m_start) == 0 && clockwise(m_start, m_end, a_line.m_end) == 0) {
+
+	}
+	//both clockwise / anticlockwise -> on the same side
+	else {
+
+	}
 
 	return true;
 }
+
 
 /*
  * Equal Operator zur Ermittlung ob 2 Strecken

@@ -63,6 +63,16 @@ void Point::set_point(const Point &a_point) {
 
 }
 
+double Point::get_x(void){
+	return m_x;
+}
+
+double Point::get_y(void){
+	return m_y;
+
+}
+
+
 bool Point::operator ==(const Point &a_point) {
 
 	DBG();

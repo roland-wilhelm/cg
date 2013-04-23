@@ -30,6 +30,7 @@ class LineFile {
 		void reset_timer();
 		bool start_timer();
 		bool stop_timer();
+		int clockwise(Point &a_p, Point &a_q, Point &a_r);
 
 		/* Do not allow copies */
 		LineFile(const LineFile &);
