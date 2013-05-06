@@ -131,22 +131,27 @@ bool Line::is_intersection(Line &a_line) {
 	//siehe Vorlesung Folie 2-19
 	//both give 0 -> kollinear und überlappend
 	if ( clockwise(m_start, m_end, a_line.m_start) == 0 && clockwise(m_start, m_end, a_line.m_end) == 0) {
-		//Test ob Koliniear oder Überlappend
+		//Test ob koliniear oder überlappend
+		//p über m_start - drehung um -90°, q über m_end - drehung um 90° des gegengesetzten Vektor
+		Point p(m_end.get_y()-m_start.get_y(), m_end.get_x()-m_start.get_x()),
+			  q(m_start.get_y()-m_end.get_y(), m_end.get_x()-m_start.get_x());
 
+		if( clockwise(m_start,p,a_line.m_start)*clockwise(q,a_line.m_start,m_end)>0
+				&& clockwise(m_start,p,a_line.m_end)*clockwise(q,a_line.m_end,m_end) ){
+			//überlappend -> Schnittpunkt!!
+			return true;
+		}
 	}
 	//one clockwise, the other anti-clockwise
 	else if ( (clockwise(m_start, m_end, a_line.m_start)*clockwise(m_start, m_end, a_line.m_end)) <= 0
 		  && clockwise(a_line.m_start, a_line.m_end, m_start)*clockwise(a_line.m_start, a_line.m_end, m_end) <= 0 ) {
 
 		//->Schnittpunkt!!
+		return true;
 	}
 
 	//both clockwise / anticlockwise -> on the same side
-	else {
-		//kein Schnittpunkt!
-	}
-
-	return true;
+	return false;
 }
 
 
