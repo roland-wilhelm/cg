@@ -136,8 +136,8 @@ bool Line::is_intersection(Line &a_line) {
 		Point p(m_end.get_y()-m_start.get_y(), m_end.get_x()-m_start.get_x()),
 			  q(m_start.get_y()-m_end.get_y(), m_end.get_x()-m_start.get_x());
 
-		if( clockwise(m_start,p,a_line.m_start)*clockwise(q,a_line.m_start,m_end)>0
-				&& clockwise(m_start,p,a_line.m_end)*clockwise(q,a_line.m_end,m_end) ){
+		if( clockwise(m_start,p,a_line.m_start)*clockwise(q,a_line.m_start,m_end) >= 0
+				&& clockwise(m_start,p,a_line.m_end)*clockwise(q,a_line.m_end,m_end) >= 0 ){
 			//überlappend -> Schnittpunkt!!
 			return true;
 		}
