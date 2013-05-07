@@ -23,6 +23,7 @@ using namespace std;
  */
 LineFile::LineFile() :
 		m_intersected_lines_nr(0),
+		m_compared_lines_nr(0),
 		m_valid_lines_nr(0),
 		m_invalid_lines_nr(0),
 		m_file_name(string()),
@@ -39,6 +40,7 @@ LineFile::LineFile() :
  */
 LineFile::LineFile(const char *a_file) :
 				m_intersected_lines_nr(0),
+				m_compared_lines_nr(0),
 				m_valid_lines_nr(0),
 				m_invalid_lines_nr(0),
 				m_file_name(a_file),
@@ -179,21 +181,36 @@ bool LineFile::read_file(const char *a_file) {
 
 bool LineFile::start_calculating_intersected_lines() {
 
+	unsigned int intersections;
+	ostringstream ostream;
+
 	DBG();
 
 	m_intersected_lines_nr = 0;
+	m_compared_lines_nr = 0;
+
 	start_timer();
 
 	cout << "Start calculating file " << m_file_name << endl;
 	for(unsigned int i = 0; i < m_lines.size(); i++) {
 
+		intersections = 0;
+		ostream.str("");
+
 		for(unsigned int j = i+1; j < m_lines.size(); j++) {
+
+			m_compared_lines_nr++;
 
 			if(m_lines[j]->is_intersection(*m_lines[i]) == true) {
 
 				m_intersected_lines_nr++;
+				intersections++;
+				ostream << j << "; ";
 			}
 		}
+
+		cout << "Line " << i+1 << " intersect " << intersections << " lines {" << ostream.str() << "}" << endl;
+
 	}
 
 	stop_timer();
@@ -247,6 +264,7 @@ void LineFile::print_calculated_result() {
 	cout << "Valid lines: " << m_valid_lines_nr << endl;
 	cout << "Invalid lines: " << m_invalid_lines_nr << endl;
 	cout << "Total lines: " << Line::get_lines_nr() << endl;
+	cout << "Compared lines: " << m_compared_lines_nr << endl;
 	cout << "Intersected lines: " << m_intersected_lines_nr << endl;
 	print_delta_time();
 	cout << "-------------------------------------" << endl;
