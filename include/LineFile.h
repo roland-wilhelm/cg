@@ -19,7 +19,7 @@ class LineFile {
 	private:
 
 		std::vector<Line *> m_lines;
-		unsigned int m_intersected_lines_nr;
+		unsigned long long m_intersected_lines_nr;
 		unsigned int m_valid_lines_nr;
 		unsigned int m_invalid_lines_nr;
 		std::string m_file_name;
