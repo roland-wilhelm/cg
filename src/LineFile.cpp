@@ -182,7 +182,10 @@ bool LineFile::read_file(const char *a_file) {
 bool LineFile::start_calculating_intersected_lines() {
 
 	unsigned int intersections;
+
+#ifdef DEBUG_TEST
 	ostringstream ostream;
+#endif
 
 	DBG();
 
@@ -195,7 +198,10 @@ bool LineFile::start_calculating_intersected_lines() {
 	for(unsigned int i = 0; i < m_lines.size(); i++) {
 
 		intersections = 0;
+
+#ifdef DEBUG_TEST
 		ostream.str("");
+#endif
 
 		for(unsigned int j = i+1; j < m_lines.size(); j++) {
 
@@ -205,11 +211,17 @@ bool LineFile::start_calculating_intersected_lines() {
 
 				m_intersected_lines_nr++;
 				intersections++;
+
+#ifdef DEBUG_TEST
 				ostream << j << "; ";
+#endif
+
 			}
 		}
 
+#ifdef DEBUG_TEST
 		cout << "Line " << i+1 << " intersect " << intersections << " lines {" << ostream.str() << "}" << endl;
+#endif
 
 	}
 
@@ -263,7 +275,6 @@ void LineFile::print_calculated_result() {
 	cout << "File name: " << m_file_name << endl;
 	cout << "Valid lines: " << m_valid_lines_nr << endl;
 	cout << "Invalid lines: " << m_invalid_lines_nr << endl;
-	cout << "Total lines: " << Line::get_lines_nr() << endl;
 	cout << "Compared lines: " << m_compared_lines_nr << endl;
 	cout << "Intersected lines: " << m_intersected_lines_nr << endl;
 	print_delta_time();
