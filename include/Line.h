@@ -20,7 +20,7 @@ class Line {
 		Point m_end;
 		bool is_line;
 		static unsigned int m_lines_nr;
-		int clockwise(Point &a_p, Point &a_q, Point &a_r);
+		int ccw(Point &a_p, Point &a_q, Point &a_r);
 
 		bool check_is_line();
 

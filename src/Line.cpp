@@ -82,7 +82,9 @@ bool Line::check_is_line() {
  * Liegt es rechts (-> >0) wird es im Urzeigersinn aufgespannt, liegt der Punkt
  * auf der Strecke ( -> 0 ) ergibt sich ein Schnittpunkt.
  */
-int Line::clockwise(Point &a_p, Point &a_q, Point &a_r){
+
+//-> umbenennen in ccw()!!
+int Line::ccw(Point &a_p, Point &a_q, Point &a_r){
 
 	//x und y koordinaten der Punkte
 	double p1,p2,q1,q2,r1,r2, result;
@@ -95,7 +97,7 @@ int Line::clockwise(Point &a_p, Point &a_q, Point &a_r){
 	r2=a_r.get_y();
 
 
-	result=(p2*r1)-(q2*r1)+(q1*r2)-(p1*r2)-(p2*q1)+(p1*q2);
+	result=((p2*r1)-(q2*r1)+(q1*r2)-(p1*r2)-(p2*q1)+(p1*q2)); //FEHLER??
 
 	return result;
 }
@@ -130,21 +132,21 @@ bool Line::is_intersection(Line &a_line) {
 
 	//siehe Vorlesung Folie 2-19
 	//both give 0 -> kollinear und überlappend
-	if ( clockwise(m_start, m_end, a_line.m_start) == 0 && clockwise(m_start, m_end, a_line.m_end) == 0) {
+	if ( ccw(m_start, m_end, a_line.m_start) == 0 && ccw(m_start, m_end, a_line.m_end) == 0) {
 		//Test ob koliniear oder überlappend
 		//p über m_start - drehung um -90°, q über m_end - drehung um 90° des gegengesetzten Vektor
 		Point p(m_end.get_y()-m_start.get_y(), m_end.get_x()-m_start.get_x()),
 			  q(m_start.get_y()-m_end.get_y(), m_end.get_x()-m_start.get_x());
 
-		if( clockwise(m_start,p,a_line.m_start)*clockwise(q,a_line.m_start,m_end) >= 0
-				&& clockwise(m_start,p,a_line.m_end)*clockwise(q,a_line.m_end,m_end) >= 0 ){
+		if( ccw(m_start,p,a_line.m_start)*ccw(q,a_line.m_start,m_end) >= 0
+				&& ccw(m_start,p,a_line.m_end)*ccw(q,a_line.m_end,m_end) >= 0 ){
 			//überlappend -> Schnittpunkt!!
 			return true;
 		}
 	}
 	//one clockwise, the other anti-clockwise
-	else if ( (clockwise(m_start, m_end, a_line.m_start)*clockwise(m_start, m_end, a_line.m_end)) <= 0
-		  && clockwise(a_line.m_start, a_line.m_end, m_start)*clockwise(a_line.m_start, a_line.m_end, m_end) <= 0 ) {
+	else if ( (ccw(m_start, m_end, a_line.m_start)*ccw(m_start, m_end, a_line.m_end)) <= 0
+		  && ccw(a_line.m_start, a_line.m_end, m_start)*ccw(a_line.m_start, a_line.m_end, m_end) <= 0 ) {
 
 		//->Schnittpunkt!!
 		return true;
