@@ -11,7 +11,9 @@
 
 using namespace std;
 
+#define MAX_FILES 4
 #define STRECKEN_BASE "data/"
+#define STRECKEN_TEST STRECKEN_BASE "Strecken_test.dat"
 #define STRECKEN_1000 STRECKEN_BASE "Strecken_1000.dat"
 #define STRECKEN_10000 STRECKEN_BASE "Strecken_10000.dat"
 #define STRECKEN_100000 STRECKEN_BASE "Strecken_100000.dat"
@@ -21,21 +23,25 @@ int main(int argc, char **argv) {
 
 	const char *files[] = {
 
-			STRECKEN_1000,
-			STRECKEN_10000,
-			STRECKEN_100000,
+			STRECKEN_TEST,
+			//STRECKEN_1000,
+			//STRECKEN_10000,
+			//STRECKEN_100000,
 			NULL
 	};
 
-	LineFile *lines = new LineFile[3];
+	LineFile *lines = new LineFile[MAX_FILES];
 
-	for(unsigned int i = 0; i < 3; i++) {
+	for(unsigned int i = 0; i < MAX_FILES; i++) {
 
-		if(lines[i].read_file(files[i])) {
+		if(files[i] == NULL) {
 
-			lines[i].start_calculating_intersected_lines();
-			lines[i].print_calculated_result();
+			break;
 		}
+
+		lines[i].read_file(files[i]);
+		lines[i].start_calculating_intersected_lines();
+		lines[i].print_calculated_result();
 	}
 
 

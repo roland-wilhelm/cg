@@ -63,11 +63,11 @@ void Point::set_point(const Point &a_point) {
 
 }
 
-double Point::get_x(void){
+double Point::get_x() {
 	return m_x;
 }
 
-double Point::get_y(void){
+double Point::get_y() {
 	return m_y;
 
 }
