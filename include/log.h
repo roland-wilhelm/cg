@@ -13,7 +13,7 @@
 /*
  * Enable extended prints for tests purposes;
  */
-#define DEBUG_TEST
+//#define DEBUG_TEST
 
 /*
  * Enable Debug Mode

@@ -195,6 +195,7 @@ bool LineFile::start_calculating_intersected_lines() {
 	start_timer();
 
 	cout << "Start calculating file " << m_file_name << endl;
+	cout << "Max. lines to compare: " << m_valid_lines_nr/2*(m_valid_lines_nr-1) << endl;
 	for(unsigned int i = 0; i < m_lines.size(); i++) {
 
 		intersections = 0;
@@ -275,10 +276,10 @@ void LineFile::print_calculated_result() {
 	cout << "File name: " << m_file_name << endl;
 	cout << "Valid lines: " << m_valid_lines_nr << endl;
 	cout << "Invalid lines: " << m_invalid_lines_nr << endl;
-	cout << "Max. lines to compare: " << m_valid_lines_nr/2*(m_valid_lines_nr-1) << endl;
 	cout << "Compared lines: " << m_compared_lines_nr << endl;
 	cout << "Intersected lines: " << m_intersected_lines_nr << endl;
 	print_delta_time();
+	cout << "-------------------------------------" << endl;
 	cout << "-------------------------------------" << endl;
 
 }

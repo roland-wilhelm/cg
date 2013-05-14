@@ -11,7 +11,7 @@
 
 using namespace std;
 
-#define MAX_FILES 1
+#define MAX_FILES 4
 #define STRECKEN_BASE "data/"
 #define STRECKEN_TEST STRECKEN_BASE "Strecken_test.dat"
 #define STRECKEN_1000 STRECKEN_BASE "Strecken_1000.dat"
