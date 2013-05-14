@@ -24,9 +24,9 @@ int main(int argc, char **argv) {
 	const char *files[] = {
 
 			STRECKEN_TEST,
-			//STRECKEN_1000,
-			//STRECKEN_10000,
-			//STRECKEN_100000,
+			STRECKEN_1000,
+			STRECKEN_10000,
+			STRECKEN_100000,
 			NULL
 	};
 

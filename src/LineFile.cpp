@@ -186,10 +186,9 @@ bool LineFile::start_calculating_intersected_lines() {
 
 	cout << "Start calculating file " << m_file_name << endl;
 	for(unsigned int i = 0; i < m_lines.size(); i++) {
-
 		for(unsigned int j = i+1; j < m_lines.size(); j++) {
 
-			if(m_lines[j]->is_intersection(*m_lines[i]) == true) {
+			if(m_lines[i]->is_intersection(*m_lines[j]) == true) {
 
 				m_intersected_lines_nr++;
 			}
