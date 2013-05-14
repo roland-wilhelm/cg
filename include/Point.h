@@ -32,6 +32,10 @@ class Point {
 		double get_y() const { return m_y; }
 
 		bool operator ==(const Point &a_point);
+		bool operator <=(const Point &a_point);
+		Point operator -(const Point &a_point);
+		Point operator +(const Point &a_point);
+
 		friend std::ostream& operator <<(std::ostream &os, const Point &a_point);
 
 

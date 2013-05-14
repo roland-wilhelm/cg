@@ -21,6 +21,7 @@ class Line {
 		bool is_line;
 		static unsigned int m_lines_nr;
 
+		int ccw(const Point &a_p, const Point &a_q, const Point &a_r);
 		bool check_is_line();
 
 	public:
