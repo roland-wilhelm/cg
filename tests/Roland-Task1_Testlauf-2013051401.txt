@@ -1,3 +1,6 @@
+Run in Debug-Mode -O0
+
+
 Start loading file data/Strecken_test.dat
 Start calculating file data/Strecken_test.dat
 Max. lines to compare: 276

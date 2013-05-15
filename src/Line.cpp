@@ -134,7 +134,7 @@ bool Line::is_intersection(Line &a_line) {
 
 	//DBG("Line %p", &a_line);
 
-	bool intersected = false;
+	bool intersected = true;
 
 	// Prüfe ob beide Strecken nur Punkte sind
 	if((is_line == false) && (a_line.is_line == false)) {
