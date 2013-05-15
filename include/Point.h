@@ -28,10 +28,12 @@ class Point {
 
 		void set_point(double a_x, double a_y);
 		void set_point(const Point &a_point);
-		double get_x();
-		double get_y();
+		double get_x(){return m_x;};
+		double get_y(){return m_y;};
 
 		bool operator ==(const Point &a_point);
+		bool operator < (const Point &a_point);
+		bool operator > (const Point &a_point);
 		friend std::ostream& operator <<(std::ostream &os, const Point &a_point);
 
 

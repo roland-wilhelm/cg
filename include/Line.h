@@ -18,11 +18,8 @@ class Line {
 
 		Point m_start;
 		Point m_end;
-		bool is_line;
 		static unsigned int m_lines_nr;
 		int ccw(Point &a_p, Point &a_q, Point &a_r);
-
-		bool check_is_line();
 
 	public:
 
@@ -32,7 +29,6 @@ class Line {
 
 		virtual ~Line();
 
-		bool get_is_line();
 		static unsigned int get_lines_nr();
 		bool is_intersection(Line &a_line);
 

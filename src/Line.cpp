@@ -23,57 +23,31 @@ ostream& operator <<(ostream &os, Line &a_line) {
 }
 
 
-Line::Line() : m_start(Point()), m_end(Point()), is_line(false) {
-
+Line::Line() : m_start(Point()), m_end(Point()) {
 	m_lines_nr++;
-	DBG("Line number %d", m_lines_nr);
-	check_is_line();
+	DBG("Line number %d", m_lines_nr)
 }
 
 Line::Line(const Point &a_start, const Point &a_end) :
 			m_start(Point(a_start)),
-			m_end(Point(a_end)),
-			is_line(false) {
+			m_end(Point(a_end)){
 
 	m_lines_nr++;
 	DBG("Line number %d", m_lines_nr);
-	check_is_line();
 }
 
 Line::Line(double a_start_x, double a_start_y, double a_end_x, double a_end_y) :
 			m_start(Point(a_start_x, a_start_y)),
-			m_end(Point(a_end_x, a_end_y)),
-			is_line(false){
+			m_end(Point(a_end_x, a_end_y)){
 
 	m_lines_nr++;
 	DBG("Line number %d", m_lines_nr);
-	check_is_line();
 }
 
 Line::~Line() {
 
 	m_lines_nr--;
 	//DBG("Line number %d", m_lines_nr);
-}
-
-/*
- * Zur Ermittlung, ob Strecke oder Punkt
- *
- */
-bool Line::check_is_line() {
-
-	DBG();
-
-	if(m_start == m_end) {
-
-		is_line = false;
-	}
-	else {
-
-		is_line = true;
-	}
-
-	return is_line;
 }
 
 /*
@@ -87,29 +61,18 @@ bool Line::check_is_line() {
 int Line::ccw(Point &a_p, Point &a_q, Point &a_r){
 
 	//x und y koordinaten der Punkte
-	double p1,p2,q1,q2,r1,r2, result;
+	double result;
 
-	p1=a_p.get_x();
-	p2=a_p.get_y();
-	q1=a_q.get_x();
-	q2=a_q.get_y();
-	r1=a_r.get_x();
-	r2=a_r.get_y();
+	result = (a_p.get_y()*a_r.get_x())-(a_q.get_y()*a_r.get_x());
+	result += (a_q.get_x()*a_r.get_y())-(a_p.get_x()*a_r.get_y());
+	result += (a_p.get_x()*a_q.get_y())-(a_p.get_y()*a_q.get_x());
 
-
-	result=((p2*r1)-(q2*r1)+(q1*r2)-(p1*r2)-(p2*q1)+(p1*q2)); //FEHLER??
-
-	return result;
-}
-
-/*
- *
- */
-bool Line::get_is_line() {
-
-	DBG();
-
-	return is_line;
+	if (result < 0.0)
+		return -1;
+	else if(result == 0.0)
+		return 0;
+	else
+		return +1;
 }
 
 /*
@@ -131,20 +94,42 @@ bool Line::is_intersection(Line &a_line) {
 	//DBG("Line %p", &a_line);
 
 	//siehe Vorlesung Folie 2-19
-	//both give 0 -> kollinear und überlappend
+	//both give 0 -> kollinear oder überlappend
 	if ( ccw(m_start, m_end, a_line.m_start) == 0 && ccw(m_start, m_end, a_line.m_end) == 0) {
-		//Test ob koliniear oder überlappend
-		//p über m_start - drehung um -90°, q über m_end - drehung um 90° des gegengesetzten Vektor
-		Point p(m_end.get_y()-m_start.get_y(), m_end.get_x()-m_start.get_x()),
-			  q(m_start.get_y()-m_end.get_y(), m_end.get_x()-m_start.get_x());
 
-		if( ccw(m_start,p,a_line.m_start)*ccw(q,a_line.m_start,m_end) >= 0
-				&& ccw(m_start,p,a_line.m_end)*ccw(q,a_line.m_end,m_end) >= 0 ){
-			//überlappend -> Schnittpunkt!!
-			return true;
+		// prüfung ob Ausgangsline ein Punkt ist -> vereinfachter überlappungstest, da Drehung der
+		// Linie bei einem Punkt nicht funktioniert
+		if ( m_start == m_end ) {
+
+			//Punkt liegt auf Linie??
+			if( (m_start > a_line.m_start && m_start < a_line.m_end)
+				|| (m_start < a_line.m_start && m_start > a_line.m_end)){
+				return true;
+			}
+			else
+				return false;
+
+		}//ende if (m_start==m_end)
+
+		else { //überlappungstest (line <-> line oder line <-> punkt)
+			//p über m_start - drehung um -90°, q über m_end - drehung um 90° des gegengesetzten Vektor
+			Point p(m_end.get_y()-m_start.get_y(), m_end.get_x()-m_start.get_x()),
+				  q(m_start.get_y()-m_end.get_y(), m_end.get_x()-m_start.get_x());
+
+			//Start-Punkt auf der Linie (inkl Ränder)
+			if( ccw(m_start, a_line.m_start, p)*ccw(m_end,q,a_line.m_start) >= 0 ){
+				return true;
+			}
+			//End-Punkt auf der Linie (inkl Ränder)
+			else if(ccw(m_start, a_line.m_end, p)*ccw(m_end,q,a_line.m_end) >= 0){
+				return true;
+			}
+			else
+				return false;
 		}
 	}
 	//one clockwise, the other anti-clockwise
+	//Punkte liegen je links und rechts
 	else if ( (ccw(m_start, m_end, a_line.m_start)*ccw(m_start, m_end, a_line.m_end)) <= 0
 		  && ccw(a_line.m_start, a_line.m_end, m_start)*ccw(a_line.m_start, a_line.m_end, m_end) <= 0 ) {
 

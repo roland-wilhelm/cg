@@ -41,7 +41,7 @@ Point::Point(const Point &a_point) : m_x(a_point.m_x), m_y(a_point.m_y) {
 
 Point::~Point() {
 
-	//DBG();
+	DBG();
 
 }
 
@@ -63,16 +63,6 @@ void Point::set_point(const Point &a_point) {
 
 }
 
-double Point::get_x() {
-	return m_x;
-}
-
-double Point::get_y() {
-	return m_y;
-
-}
-
-
 bool Point::operator ==(const Point &a_point) {
 
 	DBG();
@@ -83,6 +73,25 @@ bool Point::operator ==(const Point &a_point) {
 	}
 	else {
 
+		return false;
+	}
+}
+
+bool Point::operator < (const Point &a_point) {
+	if ((m_x < a_point.m_x) && (m_y < a_point.m_y)){
+		return true;
+	}
+	else {
+		return false;
+	}
+
+}
+
+bool Point::operator > (const Point &a_point) {
+	if ((m_x > a_point.m_x) && (m_y > a_point.m_y)){
+		return true;
+	}
+	else {
 		return false;
 	}
 }
