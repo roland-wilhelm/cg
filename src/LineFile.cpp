@@ -27,9 +27,13 @@ LineFile::LineFile() :
 		m_valid_lines_nr(0),
 		m_invalid_lines_nr(0),
 		m_file_name(string()),
-		m_timediff(0.0),
+		m_timeDiff(0.0),
+		m_timeMax(0.0),
+		m_timeMin(0.0),
+		m_iterations(0),
 		m_start_time(0),
-		m_stop_time(0) {
+		m_stop_time(0),
+		m_firstIteration(true) {
 
 	DBG();
 
@@ -44,9 +48,13 @@ LineFile::LineFile(const char *a_file) :
 				m_valid_lines_nr(0),
 				m_invalid_lines_nr(0),
 				m_file_name(a_file),
-				m_timediff(0.0),
+				m_timeDiff(0.0),
+				m_timeMax(0.0),
+				m_timeMin(0.0),
+				m_iterations(0),
 				m_start_time(0),
-				m_stop_time(0) {
+				m_stop_time(0),
+				m_firstIteration(true) {
 
 	DBG();
 
@@ -179,9 +187,12 @@ bool LineFile::read_file(const char *a_file) {
 	return result;
 }
 
-bool LineFile::start_calculating_intersected_lines() {
+bool LineFile::start_calculating_intersected_lines(unsigned int a_iterations) {
 
 	unsigned int intersections;
+
+	m_iterations = a_iterations;
+
 
 #ifdef DEBUG_TEST
 	ostringstream ostream;
@@ -189,44 +200,50 @@ bool LineFile::start_calculating_intersected_lines() {
 
 	DBG();
 
-	m_intersected_lines_nr = 0;
-	m_compared_lines_nr = 0;
-
-	start_timer();
-
 	cout << "Start calculating file " << m_file_name << endl;
 	cout << "Max. lines to compare: " << m_valid_lines_nr/2*(m_valid_lines_nr-1) << endl;
-	for(unsigned int i = 0; i < m_lines.size(); i++) {
+	cout << "Iterations: " << m_iterations <<  endl;
 
-		intersections = 0;
+	for(unsigned int u = 0; u < m_iterations; u++) {
+
+		m_intersected_lines_nr = 0;
+		m_compared_lines_nr = 0;
+
+		start_timer();
+
+		for(unsigned int i = 0; i < m_lines.size(); i++) {
+
+			intersections = 0;
 
 #ifdef DEBUG_TEST
 		ostream.str("");
 #endif
 
-		for(unsigned int j = i+1; j < m_lines.size(); j++) {
+			for(unsigned int j = i+1; j < m_lines.size(); j++) {
 
-			m_compared_lines_nr++;
+				m_compared_lines_nr++;
 
-			if(m_lines[i]->is_intersection(*m_lines[j]) == true) {
+				if(m_lines[i]->is_intersection(*m_lines[j]) == true) {
 
-				m_intersected_lines_nr++;
-				intersections++;
+					m_intersected_lines_nr++;
+					intersections++;
 
 #ifdef DEBUG_TEST
 				ostream << j+1 << "; ";
 #endif
 
+				}
 			}
-		}
 
 #ifdef DEBUG_TEST
 		cout << "Line " << i+1 << " intersect " << intersections << " lines { " << ostream.str() << "}" << endl;
 #endif
 
-	}
+		}
 
-	stop_timer();
+		stop_timer();
+
+	}
 
 	return true;
 }
@@ -237,7 +254,7 @@ void LineFile::reset_timer() {
 
 	m_start_time = 0;
 	m_stop_time = 0;
-	m_timediff = 0.0;
+
 }
 
 bool  LineFile::start_timer() {
@@ -252,10 +269,31 @@ bool  LineFile::start_timer() {
 
 bool  LineFile::stop_timer() {
 
+	double timeDiff = 0.0;
+
 	DBG();
 
 	m_stop_time = clock();
-	m_timediff =(double)(m_stop_time-m_start_time)/ CLOCKS_PER_SEC;
+	timeDiff = ((double)(m_stop_time-m_start_time))/ CLOCKS_PER_SEC;
+	m_timeDiff += timeDiff;
+
+	if(m_firstIteration) {
+
+		m_firstIteration = false;
+		m_timeMin = m_timeMax = timeDiff;
+	}
+	else {
+
+		if(timeDiff < m_timeMin) {
+
+			m_timeMin = timeDiff;
+		}
+
+		if(timeDiff > m_timeMax) {
+
+			m_timeMax = timeDiff;
+		}
+	}
 
 	return true;
 }
@@ -264,7 +302,13 @@ void LineFile::print_delta_time() {
 
 	DBG();
 
-	cout << "DeltaT: " << m_timediff << " seconds" << endl;
+	if(m_iterations > 0)
+		cout << "Average time: " << m_timeDiff/ m_iterations << " seconds" << endl;
+	else
+		cout << "Average time: " << "Division by zero" << " seconds" << endl;
+
+	cout << "Min. time: " << m_timeMin << " seconds" << endl;
+	cout << "Max. time: " << m_timeMax << " seconds" << endl;
 
 }
 

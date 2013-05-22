@@ -11,7 +11,7 @@
 
 using namespace std;
 
-#define MAX_FILES 4
+#define MAX_FILES 3
 #define STRECKEN_BASE "data/"
 #define STRECKEN_TEST STRECKEN_BASE "Strecken_test.dat"
 #define STRECKEN_1000 STRECKEN_BASE "Strecken_1000.dat"
@@ -43,7 +43,7 @@ int main(int argc, char **argv) {
 			if(lines[i].read_file(files[i]) == false)
 				continue;
 
-			lines[i].start_calculating_intersected_lines();
+			lines[i].start_calculating_intersected_lines(20);
 			lines[i].print_calculated_result();
 
 		}
