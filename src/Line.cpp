@@ -99,7 +99,7 @@ unsigned int Line::get_lines_nr() {
  * @brief
  * @param
  * @retval 1 Punkt r liegt links von [p q}
- * @retval 0 Punkt r liegt auf pq
+ * @retval 0 Punkt r liegt auf pq, oder Punkt a_p und a_q sind identisch
  * @retval -1 Punkt r liegt rechts von [p q}
  * @retval -2 On failure
  *
@@ -115,11 +115,11 @@ int Line::ccw(const Point &a_p, const Point &a_q, const Point &a_r) {
 
 	DBG("CCW: ", result);
 
-	if(result > 0)
+	if(result > 0.0)
 		ret = 1;
-	else if(result == 0)
+	else if(result == 0.0)
 		ret = 0;
-	else if(result < 0)
+	else if(result < 0.0)
 		ret = -1;
 
 
@@ -135,6 +135,11 @@ bool Line::is_intersection(Line &a_line) {
 	//DBG("Line %p", &a_line);
 
 	bool intersected = true;
+	int p1p2q1 = -2;
+	int p1p2q2 = -2;
+	int q1q2p1 = -2;
+	int q1q2p2 = -2;
+
 
 	// Prüfe ob beide Strecken nur Punkte sind
 	if((is_line == false) && (a_line.is_line == false)) {
@@ -151,10 +156,31 @@ bool Line::is_intersection(Line &a_line) {
 
 	}
 
-	int p1p2q1 = ccw(m_start, m_end, a_line.m_start);
-	int p1p2q2 = ccw(m_start, m_end, a_line.m_end);
 
-	if((p1p2q1 == 0) && (p1p2q2 == 0)) {
+	if(this->is_line) {
+
+		p1p2q1 = ccw(m_start, m_end, a_line.m_start);
+		p1p2q2 = ccw(m_start, m_end, a_line.m_end);
+	}
+	else {
+		// Strecke ist ein Punkt --> Drehung eines Punktes um 90° ergibt 0
+		p1p2q1 = 0;
+		p1p2q2 = 0;
+	}
+
+	if(a_line.is_line) {
+
+		q1q2p1 = ccw(a_line.m_start, a_line.m_end, m_start);
+		q1q2p2 = ccw(a_line.m_start, a_line.m_end, m_end);
+	}
+	else {
+		// Strecke ist ein Punkt --> Drehung eines Punktes um 90° ergibt 0
+		q1q2p1 = 0;
+		q1q2p2 = 0;
+	}
+
+
+	if((p1p2q1 == 0) && (p1p2q2 == 0) && (q1q2p1 == 0) && (q1q2p2 == 0)) {
 
 		/*
 		 * Die Strecken sind kollinear oder überlappen sich. Hier soll
@@ -197,8 +223,6 @@ bool Line::is_intersection(Line &a_line) {
 		 * Die beiden Strecken liegen nicht auf einer Linie, ob ein
 		 * Schnittpunkt vorliegt soll hier untersucht werden.
 		 */
-		int q1q2p1 = ccw(a_line.m_start, a_line.m_end, m_start);
-		int q1q2p2 = ccw(a_line.m_start, a_line.m_end, m_end);
 
 		if(((p1p2q1*p1p2q2) <= 0) && ((q1q2p1*q1q2p2) <= 0)) {
 

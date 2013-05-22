@@ -221,7 +221,7 @@ bool LineFile::start_calculating_intersected_lines() {
 		}
 
 #ifdef DEBUG_TEST
-		cout << "Line " << i+1 << " intersect " << intersections << " lines {" << ostream.str() << "}" << endl;
+		cout << "Line " << i+1 << " intersect " << intersections << " lines { " << ostream.str() << "}" << endl;
 #endif
 
 	}
