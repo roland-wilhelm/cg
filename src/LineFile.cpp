@@ -174,6 +174,11 @@ bool LineFile::read_file(const char *a_file) {
 
 	ifile.close();
 
+	cout << "File name: " << m_file_name << endl;
+	cout << "Valid lines: " << m_valid_lines_nr << endl;
+	cout << "Invalid lines: " << m_invalid_lines_nr << endl;
+	cout << "Max. Anzahl Vergleiche: " << m_valid_lines_nr*0.5*(m_valid_lines_nr-1) << endl;
+
 	return result;
 }
 
@@ -245,10 +250,6 @@ void LineFile::print_calculated_result() {
 	DBG();
 
 	cout << "-------------------------------------" << endl;
-	cout << "File name: " << m_file_name << endl;
-	cout << "Valid lines: " << m_valid_lines_nr << endl;
-	cout << "Invalid lines: " << m_invalid_lines_nr << endl;
-	cout << "Total lines: " << Line::get_lines_nr() << endl;
 	cout << "Intersected lines: " << m_intersected_lines_nr << endl;
 	print_delta_time();
 	cout << "-------------------------------------" << endl;
