@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include "LineFile.h"
+#include "SvgFile.h"
 
 using namespace std;
 
@@ -18,8 +19,7 @@ using namespace std;
 #define STRECKEN_10000 STRECKEN_BASE "Strecken_10000.dat"
 #define STRECKEN_100000 STRECKEN_BASE "Strecken_100000.dat"
 
-
-int main(int argc, char **argv) {
+void aufgabe1() {
 
 	const char *files[] = {
 
@@ -50,9 +50,22 @@ int main(int argc, char **argv) {
 
 	}
 
-
-
 	delete[] lines;
+}
+
+#define SVG_FILES_BASE "data/"
+#define GERMANY_SVG SVG_FILES_BASE "DeutschlandMitStaedten.svg"
+
+int main(int argc, char **argv) {
+
+	//aufgabe1();
+
+	SvgFile germany;
+	germany.read_file(GERMANY_SVG);
+
+	//germany.print_cities();
+	//germany.print_state("Quadrat");
+	germany.start_calculation_area();
 
 	return 0;
 }
