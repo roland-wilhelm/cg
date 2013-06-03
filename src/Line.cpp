@@ -113,7 +113,7 @@ int Line::ccw(const Point &a_p, const Point &a_q, const Point &a_r) {
 	result += a_q.get_x() * a_r.get_y() - a_q.get_y() *a_r.get_x();
 	result += a_p.get_y() * a_r.get_x() - a_p.get_x() * a_r.get_y();
 
-	DBG("CCW: ", result);
+	DBG("CCW: %f", result);
 
 	if(result > 0.0)
 		ret = 1;

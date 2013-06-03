@@ -44,7 +44,7 @@ class LineFile {
 
 		LineFile();
 		LineFile(const char *a_file);
-		virtual ~LineFile();
+		~LineFile();
 
 		bool read_file(const char *a_file);
 		bool start_calculating_intersected_lines(unsigned int a_iterations = 1);
