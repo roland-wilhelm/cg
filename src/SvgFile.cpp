@@ -57,9 +57,9 @@ void SvgFile::print_cities() {
 			iterCity != m_cities.end();
 			iterCity++) {
 
-		cout << "City: " << setw(15) << iterCity->first
-			 << "\tX: " << setw(10) << iterCity->second.get_x()
-			 << "\tY: " << setw(10) << iterCity->second.get_y()
+		cout << "City: --> " << iterCity->first
+			 << " X: " << iterCity->second.get_x()
+			 << " Y: " << iterCity->second.get_y()
 			 << endl;
 
 		string str("State not found");
@@ -70,7 +70,7 @@ void SvgFile::print_cities() {
 			if(result == true) {
 
 				str = iterStates->first;
-				cout << "State: " << str << endl;
+				cout << "State: --> " << str << endl;
 			}
 
 		}
@@ -162,11 +162,11 @@ void SvgFile::print_state_bounding_box(const char *a_state) {
 	for( ; iterStates != m_states_box.end();
 			iterStates++) {
 
-		cout << "State: " << setw(20) << iterStates->first
+		cout << "State: " << setw(30) << iterStates->first
 				<< "  Min: " << iterStates->second.min
 				<< "  Max: " << iterStates->second.max
-				<< "  Area: "
-				<< ( (iterStates->second.max.get_x() - iterStates->second.min.get_x()) * (iterStates->second.max.get_y() - iterStates->second.min.get_y()) )
+				<< "  Max Area: "
+				<< setw(10) << ( (iterStates->second.max.get_x() - iterStates->second.min.get_x()) * (iterStates->second.max.get_y() - iterStates->second.min.get_y()) )
 				<< endl;
 
 
@@ -511,7 +511,6 @@ bool SvgFile::read_file(const char *a_file) {
 
 		}
 
-		//cout << id << ": " << d << endl;
 		m_states_nr++;
 
 	}
@@ -555,7 +554,6 @@ bool SvgFile::read_file(const char *a_file) {
 		}
 
 	}
-
 
 
 	return true;
@@ -602,7 +600,7 @@ bool SvgFile::start_calculation_area() {
 				area += (( y1 + y2 ) * ( x1 - x2 ));
 			}
 
-			total += area;
+			total += fabs(area);
 
 		}
 
@@ -615,67 +613,66 @@ bool SvgFile::start_calculation_area() {
 
 	cout << "------------------------------------------" << endl;
 
-//	/*
-//	 * Is state within another state???
-//	 */
-//	cout << "--- Handle state within another state: ---" << endl;
-//
-//	map<string, double>::iterator iterAreas = m_areas.begin();
-//	if(iterAreas == m_areas.end()) {
-//
-//		cerr << "No areas found." << endl;
-//		return false;
-//	}
-//
-//	// Iterate through all areas
-//	for(; iterAreas != m_areas.end(); iterAreas++) {
-//
-//		// Find point to this area
-//		map<string, vector<vector<Point> > >::iterator thisState = m_states.find(iterAreas->first);
-//
-//		cout << "------------------------------------------" << endl;
-//		cout << "Handle state: " << iterAreas->first << endl;
-//
-//		iterStates = m_states.begin();
-//		if(iterStates == m_states.end()) {
-//
-//			cerr << "No States found: " << endl;
-//			return false;
-//		}
-//
-//		// Compare area with all other states
-//		for(; iterStates != m_states.end();
-//				iterStates++) {
-//
-//			//cout << iterStates->first << endl;
-//			// skip same areas
-//			if(iterAreas->first == iterStates->first)
-//				continue;
-//
-//			bool result = false;
-//
-//			vector<Point>::iterator iterVec = thisState->second.begin()->begin();
-//			for(; iterVec != thisState->second.begin()->end(); iterVec++) {
-//
-//				result = point_in_polygon(*(iterVec), iterStates->first);
-//				if(result == false)
-//					break;
-//
-//			}
-//
-//			if(result == true) {
-//
-//				map<string, double>::iterator thisAreas = m_areas.find(iterStates->first);
-//				cout << "State: " << iterAreas->first << " is within " << iterStates->first << endl;
-//				m_areas[iterStates->first] = (thisAreas->second - iterAreas->second);
-//			}
-//
-//		}
-//
-//		cout << "End handle state: " << iterAreas->first << endl;
-//		cout << "------------------------------------------" << endl;
-//
-//	}
+	/*
+	 * Is state within another state???
+	 */
+	cout << "--- Handle state within another state: ---" << endl;
+
+	map<string, double>::iterator iterAreas = m_areas.begin();
+	if(iterAreas == m_areas.end()) {
+
+		cerr << "No areas found." << endl;
+		return false;
+	}
+
+	// Iterate through all areas
+	for(; iterAreas != m_areas.end(); iterAreas++) {
+
+		// Find point to this area
+		map<string, vector<vector<Point> > >::iterator thisState = m_states.find(iterAreas->first);
+
+		cout << "------------------------------------------" << endl;
+		cout << "Handle state: " << iterAreas->first << endl;
+
+		iterStates = m_states.begin();
+		if(iterStates == m_states.end()) {
+
+			cerr << "No States found: " << endl;
+			return false;
+		}
+
+		// Compare area with all other states
+		for(; iterStates != m_states.end();
+				iterStates++) {
+
+			// skip same areas
+			if(iterAreas->first == iterStates->first)
+				continue;
+
+			bool result = false;
+
+			vector<Point>::iterator iterVec = thisState->second.begin()->begin();
+			for(; iterVec != thisState->second.begin()->end(); iterVec++) {
+
+				result = point_in_polygon(*(iterVec), iterStates->first);
+				if(result == false)
+					break;
+
+			}
+
+			if(result == true) {
+
+				map<string, double>::iterator thisAreas = m_areas.find(iterStates->first);
+				cout << "State: " << iterAreas->first << " is within " << iterStates->first << endl;
+				m_areas[iterStates->first] = (thisAreas->second - iterAreas->second);
+			}
+
+		}
+
+		cout << "End handle state: " << iterAreas->first << endl;
+		cout << "------------------------------------------" << endl;
+
+	}
 
 
 	return false;
@@ -738,11 +735,7 @@ bool SvgFile::point_in_bounding_box(const Point &a_city, const string &a_state) 
 
 bool SvgFile::point_in_polygon(const Point &a_city, const string &a_state) {
 
-//	if(a_state == string("Sachsen")) {
-//
-//		cerr << a_state << endl;
-//	}
-//
+
 	if(point_in_bounding_box(a_city, a_state) == false) {
 
 		return false;
@@ -771,7 +764,7 @@ bool SvgFile::point_in_polygon(const Point &a_city, const string &a_state) {
 	// First point is out of the state, second the point to be found
 	Line line(Point(iter->second.min.get_x() - 1, iter->second.min.get_y()), a_city);
 	unsigned int intersections_nr = 0;
-	cout << "Compared line (p | q): " << setw(27) << line << endl;
+	cout << setw(20) << "Compared line (p | q): " << setw(45) << line << endl;
 	for(vector<vector<Point> >::iterator iterOuter = iterStates->second.begin();
 			iterOuter != iterStates->second.end();
 			iterOuter++) {
@@ -781,6 +774,13 @@ bool SvgFile::point_in_polygon(const Point &a_city, const string &a_state) {
 		 * last point is the start. IMPORTANT: iterOuter->end() -1
 		 */
 		vector<Point>::iterator iterInner = iterOuter->begin();
+
+		/*
+		 * Wenn eine Linie sich genau am Schnittpunkt zweier Segmente schneidet,
+		 * werden zwei intersections erkannt, ist soweit ja richtig,
+		 * aber es darf nur als eine intrsection behandelt werden , da sonst
+		 * der Punkt außerhalb und nicht innerhalb liegt.
+		 */
 		while(Line::ccw(line.get_start_point(), line.get_end_point(), *iterInner) == 0)
 			iterInner++;
 
@@ -793,7 +793,7 @@ bool SvgFile::point_in_polygon(const Point &a_city, const string &a_state) {
 
 			if(line.is_intersection(line2) == true) {
 
-				cout << "Intersected line of: " << a_state << setw(15) << line2 << endl;
+				cout << setw(20) << "Intersected line of: " << setw(27) << a_state << setw(20) << line2 << endl;
 				intersections_nr++;
 
 			}
@@ -802,12 +802,6 @@ bool SvgFile::point_in_polygon(const Point &a_city, const string &a_state) {
 
 	}
 
-
-	/*
-	 * FIXME: Wenn eine Linie sich genau am Schnittpunkt zweier Segmente schneidet,
-	 * werden zwei intersections erkannt, ist soweit ja richtig, aber es darf nur als eine intrsection behandelt werden , da sonst
-	 * der Punkt außerhalb und nicht innerhalb liegt.
-	 */
 
 	if(intersections_nr % 2 == 1) {
 

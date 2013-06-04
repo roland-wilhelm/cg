@@ -274,7 +274,7 @@ bool  LineFile::stop_timer() {
 	DBG();
 
 	m_stop_time = clock();
-	timeDiff = ((double)(m_stop_time-m_start_time))/ CLOCKS_PER_SEC;
+	timeDiff = ((double)(m_stop_time-m_start_time)) / CLOCKS_PER_SEC;
 	m_timeDiff += timeDiff;
 
 	if(m_firstIteration) {

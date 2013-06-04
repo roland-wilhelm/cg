@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include <cassert>
+#include <iomanip>
 
 using namespace std;
 
@@ -18,7 +19,7 @@ ostream& operator <<(ostream &os, const Point &a_point) {
 
 	DBG();
 
-	os << "X: " << a_point.m_x << "\t Y: " << a_point.m_y;
+	os << "X: " << setw(8) << a_point.m_x << "\t Y: " << setw(8) << a_point.m_y;
 
 	return os;
 }
