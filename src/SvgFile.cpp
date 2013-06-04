@@ -66,6 +66,7 @@ void SvgFile::print_cities() {
 		map<string, vector<vector<Point> > >::iterator iterStates = m_states.begin();
 		for(; iterStates != m_states.end(); iterStates++) {
 
+			cout << "Trying State: --> " <<  iterStates->first << endl;
 			bool result = point_in_polygon(iterCity->second, iterStates->first);
 			if(result == true) {
 
@@ -649,6 +650,7 @@ bool SvgFile::start_calculation_area() {
 			if(iterAreas->first == iterStates->first)
 				continue;
 
+			cout << "Trying State: " << iterStates->first << endl;
 			bool result = false;
 
 			vector<Point>::iterator iterVec = thisState->second.begin()->begin();
@@ -736,10 +738,11 @@ bool SvgFile::point_in_bounding_box(const Point &a_city, const string &a_state) 
 bool SvgFile::point_in_polygon(const Point &a_city, const string &a_state) {
 
 
-	if(point_in_bounding_box(a_city, a_state) == false) {
-
-		return false;
-	}
+//	if(point_in_bounding_box(a_city, a_state) == false) {
+//
+//		cout << "Outside of bounding box: " << a_state << endl;
+//		return false;
+//	}
 
 	// city is within the bounding box of the state
 
