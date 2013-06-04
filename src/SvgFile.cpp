@@ -68,10 +68,32 @@ void SvgFile::print_cities() {
 
 			cout << "Trying State: --> " <<  iterStates->first << endl;
 			bool result = point_in_polygon(iterCity->second, iterStates->first);
+			str = iterStates->first;
+
 			if(result == true) {
 
-				str = iterStates->first;
+				// state consist of more completely covered areas find the right one
+				map<string, vector<string> >::iterator iterAreas = m_area_in_area.find(iterStates->first);
+				if(iterAreas != m_area_in_area.end()) {
+
+					cout << "Found more areas within " << iterStates->first << " find the right one." << endl;
+					vector<string>::iterator iterStringVec = iterAreas->second.begin();
+					for(; iterStringVec != iterAreas->second.end(); iterStringVec++) {
+
+						cout << "Trying: " << *iterStringVec << endl;;
+						bool result = point_in_polygon(iterCity->second, *iterStringVec);
+						if(result == true) {
+
+							str = *iterStringVec;
+							break;
+						}
+
+					}
+
+				}
+
 				cout << "State: --> " << str << endl;
+
 			}
 
 		}
@@ -654,7 +676,7 @@ bool SvgFile::start_calculation_area() {
 			bool result = false;
 
 			vector<Point>::iterator iterVec = thisState->second.begin()->begin();
-			for(; iterVec != thisState->second.begin()->end(); iterVec++) {
+			for(; iterVec != thisState->second.begin()->end() - 1; iterVec++) {
 
 				result = point_in_polygon(*(iterVec), iterStates->first);
 				if(result == false)
@@ -665,8 +687,14 @@ bool SvgFile::start_calculation_area() {
 			if(result == true) {
 
 				map<string, double>::iterator thisAreas = m_areas.find(iterStates->first);
-				cout << "State: " << iterAreas->first << " is within " << iterStates->first << endl;
 				m_areas[iterStates->first] = (thisAreas->second - iterAreas->second);
+				cout << "State: " << iterAreas->first << " within " << iterStates->first << endl;
+
+				/*
+				 * TODO: A area (State) consist of more areas (completely within)
+				 */
+				m_area_in_area[iterStates->first].push_back(iterAreas->first);
+
 			}
 
 		}
@@ -787,7 +815,7 @@ bool SvgFile::point_in_polygon(const Point &a_city, const string &a_state) {
 		while(Line::ccw(line.get_start_point(), line.get_end_point(), *iterInner) == 0)
 			iterInner++;
 
-		for(; iterInner != iterOuter->end() - 1;
+		for(; iterInner != (iterOuter->end() - 1);
 				iterInner++) {
 
 

@@ -22,8 +22,8 @@ int main(int argc, char **argv) {
 	//start_aufgabe1_test();
 	//start_aufgabe1();
 
-	start_aufgabe2_test();
-	//start_aufgabe2();
+	//start_aufgabe2_test();
+	start_aufgabe2();
 
 	return 0;
 }

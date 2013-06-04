@@ -32,6 +32,9 @@ class SvgFile {
 		std::map<std::string, double> m_areas;
 		std::map<std::string, BoundingBox> m_states_box;
 
+		// Area of the State ... consist of (completely within) ... areas (States)
+		std::map<std::string, std::vector<std::string> > m_area_in_area;
+
 		std::string m_file_name;
 		unsigned int m_states_nr;
 		unsigned int m_cities_nr;
