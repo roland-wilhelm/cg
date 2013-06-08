@@ -9,31 +9,18 @@
 #define SVGFILE_H_
 
 #include "Point.h"
-
+#include "State.h"
 #include <map>
 #include <string>
 #include <vector>
-
-
-typedef struct {
-
-	Point min;
-	Point max;
-
-}BoundingBox;
 
 
 class SvgFile {
 
 	private:
 
-		std::map<std::string, std::vector<std::vector<Point> > > m_states;
-		std::map<std::string, Point> m_cities;
-		std::map<std::string, double> m_areas;
-		std::map<std::string, BoundingBox> m_states_box;
-
-		// Area of the State ... consist of (completely within) ... areas (States)
-		std::map<std::string, std::vector<std::string> > m_area_in_area;
+		std::map<std::string, State> m_states;
+		std::vector<City> m_cities;
 
 		std::string m_file_name;
 		unsigned int m_states_nr;
@@ -52,14 +39,12 @@ class SvgFile {
 		~SvgFile();
 
 		bool read_file(const char *a_file);
-		bool start_calculation_area();
-		bool point_in_bounding_box(const Point &a_city, const std::string &a_state);
-		bool point_in_polygon(const Point &a_point, const std::string &a_state);
+		void locate_states();
+		bool start_calculation();
+		//bool point_in_bounding_box(const Point &a_to_be_located, const BoundingBox &a_box);
 
-		void print_cities();
-		void print_areas(std::map<std::string, double> &state_areas_exact);
-		void print_state_points(const char *a_state = NULL);
-		void print_state_bounding_box(const char *a_state = NULL);
+		void print_result(std::map<std::string, double> &state_areas_exact);
+
 
 };
 

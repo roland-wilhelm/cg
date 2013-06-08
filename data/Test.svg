@@ -5,7 +5,7 @@
  
 viewBox="0 0 100 100" overflow="visible" enable-background="new 0 0 100 100" xml:space="preserve">
 <g>
-<path id="Parallel" fill="red" stroke="#284566" stroke-width="0.01" d="
+<path id="ParallelOhneQuadrat" fill="green" stroke="#284566" stroke-width="0.01" d="
 M1.0,1.0
 L4.0,8.0
 L11.0,8.0
@@ -17,32 +17,11 @@ l0.0,1.0H8.0
 l0.0,-1.0
 L6.0,8.0
 z
-"/>
-<path id="ParallelOhneQuadrat" fill="green" stroke="#284566" stroke-width="0.01" d="
-M51.0,1.0
-L54.0,8.0
-L61.0,8.0
-L58.0,1.0
-L51.0,1.0
-z
-M56.0,8.0
-L56.0,9.0
-L58.0,9.0
-L58.0,8.0
-L56.0,8.0
-z
-M54.0,3.0
-L58,3
-L58,6
-L54,6
-L54,3
-z
-"/>
-<path id="QuadratInParallel" fill="none" stroke="#284566" stroke-width="0.01" d="
 M4.0,3.0
-l0.0,3.0H8.0
-l0.0,-3.0
-L4.0,3.0
+L8,3
+L8,6
+L4,6
+L4,3
 z
 "/>
 <path id="Rechteck" fill="none" stroke="#284566" stroke-width="0.01" d="
@@ -82,18 +61,27 @@ z
 <path
    sodipodi:type="arc"
    style="fill:#ff0000;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-   id="PunktInParallelOhneQuadrat"
-   sodipodi:cx="53.0"
-   sodipodi:cy="4.0"
+   id="PunktInRechteck"
+   sodipodi:cx="5.0"
+   sodipodi:cy="8.5"
    sodipodi:rx="3"
    sodipodi:ry="3"
 />
 <path
    sodipodi:type="arc"
    style="fill:#ff0000;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-   id="PunktInParallelOhneQuadratInQuadrat"
-   sodipodi:cx="55.0"
-   sodipodi:cy="5.0"
+   id="PunktInDreieck"
+   sodipodi:cx="10.0"
+   sodipodi:cy="1.5"
+   sodipodi:rx="3"
+   sodipodi:ry="3"
+/>
+<path
+   sodipodi:type="arc"
+   style="fill:#ff0000;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+   id="PunktAussen"
+   sodipodi:cx="1.0"
+   sodipodi:cy="8.5"
    sodipodi:rx="3"
    sodipodi:ry="3"
 />

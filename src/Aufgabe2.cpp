@@ -51,14 +51,9 @@ void start_aufgabe2() {
 	SvgFile germany;
 	if(germany.read_file(GERMANY_SVG) == true) {
 
-		//germany.print_state_points("Bremen");
-		germany.print_state_bounding_box();
-		germany.start_calculation_area();
-		germany.print_areas(state_areas_exact);
-		germany.print_cities();
-		bool result = germany.point_in_polygon(Point(477, 256), string("Brandenburg"));
-		if(result == true)
-			cout << "Schnittpunkte" << endl;
+		germany.start_calculation();
+		germany.print_result(state_areas_exact);
+
 	}
 	else {
 
@@ -80,14 +75,13 @@ void start_aufgabe2_test() {
 
 
 	SvgFile test;
+
 	if(test.read_file(TEST_SVG) == true) {
 
-//		test.print_state_points();
-		test.print_state_bounding_box();
-		test.start_calculation_area();
-		test.print_areas(state_areas_exact);
-		test.print_cities();
-//		test.point_in_polygon(Point(5.0, 5.0), string("Parallel"));
+		test.start_calculation();
+		test.print_result(state_areas_exact);
+
+
 	}
 	else {
 
