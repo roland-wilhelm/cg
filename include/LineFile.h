@@ -42,7 +42,7 @@ class LineFile {
 		virtual ~LineFile();
 
 		bool read_file(const char *a_file);
-		bool start_calculating_intersected_lines();
+		bool start_calculating_intersected_lines_max();
 		void print_delta_time();
 		void print_calculated_result();
 

@@ -58,7 +58,7 @@ Line::~Line() {
  */
 
 //-> umbenennen in ccw()!!
-int Line::ccw(Point &a_p, Point &a_q, Point &a_r){
+int Line::ccw_max(Point &a_p, Point &a_q, Point &a_r){
 
 	//x und y koordinaten der Punkte
 	double result;
@@ -89,13 +89,13 @@ unsigned int Line::get_lines_nr() {
  * Ermittelt ob Schnittpunkt existiert
  *
  */
-bool Line::is_intersection(Line &a_line) {
+bool Line::is_intersection_max(Line &a_line) {
 
 	//DBG("Line %p", &a_line);
 
 	//siehe Vorlesung Folie 2-19
 	//both give 0 -> kollinear oder überlappend
-	if ( ccw(m_start, m_end, a_line.m_start) == 0 && ccw(m_start, m_end, a_line.m_end) == 0) {
+	if ( ccw_max(m_start, m_end, a_line.m_start) == 0 && ccw_max(m_start, m_end, a_line.m_end) == 0) {
 
 		// prüfung ob Ausgangsline ein Punkt ist -> vereinfachter überlappungstest, da Drehung der
 		// Linie bei einem Punkt nicht funktioniert
@@ -117,11 +117,11 @@ bool Line::is_intersection(Line &a_line) {
 				  q(m_start.get_y()-m_end.get_y(), m_end.get_x()-m_start.get_x());
 
 			//Start-Punkt auf der Linie (inkl Ränder)
-			if( ccw(m_start, a_line.m_start, p)*ccw(m_end,q,a_line.m_start) >= 0 ){
+			if( ccw_max(m_start, a_line.m_start, p)*ccw_max(m_end,q,a_line.m_start) >= 0 ){
 				return true;
 			}
 			//End-Punkt auf der Linie (inkl Ränder)
-			else if(ccw(m_start, a_line.m_end, p)*ccw(m_end,q,a_line.m_end) >= 0){
+			else if(ccw_max(m_start, a_line.m_end, p)*ccw_max(m_end,q,a_line.m_end) >= 0){
 				return true;
 			}
 			else
@@ -130,8 +130,8 @@ bool Line::is_intersection(Line &a_line) {
 	}
 	//one clockwise, the other anti-clockwise
 	//Punkte liegen je links und rechts
-	else if ( (ccw(m_start, m_end, a_line.m_start)*ccw(m_start, m_end, a_line.m_end)) <= 0
-		  && ccw(a_line.m_start, a_line.m_end, m_start)*ccw(a_line.m_start, a_line.m_end, m_end) <= 0 ) {
+	else if ( (ccw_max(m_start, m_end, a_line.m_start)*ccw_max(m_start, m_end, a_line.m_end)) <= 0
+		  && ccw_max(a_line.m_start, a_line.m_end, m_start)*ccw_max(a_line.m_start, a_line.m_end, m_end) <= 0 ) {
 
 		//->Schnittpunkt!!
 		return true;

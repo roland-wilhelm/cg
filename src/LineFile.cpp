@@ -182,7 +182,7 @@ bool LineFile::read_file(const char *a_file) {
 	return result;
 }
 
-bool LineFile::start_calculating_intersected_lines() {
+bool LineFile::start_calculating_intersected_lines_max() {
 
 	//DBG();
 
@@ -194,7 +194,7 @@ bool LineFile::start_calculating_intersected_lines() {
 		//cout << "\nLine "<< i+1 << " schneidet: ";
 		for(unsigned int j = i+1; j < m_lines.size(); j++) {
 
-			if(m_lines[i]->is_intersection(*m_lines[j]) == true) {
+			if(m_lines[i]->is_intersection_max(*m_lines[j]) == true) {
 		//		cout << j+1 << ",";
 				m_intersected_lines_nr++;
 			}

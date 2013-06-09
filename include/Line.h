@@ -19,7 +19,7 @@ class Line {
 		Point m_start;
 		Point m_end;
 		static unsigned int m_lines_nr;
-		int ccw(Point &a_p, Point &a_q, Point &a_r);
+		int ccw_max(Point &a_p, Point &a_q, Point &a_r);
 
 	public:
 
@@ -30,7 +30,7 @@ class Line {
 		virtual ~Line();
 
 		static unsigned int get_lines_nr();
-		bool is_intersection(Line &a_line);
+		bool is_intersection_max(Line &a_line);
 
 		bool operator ==(const Line &a_line);
 		friend std::ostream& operator <<(std::ostream &os, Line &a_line);
