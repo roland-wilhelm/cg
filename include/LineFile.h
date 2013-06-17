@@ -48,6 +48,7 @@ class LineFile {
 
 		bool read_file(const char *a_file);
 		bool start_calculating_intersected_lines(unsigned int a_iterations = 1);
+		bool start_calculating_intersected_lines_openmp();
 		void print_delta_time();
 		void print_calculated_result();
 

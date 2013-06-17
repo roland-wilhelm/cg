@@ -20,7 +20,7 @@ using namespace std;
 int main(int argc, char **argv) {
 
 	//start_aufgabe1_test();
-	start_aufgabe1(1);
+	start_aufgabe1(10);
 
 //	start_aufgabe2_test();
 //	start_aufgabe2();

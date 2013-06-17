@@ -15,6 +15,8 @@
 #include <sstream>
 #include <algorithm>
 
+#include <omp.h>
+
 
 using namespace std;
 
@@ -219,6 +221,7 @@ bool LineFile::start_calculating_intersected_lines(unsigned int a_iterations) {
 		ostream.str("");
 #endif
 
+
 			for(unsigned int j = i+1; j < m_lines.size(); j++) {
 
 				m_compared_lines_nr++;
@@ -244,6 +247,43 @@ bool LineFile::start_calculating_intersected_lines(unsigned int a_iterations) {
 		stop_timer();
 
 	}
+
+	return true;
+}
+
+bool LineFile::start_calculating_intersected_lines_openmp() {
+
+	cout << "Start calculating file " << m_file_name << endl;
+	cout << "Max. lines to compare: " << m_valid_lines_nr/2*(m_valid_lines_nr-1) << endl;
+
+	m_intersected_lines_nr = 0;
+	m_compared_lines_nr = 0;
+
+	start_timer();
+	unsigned long long intersected_lines_nr = 0;
+	unsigned long long compared_lines_nr = 0;
+
+	#pragma omp parallel for num_threads(16) schedule(dynamic) reduction(+ : intersected_lines_nr, compared_lines_nr)
+	//#pragma omp parallel for reduction(+ : intersected_lines_nr, compared_lines_nr)
+	for(unsigned int i = 0; i < m_lines.size(); i++) {
+
+		for(unsigned int j = i+1; j < m_lines.size(); j++) {
+
+			compared_lines_nr++;
+
+			if(m_lines[i]->is_intersection(*m_lines[j]) == true) {
+
+				intersected_lines_nr++;
+			} // Ende vergleich intersections
+
+		} // Innere Schleife
+
+	} // Äußere Schleife - Paralleler Bereich
+
+	// Ende Paralleler Bereich
+	stop_timer();
+	m_intersected_lines_nr = intersected_lines_nr;
+	m_compared_lines_nr = compared_lines_nr;
 
 	return true;
 }
@@ -305,7 +345,7 @@ void LineFile::print_delta_time() {
 	if(m_iterations > 0)
 		cout << "Average time: " << m_timeDiff/ m_iterations << " seconds" << endl;
 	else
-		cout << "Average time: " << "Division by zero" << " seconds" << endl;
+		cout << "Average time: " << "Division by zero" << endl;
 
 	cout << "Min. time: " << m_timeMin << " seconds" << endl;
 	cout << "Max. time: " << m_timeMax << " seconds" << endl;
