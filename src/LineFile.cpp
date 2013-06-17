@@ -183,7 +183,7 @@ bool LineFile::read_file(const char *a_file) {
 }
 
 bool LineFile::start_calculating_intersected_lines_max() {
-
+	//m_lines[] ist array mit allen Segmenten
 	//DBG();
 
 	m_intersected_lines_nr = 0;

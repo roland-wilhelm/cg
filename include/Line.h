@@ -34,6 +34,11 @@ class Line {
 
 		bool operator ==(const Line &a_line);
 		friend std::ostream& operator <<(std::ostream &os, Line &a_line);
+
+		bool operator < (Line &a_line);
+		double get_yvalue();
 };
+
+
 
 #endif /* LINE_H_ */

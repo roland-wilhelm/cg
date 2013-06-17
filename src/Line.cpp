@@ -102,7 +102,7 @@ bool Line::is_intersection_max(Line &a_line) {
 		if ( m_start == m_end ) {
 
 			//Punkt liegt auf Linie??
-			if( (m_start > a_line.m_start && m_start < a_line.m_end)
+			if( ( m_start > a_line.m_start && m_start < a_line.m_end )
 				|| (m_start < a_line.m_start && m_start > a_line.m_end)){
 				return true;
 			}
@@ -159,4 +159,40 @@ bool Line::operator ==(const Line &a_line) {
 
 		return false;
 	}
+}
+
+bool Line::operator < (Line &a_line){
+	double ywert1, ywert2;
+
+	ywert1 = this->get_yvalue();
+	ywert2 = a_line.get_yvalue();
+
+	if( ywert1 < ywert2 )
+		return true;
+	else
+		return false;
+
+}
+
+/*
+ * Funktion gibt den y-Achsenabschnitt zurück.
+ * Nach ihm werden die Lines in der Queue sortiert,
+ * falls es keinen Schnittpunkt zwischen den Strecken gibt
+ * bleibt die Reihenfolge der Strecken (in Y-Richtung)
+ * gleich
+ */
+
+double Line::get_yvalue() {
+	DBG();
+
+	double m,t, yvalue;
+	double xwert=0.0;
+	//y=mx+t
+
+	m = ( m_start.get_y() - m_end.get_y() ) / ( m_start.get_x() - m_end.get_y() );
+	t = m_start.get_y() - ( m * m_start.get_x() );
+
+	yvalue = (m*xwert) + t;
+
+	return yvalue;
 }
