@@ -21,7 +21,6 @@ public:
 	EventEnd(Point* a_punkt, Line* a_line);
 	~EventEnd() {}
 
-	void handle();
 };
 
 

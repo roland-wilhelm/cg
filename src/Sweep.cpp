@@ -22,7 +22,7 @@ void Sweep::leftendpoint(){
 
 	//Linie in Segmentqueue an richtiger stelle einordnen
 
-	addseg( ereignis->get_line() );
+	//addseg( ereignis->get_line() );
 	sortseg();
 
 	//Test ob Schnittpunkt mit den Nachbarsegmenten
@@ -62,7 +62,7 @@ double Sweep::getxposition() {
 	return aktpos;
 }
 
-Line* addseg(const Line *a_seg) {
+Line* addseg(Line* const a_seg) {
 	Line* newseg;
 
 	//Iterator solange y-achsenabschnitt > ist

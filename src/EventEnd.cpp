@@ -13,8 +13,3 @@ EventEnd::EventEnd(Point* a_punkt, Line* a_line): 	Event(a_punkt, a_line, ENDPUN
 {
 
 }
-
-void EventEnd::handle()
-{
-
-}

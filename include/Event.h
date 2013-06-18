@@ -31,7 +31,6 @@ public:
 
 	//Funktionen zum Event
 	int gettype(){ return m_type; }	//1 - Startpunkt, 2 - Endpunkt, 3 - Intersection, ELSE - FEHLER
-	virtual void handle() = 0; //handle() ist je nach Eventtyp die entsprechende Aktion
 
 	//Funktionen für List
 	bool operator == (const Event& a_event);

@@ -39,7 +39,7 @@ public:
 
 	void addevent(const Event *a_event) { eventqueue.push_front(*a_event); }
 	//void addseg(const Line *a_seg) { segmentqueue.push_front(*a_seg); }
-	Line* addseg(const Line *a_seg);
+	Line* addseg(Line const *a_seg);
 	// void addinter(const Event *a_event) { output.push_front((EventInters)*a_event); }
 	void delevent() { eventqueue.pop_front(); }
 	void delseg() { segmentqueue.pop_front(); }

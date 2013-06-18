@@ -14,7 +14,3 @@ EventStart::EventStart(Point* a_punkt, Line* a_line): 	Event(a_punkt,a_line,STAR
 {
 
 }
-
-void EventStart::handle(){
-
-}

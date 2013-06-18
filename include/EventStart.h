@@ -20,8 +20,6 @@ private:
 public:
 	EventStart(Point* a_punkt, Line* a_line);
 	~EventStart();
-
-	void handle();
 };
 
 
