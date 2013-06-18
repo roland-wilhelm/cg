@@ -15,6 +15,11 @@ EventInters::EventInters(Point* a_punkt, Line* a_line1, Line* a_line2):	Event(a_
 
 }
 
+EventInters::~EventInters() {
+
+
+}
+
 void EventInters::handle(){
 
 }

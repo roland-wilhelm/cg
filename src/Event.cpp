@@ -8,10 +8,16 @@
 #include "Event.h"
 #include "log.h"
 
-Event::Event(Point* a_punkt, Line* a_line, MyEventtype a_type): 	m_punkt(a_punkt),
-																	m_seg(a_line),
-																	m_type(m_type)
+Event::Event(Point* a_punkt, Line* a_line, MyEventtype a_type): 	m_type(a_type),
+																	m_punkt(a_punkt),
+																	m_seg(a_line)
+
 {
+
+}
+
+Event::~Event() {
+
 
 }
 
