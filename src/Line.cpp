@@ -164,8 +164,8 @@ bool Line::operator ==(const Line &a_line) {
 bool Line::operator < (Line &a_line){
 	double ywert1, ywert2;
 
-	ywert1 = this->get_yvalue();
-	ywert2 = a_line.get_yvalue();
+	ywert1 = this->get_yvalue( this->getstart()->get_x() );
+	ywert2 = a_line.get_yvalue( this->getstart()->get_x() );
 
 	if( ywert1 < ywert2 )
 		return true;
@@ -182,17 +182,54 @@ bool Line::operator < (Line &a_line){
  * gleich
  */
 
-double Line::get_yvalue() {
+double Line::get_yvalue(double a_xwert) {
 	DBG();
 
-	double m,t, yvalue;
-	double xwert=0.0;
-	//y=mx+t
+	double m,t;
+	//y=mx+t -> t ist Achsenabschnitt
 
 	m = ( m_start.get_y() - m_end.get_y() ) / ( m_start.get_x() - m_end.get_y() );
 	t = m_start.get_y() - ( m * m_start.get_x() );
 
-	yvalue = (m*xwert) + t;
+	return ((m*a_xwert)+t);
+}
 
-	return yvalue;
+Point* Line::getstart(){
+	if (m_start < m_end)
+		return &m_start;
+	else
+		return &m_end;
+}
+
+Point* Line::getend(){
+	if (m_start < m_end)
+			return &m_end;
+		else
+			return &m_start;
+}
+
+/*
+ * Koordinaten des Schnittpunktes berechnen
+ */
+Point Line::intersectionpoint(Line &a_line) {
+	Point temp,a_start = a_line.getstart(), a_end = a_line.getend();
+	double m_m, a_m, m_t, a_t;
+	double xwert=0.0, ywert=0.0;
+
+	//y=mx+t
+	//m_m Steigung der Memberline
+	//m_t Achsenabschnitt der Memberline
+	m_m = ( m_start.get_y() - m_end.get_y() ) / ( m_start.get_x() - m_end.get_y() );
+	m_t = m_start.get_y() - ( m_m * m_start.get_x() );
+
+	//a_m Steigung der Argumentline
+	//a_t Achsenabschnitt der Argumentline
+	a_m = (a_start.get_y() - a_end.get_y() ) / ( a_start.get_x() - a_end.get_y() );
+	a_t = a_start.get_y() - ( a_m * a_start.get_x() );
+
+	xwert = (a_t-m_t) / (m_m-a_m);
+	ywert = (m_m*xwert) + m_t;
+
+	temp.set_point(xwert,ywert);
+	return temp;
 }

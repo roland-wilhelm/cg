@@ -10,10 +10,12 @@
 
 #include <list>
 #include "Event.h"
+
+/*
 #include "EventInters.h"
 #include "EventStart.h"
 #include "EventEnd.h"
-
+*/
 
 using namespace std;
 
@@ -25,9 +27,9 @@ private:
 	list<Event> eventqueue;
 	//Line** Segmentqueue;
 	list<Line> segmentqueue;
-	Event* ereignis;
+	list<Event>::iterator ereignis;
 	//Point** Intersectionqueue;
-	list<EventInters> output;
+	list<Event> output;
 
 public:
 	Sweep();
@@ -37,15 +39,25 @@ public:
 	void rightendpoint();
 	void treatintersection();
 
-	void addevent(const Event *a_event) { eventqueue.push_front(*a_event); }
-	//void addseg(const Line *a_seg) { segmentqueue.push_front(*a_seg); }
-	Line* addseg(Line const *a_seg);
-	// void addinter(const Event *a_event) { output.push_front((EventInters)*a_event); }
-	void delevent() { eventqueue.pop_front(); }
-	void delseg() { segmentqueue.pop_front(); }
+	void addevent(Point *a_point, Line *a_line);
+	void addevent(Event *a_event);
 	void sortevent() { eventqueue.sort(); }
+	void delevent() { eventqueue.pop_front(); }
+
+	//void addseg(const Line *a_seg) { segmentqueue.push_front(*a_seg); }
+	Line* addseg(Line *a_seg);
 	void sortseg() { segmentqueue.sort(); }
+	Line& getneighbour_high(Line* a_seg);
+	Line& getneighbour_low(Line* a_seg);
+	Line& getseg(Line* a_seg);
+	void delseg() { segmentqueue.pop_front(); }
+
+	void addinter(Event *a_event) { output.push_front(*a_event);
+									output.unique(); }
+
 	double getxposition();
+	void calcinters();
+	unsigned int getinters() { return output.size(); }
 
 
 };

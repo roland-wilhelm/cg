@@ -31,12 +31,15 @@ class Line {
 
 		static unsigned int get_lines_nr();
 		bool is_intersection_max(Line &a_line);
+		Point intersectionpoint(Line &a_line);
 
+		Point* getstart();
+		Point* getend();
 		bool operator ==(const Line &a_line);
 		friend std::ostream& operator <<(std::ostream &os, Line &a_line);
 
 		bool operator < (Line &a_line);
-		double get_yvalue();
+		double get_yvalue(double a_xwert);
 };
 
 

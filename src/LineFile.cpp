@@ -26,6 +26,8 @@ LineFile::LineFile() :
 		m_valid_lines_nr(0),
 		m_invalid_lines_nr(0),
 		m_file_name(string()),
+		m_sweep(),
+		m_sweepinters(0),
 		m_timediff(0.0),
 		m_start_time(0),
 		m_stop_time(0) {
@@ -42,6 +44,8 @@ LineFile::LineFile(const char *a_file) :
 				m_valid_lines_nr(0),
 				m_invalid_lines_nr(0),
 				m_file_name(a_file),
+				m_sweep(),
+				m_sweepinters(0),
 				m_timediff(0.0),
 				m_start_time(0),
 				m_stop_time(0) {
@@ -253,5 +257,14 @@ void LineFile::print_calculated_result() {
 	cout << "Intersected lines: " << m_intersected_lines_nr << endl;
 	print_delta_time();
 	cout << "-------------------------------------" << endl;
+
+}
+
+void LineFile::sweepiniteventqueue(){
+
+	for(unsigned int i = 0; i < m_lines.size(); i++) {
+		m_sweep.addevent(m_lines[i]->getstart(),m_lines[i]);
+		m_sweep.addevent(m_lines[i]->getend(), m_lines[i]);
+	}
 
 }

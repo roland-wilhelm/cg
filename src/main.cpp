@@ -39,9 +39,13 @@ int main(int argc, char **argv) {
 			break;
 		}
 
+		//Aufgabe1 - Schnittpunkte n² berechnen
 		lines[i].read_file(files[i]);
 		lines[i].start_calculating_intersected_lines_max();
 		lines[i].print_calculated_result();
+
+		//Aufgabe3 - LineSweep
+
 	}
 
 

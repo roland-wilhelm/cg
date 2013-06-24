@@ -12,11 +12,11 @@
 using namespace std;
 
 
-ostream& operator <<(ostream &os, const Point &a_point) {
+ostream& operator <<(ostream &os, Point &a_point) {
 
 	DBG();
 
-	os << "X: " << a_point.m_x << "\t Y: " << a_point.m_y;
+	os << "X: " << a_point.get_x() << "\t Y: " << a_point.get_y();
 
 	return os;
 }
@@ -54,7 +54,7 @@ void Point::set_point(double a_x, double a_y) {
 
 }
 
-void Point::set_point(const Point &a_point) {
+void Point::set_point(Point &a_point) {
 
 	DBG();
 
@@ -77,7 +77,7 @@ bool Point::operator ==(const Point &a_point) {
 	}
 }
 
-bool Point::operator < (const Point &a_point) {
+bool Point::operator < (Point &a_point) {
 	if ((m_x < a_point.m_x) && (m_y < a_point.m_y)){
 		return true;
 	}
@@ -87,7 +87,7 @@ bool Point::operator < (const Point &a_point) {
 
 }
 
-bool Point::operator > (const Point &a_point) {
+bool Point::operator > (Point &a_point) {
 	if ((m_x > a_point.m_x) && (m_y > a_point.m_y)){
 		return true;
 	}

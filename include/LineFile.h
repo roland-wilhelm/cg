@@ -9,6 +9,7 @@
 #define LINEFILE_H_
 
 #include "Line.h"
+#include "Sweep.h"
 
 #include <vector>
 #include <string>
@@ -23,6 +24,10 @@ class LineFile {
 		unsigned int m_valid_lines_nr;
 		unsigned int m_invalid_lines_nr;
 		std::string m_file_name;
+
+		Sweep m_sweep;
+		unsigned int m_sweepinters;
+
 		double m_timediff;
 		clock_t m_start_time;
 		clock_t m_stop_time;
@@ -45,6 +50,8 @@ class LineFile {
 		bool start_calculating_intersected_lines_max();
 		void print_delta_time();
 		void print_calculated_result();
+
+		void sweepiniteventqueue();
 
 };
 

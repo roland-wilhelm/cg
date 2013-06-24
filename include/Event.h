@@ -24,9 +24,10 @@ private:
 	MyEventtype m_type;
 	Point* m_punkt;
 	Line* m_seg;
+	Line* m_seg2;
 public:
-	Event();
-	Event(Point* a_punkt, Line* a_line, MyEventtype m_type);
+	Event(Point *a_punkt, Line *a_line, MyEventtype m_type);
+	Event(Point *a_punkt, Line *a_line, Line *a_line2);
 	virtual ~Event();
 
 	//Funktionen zum Event
@@ -37,12 +38,14 @@ public:
 	bool operator < (Event& a_event);
 
 	//Funktionen zum Punkt
+	Point* get_point(){ return m_punkt; }
 	double get_x(){ return m_punkt->get_x(); }
 	double get_y(){ return m_punkt->get_y(); }
 
 	//Funktionen zum Segment
 	const unsigned int get_linenr(){return m_seg->get_lines_nr();}
-	const Line* get_line() { return m_seg; }
+	Line* get_line() { return m_seg; }
+	Line* get_line2() { return m_seg2; }
 
 };
 
