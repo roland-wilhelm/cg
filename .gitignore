@@ -3,3 +3,5 @@ Debug/
 Release/
 Release-O0/
 
+.cproject
+.project
