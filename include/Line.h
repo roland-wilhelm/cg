@@ -29,9 +29,12 @@ class Line {
 		Line(const Point &a_start, const Point &a_end);
 		Line(double a_start_x, double a_start_y, double a_end_x, double a_end_y);
 
-		virtual ~Line();
+		~Line();
 
+		Point& get_start_point() { return m_start; }
+		Point& get_end_point() { return m_end; }
 		bool get_is_line();
+		static int ccw(const Point &a_p, const Point &a_q, const Point &a_r);
 		static unsigned int get_lines_nr();
 		bool is_intersection(Line &a_line);
 

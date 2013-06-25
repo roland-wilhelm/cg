@@ -1,0 +1,1430 @@
+Start loading file data/DeutschlandMitStaedten.svg
+Parsing new State Thueringen
+Parsing new State Schleswig-Holstein
+Parsing new State Sachsen-Anhalt
+Parsing new State Sachsen
+Parsing new State Saarland
+Parsing new State Rheinland-Pfalz
+Parsing new State Nordrhein-Westfalen
+Parsing new State Niedersachsen
+Parsing new State Mecklenburg-Vorpommern
+Parsing new State Hessen
+Parsing new State Hamburg
+Parsing new State Bremen
+Parsing new State Brandenburg
+Parsing new State Berlin
+Parsing new State Bayern
+Parsing new State Baden-Wuerttemberg
+Parsing new City Muenchen
+Parsing new City Berlin
+Parsing new City Stuttgart
+Parsing new City Saarbruecken
+Parsing new City Wiesbaden
+Parsing new City Mainz
+Parsing new City Duesseldorf
+Parsing new City Bremen
+Parsing new City Erfurt
+Parsing new City Dresden
+Parsing new City Magdeburg
+Parsing new City Hannover
+Parsing new City Hamburg
+Parsing new City Kiel
+Parsing new City Schwerin
+Parsing new City Potsdam
+------------------------------------------
+------- Start Calculating Areas: ---------
+Area: Baden-Wuerttemberg
+Calculating bounding box: Baden-Wuerttemberg
+Handle State: Baden-Wuerttemberg
+    Compared line (p | q):                                       Start: X:   93.851	 Y:  541.497	 End: X:  178.262	 Y:  755.808
+    Intersected line:                                            Start: X:  176.137	 Y:  747.315	 End: X:  173.811	 Y:  746.566
+    Intersected line:                                            Start: X:  133.194	 Y:  644.728	 End: X:  136.678	 Y:  642.265
+Calculating area: Baden-Wuerttemberg -->  + 30514.2 + 8.11709 = 30522.3
+------------------------------------------
+Area: Bayern
+Calculating bounding box: Bayern
+Handle State: Bayern
+One huge area:
+Calculating area: Bayern -->  + 60026.1 = 60026.1
+------------------------------------------
+Area: Berlin
+Calculating bounding box: Berlin
+Handle State: Berlin
+One huge area:
+Calculating area: Berlin -->  + 766.233 = 766.233
+------------------------------------------
+Area: Brandenburg
+Calculating bounding box: Brandenburg
+Handle State: Brandenburg
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  479.231	 Y:  243.809
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  478.608	 Y:  244.867
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  477.946	 Y:  245.723
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  477.482	 Y:  246.081
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  477.094	 Y:  246.293
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  476.659	 Y:  246.431
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  475.935	 Y:   246.41
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  475.026	 Y:  246.356
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  473.879	 Y:  246.125
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:   468.28	 Y:  246.294
+    Intersected line:                                            Start: X:   387.17	 Y:  183.061	 End: X:  387.558	 Y:  182.819
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  467.154	 Y:  248.523
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  467.124	 Y:  248.629
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  467.261	 Y:  248.935
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:   467.78	 Y:  249.539
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  468.144	 Y:  249.824
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  468.249	 Y:  249.971
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:   468.27	 Y:  250.107
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  468.207	 Y:   250.49
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  467.113	 Y:  250.406
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:   466.61	 Y:  250.309
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  465.367	 Y:   249.77
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  464.871	 Y:  249.484
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  464.351	 Y:  249.631
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  462.682	 Y:  250.753
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  462.639	 Y:  251.154
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  462.216	 Y:  257.306
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  462.268	 Y:  257.918
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  463.892	 Y:  257.602
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  465.468	 Y:  258.723
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  463.225	 Y:  261.651
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  462.808	 Y:  261.959
+    Intersected line:                                            Start: X:   378.95	 Y:  185.122	 End: X:  382.159	 Y:   184.89
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  462.353	 Y:  262.637
+    Intersected line:                                            Start: X:   378.95	 Y:  185.122	 End: X:  382.159	 Y:   184.89
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  462.069	 Y:  263.187
+    Intersected line:                                            Start: X:   378.95	 Y:  185.122	 End: X:  382.159	 Y:   184.89
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  462.069	 Y:  264.709
+    Intersected line:                                            Start: X:   378.95	 Y:  185.122	 End: X:  382.159	 Y:   184.89
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  462.523	 Y:  265.237
+    Intersected line:                                            Start: X:   378.95	 Y:  185.122	 End: X:  382.159	 Y:   184.89
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  462.923	 Y:  265.933
+    Intersected line:                                            Start: X:   378.95	 Y:  185.122	 End: X:  382.159	 Y:   184.89
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  462.321	 Y:   266.98
+    Intersected line:                                            Start: X:   378.95	 Y:  185.122	 End: X:  382.159	 Y:   184.89
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  461.818	 Y:  267.489
+    Intersected line:                                            Start: X:   378.95	 Y:  185.122	 End: X:  382.159	 Y:   184.89
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  460.825	 Y:  268.029
+    Intersected line:                                            Start: X:   378.95	 Y:  185.122	 End: X:  382.159	 Y:   184.89
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  460.994	 Y:    268.8
+    Intersected line:                                            Start: X:   378.95	 Y:  185.122	 End: X:  382.159	 Y:   184.89
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  461.226	 Y:   268.99
+    Intersected line:                                            Start: X:   378.95	 Y:  185.122	 End: X:  382.159	 Y:   184.89
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  463.288	 Y:  270.279
+    Intersected line:                                            Start: X:   378.95	 Y:  185.122	 End: X:  382.159	 Y:   184.89
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  465.263	 Y:  270.407
+    Intersected line:                                            Start: X:   378.95	 Y:  185.122	 End: X:  382.159	 Y:   184.89
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  465.911	 Y:  270.344
+    Intersected line:                                            Start: X:   378.95	 Y:  185.122	 End: X:  382.159	 Y:   184.89
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  465.365	 Y:  270.227
+    Intersected line:                                            Start: X:   378.95	 Y:  185.122	 End: X:  382.159	 Y:   184.89
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  465.451	 Y:  269.582
+    Intersected line:                                            Start: X:   378.95	 Y:  185.122	 End: X:  382.159	 Y:   184.89
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  467.672	 Y:  268.186
+    Intersected line:                                            Start: X:   378.95	 Y:  185.122	 End: X:  382.159	 Y:   184.89
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  469.249	 Y:  267.593
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  469.459	 Y:   267.54
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  470.647	 Y:  267.455
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  474.015	 Y:  268.175
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  475.003	 Y:  269.475
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:    476.9	 Y:  268.523
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  479.845	 Y:  271.411
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  481.848	 Y:  271.558
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  481.616	 Y:  268.333
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  481.647	 Y:  268.164
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  481.744	 Y:  268.067
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  483.382	 Y:  267.296
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  484.102	 Y:  266.969
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  484.625	 Y:   266.81
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  485.375	 Y:  268.662
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:   489.16	 Y:  269.868
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  496.219	 Y:  271.866
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  497.478	 Y:  272.129
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  499.069	 Y:   271.58
+    Intersected line:                                            Start: X:   387.17	 Y:  183.061	 End: X:  387.558	 Y:  182.819
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  499.461	 Y:  270.883
+    Intersected line:                                            Start: X:   387.17	 Y:  183.061	 End: X:  387.558	 Y:  182.819
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  499.514	 Y:  270.524
+    Intersected line:                                            Start: X:   387.17	 Y:  183.061	 End: X:  387.558	 Y:  182.819
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  499.367	 Y:  270.175
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  499.125	 Y:  270.164
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  498.602	 Y:  270.004
+    Intersected line:                                            Start: X:   387.17	 Y:  183.061	 End: X:  387.558	 Y:  182.819
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  498.613	 Y:  269.751
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  500.423	 Y:  268.239
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  501.105	 Y:  266.525
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  501.919	 Y:  264.051
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:   500.38	 Y:  262.454
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  499.485	 Y:  262.391
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  496.948	 Y:  260.731
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  495.337	 Y:  260.266
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  494.581	 Y:  257.116
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  492.978	 Y:  253.616
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  489.419	 Y:  249.852
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  484.756	 Y:  241.162
+    Intersected line:                                            Start: X:  391.304	 Y:  180.143	 End: X:  391.675	 Y:  179.646
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  483.874	 Y:  240.696
+    Intersected line:                                            Start: X:  391.304	 Y:  180.143	 End: X:  391.675	 Y:  179.646
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  483.073	 Y:  241.308
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  482.492	 Y:  242.102
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  481.885	 Y:  243.519
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:   481.45	 Y:  244.704
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  480.863	 Y:  244.884
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  479.797	 Y:  244.302
+    Intersected line:                                            Start: X:  387.558	 Y:  182.819	 End: X:  391.304	 Y:  180.143
+Area within Brandenburg
+Calculating area: Brandenburg -->  + 26042.2 - 766.315 = 25275.9
+------------------------------------------
+Area: Bremen
+Calculating bounding box: Bremen
+Handle State: Bremen
+One huge area:
+Calculating area: Bremen -->  + 267.075 + 73.8561 = 340.931
+------------------------------------------
+Area: Hamburg
+Calculating bounding box: Hamburg
+Handle State: Hamburg
+One huge area:
+Calculating area: Hamburg -->  + 633.325 = 633.325
+------------------------------------------
+Area: Hessen
+Calculating bounding box: Hessen
+Handle State: Hessen
+One huge area:
+Calculating area: Hessen -->  + 17977.5 = 17977.5
+------------------------------------------
+Area: Mecklenburg-Vorpommern
+Calculating bounding box: Mecklenburg-Vorpommern
+Handle State: Mecklenburg-Vorpommern
+    Compared line (p | q):                                       Start: X:   302.89	 Y:   58.694	 End: X:  463.021	 Y:   36.296
+    Compared line (p | q):                                       Start: X:   302.89	 Y:   58.694	 End: X:  497.063	 Y:   86.929
+    Intersected line:                                            Start: X:  408.519	 Y:   75.811	 End: X:  412.728	 Y:   67.892
+    Intersected line:                                            Start: X:  412.388	 Y:   69.388	 End: X:  409.643	 Y:   75.836
+    Intersected line:                                            Start: X:   412.51	 Y:   77.941	 End: X:  415.694	 Y:   74.314
+    Intersected line:                                            Start: X:  465.582	 Y:   82.312	 End: X:   467.15	 Y:   85.601
+    Compared line (p | q):                                       Start: X:   302.89	 Y:   58.694	 End: X:  356.921	 Y:  110.972
+    Compared line (p | q):                                       Start: X:   302.89	 Y:   58.694	 End: X:  455.407	 Y:   59.989
+    Intersected line:                                            Start: X:  415.465	 Y:   62.489	 End: X:  417.675	 Y:   58.694
+    Intersected line:                                            Start: X:  417.675	 Y:   58.694	 End: X:  419.431	 Y:   60.132
+    Compared line (p | q):                                       Start: X:   302.89	 Y:   58.694	 End: X:  450.555	 Y:   58.489
+    Compared line (p | q):                                       Start: X:   302.89	 Y:   58.694	 End: X:   445.84	 Y:   60.941
+    Intersected line:                                            Start: X:  415.465	 Y:   62.489	 End: X:  417.675	 Y:   58.694
+    Intersected line:                                            Start: X:  420.278	 Y:    60.49	 End: X:  420.739	 Y:   60.607
+    Intersected line:                                            Start: X:  441.275	 Y:   60.892	 End: X:  443.073	 Y:    60.85
+    Intersected line:                                            Start: X:  443.073	 Y:    60.85	 End: X:  444.422	 Y:   60.997
+Calculating area: Mecklenburg-Vorpommern -->  + 18409.2 + 844.265 + 332.307 + 35.339 + 17.6083 + 14.2625 + 5.79436 = 19658.8
+------------------------------------------
+Area: Niedersachsen
+Calculating bounding box: Niedersachsen
+Handle State: Niedersachsen
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  204.517	 Y:  199.233
+    Intersected line:                                            Start: X:   98.123	 Y:  141.631	 End: X:   99.227	 Y:   140.86
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  204.251	 Y:  198.664
+    Intersected line:                                            Start: X:   98.123	 Y:  141.631	 End: X:   99.227	 Y:   140.86
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  202.871	 Y:  196.993
+    Intersected line:                                            Start: X:   98.123	 Y:  141.631	 End: X:   99.227	 Y:   140.86
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  202.188	 Y:  196.507
+    Intersected line:                                            Start: X:   98.123	 Y:  141.631	 End: X:   99.227	 Y:   140.86
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  201.872	 Y:  196.496
+    Intersected line:                                            Start: X:   98.123	 Y:  141.631	 End: X:   99.227	 Y:   140.86
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  200.726	 Y:  197.225
+    Intersected line:                                            Start: X:   98.123	 Y:  141.631	 End: X:   99.227	 Y:   140.86
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:   196.02	 Y:  197.087
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  192.251	 Y:  195.173
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  188.022	 Y:  193.102
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  181.545	 Y:  192.331
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  174.031	 Y:  188.279
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  173.757	 Y:  187.414
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  173.746	 Y:  186.736
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  173.725	 Y:  187.465
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  173.948	 Y:  188.777
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  174.344	 Y:  189.632
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  174.662	 Y:  190.193
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  175.395	 Y:  191.271
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  176.944	 Y:  192.519
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  179.323	 Y:  193.662
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  180.123	 Y:      194
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  181.031	 Y:  194.128
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  181.799	 Y:  194.329
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  182.156	 Y:  194.636
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  182.412	 Y:  195.143
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  183.986	 Y:   199.34
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  184.134	 Y:  200.661
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  185.049	 Y:  201.285
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  187.009	 Y:  203.399
+    Intersected line:                                            Start: X:   94.194	 Y:  144.814	 End: X:   95.406	 Y:  143.609
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  187.502	 Y:  204.076
+    Intersected line:                                            Start: X:   94.194	 Y:  144.814	 End: X:   95.406	 Y:  143.609
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  187.565	 Y:   204.71
+    Intersected line:                                            Start: X:   94.194	 Y:  144.814	 End: X:   95.406	 Y:  143.609
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  187.628	 Y:  207.321
+    Intersected line:                                            Start: X:   94.194	 Y:  144.814	 End: X:   95.406	 Y:  143.609
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  188.114	 Y:   207.83
+    Intersected line:                                            Start: X:   94.194	 Y:  144.814	 End: X:   95.406	 Y:  143.609
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  188.659	 Y:  208.295
+    Intersected line:                                            Start: X:   94.194	 Y:  144.814	 End: X:   95.406	 Y:  143.609
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  188.966	 Y:  208.369
+    Intersected line:                                            Start: X:   94.194	 Y:  144.814	 End: X:   95.406	 Y:  143.609
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  190.019	 Y:   208.01
+    Intersected line:                                            Start: X:   94.194	 Y:  144.814	 End: X:   95.406	 Y:  143.609
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  190.388	 Y:  207.862
+    Intersected line:                                            Start: X:   94.194	 Y:  144.814	 End: X:   95.406	 Y:  143.609
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  191.737	 Y:  207.874
+    Intersected line:                                            Start: X:   94.194	 Y:  144.814	 End: X:   95.406	 Y:  143.609
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  197.083	 Y:  209.725
+    Intersected line:                                            Start: X:   94.194	 Y:  144.814	 End: X:   95.406	 Y:  143.609
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  200.191	 Y:  210.941
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  203.442	 Y:  208.161
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  203.496	 Y:  206.193
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  203.114	 Y:  201.425
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  202.327	 Y:  200.197
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  202.412	 Y:   200.07
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:   202.55	 Y:  199.997
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  203.517	 Y:  199.638
+    Intersected line:                                            Start: X:   98.123	 Y:  141.631	 End: X:   99.227	 Y:   140.86
+Area within Niedersachsen
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:   68.587	 Y:  150.948
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:   93.805	 Y:  137.721
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  113.525	 Y:  135.986
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  126.208	 Y:  133.153
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:   78.277	 Y:  140.406
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  137.575	 Y:  131.304
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  111.209	 Y:  136.114
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  146.854	 Y:  134.475
+Calculating area: Niedersachsen -->  + 40788.2 - 266.989 + 31.7867 + 23.6236 + 15.9064 + 14.5522 + 9.46177 + 6.92664 + 6.34186 + 3.62512 = 40633.5
+------------------------------------------
+Area: Nordrhein-Westfalen
+Calculating bounding box: Nordrhein-Westfalen
+Handle State: Nordrhein-Westfalen
+One huge area:
+Calculating area: Nordrhein-Westfalen -->  + 28966.4 = 28966.4
+------------------------------------------
+Area: Rheinland-Pfalz
+Calculating bounding box: Rheinland-Pfalz
+Handle State: Rheinland-Pfalz
+One huge area:
+Calculating area: Rheinland-Pfalz -->  + 16913.6 = 16913.6
+------------------------------------------
+Area: Saarland
+Calculating bounding box: Saarland
+Handle State: Saarland
+One huge area:
+Calculating area: Saarland -->  + 2179.76 = 2179.76
+------------------------------------------
+Area: Sachsen
+Calculating bounding box: Sachsen
+Handle State: Sachsen
+One huge area:
+Calculating area: Sachsen -->  + 15667.9 = 15667.9
+------------------------------------------
+Area: Sachsen-Anhalt
+Calculating bounding box: Sachsen-Anhalt
+Handle State: Sachsen-Anhalt
+One huge area:
+Calculating area: Sachsen-Anhalt -->  + 17450.5 = 17450.5
+------------------------------------------
+Area: Schleswig-Holstein
+Calculating bounding box: Schleswig-Holstein
+Handle State: Schleswig-Holstein
+    Compared line (p | q):                                       Start: X:  180.869	 Y:   15.482	 End: X:  331.823	 Y:   54.883
+    Intersected line:                                            Start: X:  185.051	 Y:   18.844	 End: X:  186.535	 Y:   15.482
+    Intersected line:                                            Start: X:  222.014	 Y:   24.638	 End: X:  222.692	 Y:   26.414
+    Intersected line:                                            Start: X:  222.692	 Y:   26.414	 End: X:  227.396	 Y:   26.879
+    Intersected line:                                            Start: X:  265.751	 Y:   31.678	 End: X:   269.13	 Y:   42.273
+    Compared line (p | q):                                       Start: X:  180.869	 Y:   15.482	 End: X:  168.301	 Y:   10.266
+    Compared line (p | q):                                       Start: X:  180.869	 Y:   15.482	 End: X:  176.734	 Y:   31.719
+    Compared line (p | q):                                       Start: X:  180.869	 Y:   15.482	 End: X:   199.42	 Y:   55.612
+    Compared line (p | q):                                       Start: X:  180.869	 Y:   15.482	 End: X:  184.199	 Y:   58.299
+    Compared line (p | q):                                       Start: X:  180.869	 Y:   15.482	 End: X:  165.696	 Y:    40.79
+    Compared line (p | q):                                       Start: X:  180.869	 Y:   15.482	 End: X:  182.946	 Y:   44.406
+    Compared line (p | q):                                       Start: X:  180.869	 Y:   15.482	 End: X:  178.674	 Y:   49.554
+    Compared line (p | q):                                       Start: X:  180.869	 Y:   15.482	 End: X:  140.778	 Y:   88.758
+    Compared line (p | q):                                       Start: X:  180.869	 Y:   15.482	 End: X:  188.042	 Y:  104.776
+    Intersected line:                                            Start: X:  187.521	 Y:   81.746	 End: X:  183.081	 Y:   79.409
+    Intersected line:                                            Start: X:  185.257	 Y:   74.417	 End: X:  185.819	 Y:   74.364
+Calculating area: Schleswig-Holstein -->  + 13001.3 + 159.513 + 92.5096 + 73.715 + 42.5922 + 32.3533 + 26.8704 + 13.4422 + 5.67954 + 4.48688 + 4.01824 = 13456.4
+------------------------------------------
+Area: Thueringen
+Calculating bounding box: Thueringen
+Handle State: Thueringen
+One huge area:
+Calculating area: Thueringen -->  + 13724.6 = 13724.6
+------------------------------------------
+------------------------------------------
+------------------------------------------
+------- Start Locating Cities ------------
+City: Muenchen
+Locate City: Muenchen	X:  366.968	 Y:      700
+  Trying State: Baden-Wuerttemberg
+    Point out of bounding box of State: Baden-Wuerttemberg
+  Trying State: Bayern
+    Compared line (p | q):                                       Start: X:   199.02	 Y:  463.246	 End: X:  366.968	 Y:      700
+    Intersected line:                                            Start: X:  274.308	 Y:  569.875	 End: X:  273.498	 Y:  568.088
+    Intersected line:                                            Start: X:  272.832	 Y:  566.977	 End: X:  271.706	 Y:  566.766
+    Intersected line:                                            Start: X:  230.037	 Y:  511.312	 End: X:  235.144	 Y:  510.392
+State --> Bayern
+  Trying State: Berlin
+    Point out of bounding box of State: Berlin
+  Trying State: Brandenburg
+    Point out of bounding box of State: Brandenburg
+  Trying State: Bremen
+    Point out of bounding box of State: Bremen
+  Trying State: Hamburg
+    Point out of bounding box of State: Hamburg
+  Trying State: Hessen
+    Point out of bounding box of State: Hessen
+  Trying State: Mecklenburg-Vorpommern
+    Point out of bounding box of State: Mecklenburg-Vorpommern
+  Trying State: Niedersachsen
+    Point out of bounding box of State: Niedersachsen
+  Trying State: Nordrhein-Westfalen
+    Point out of bounding box of State: Nordrhein-Westfalen
+  Trying State: Rheinland-Pfalz
+    Point out of bounding box of State: Rheinland-Pfalz
+  Trying State: Saarland
+    Point out of bounding box of State: Saarland
+  Trying State: Sachsen
+    Point out of bounding box of State: Sachsen
+  Trying State: Sachsen-Anhalt
+    Point out of bounding box of State: Sachsen-Anhalt
+  Trying State: Schleswig-Holstein
+    Point out of bounding box of State: Schleswig-Holstein
+  Trying State: Thueringen
+    Point out of bounding box of State: Thueringen
+------------------------------------------
+City: Berlin
+Locate City: Berlin	X:      477	 Y:      256
+  Trying State: Baden-Wuerttemberg
+    Point out of bounding box of State: Baden-Wuerttemberg
+  Trying State: Bayern
+    Point out of bounding box of State: Bayern
+  Trying State: Berlin
+    Compared line (p | q):                                       Start: X:  459.803	 Y:  240.679	 End: X:      477	 Y:      256
+    Intersected line:                                            Start: X:  467.135	 Y:  248.509	 End: X:  468.261	 Y:  246.278
+State --> Berlin
+  Trying State: Brandenburg
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:      477	 Y:      256
+    Intersected line:                                            Start: X:  382.159	 Y:   184.89	 End: X:   387.17	 Y:  183.061
+    Compared line (p | q):                                       Start: X:  459.825	 Y:  240.696	 End: X:      477	 Y:      256
+    Intersected line:                                            Start: X:   468.28	 Y:  246.294	 End: X:  467.154	 Y:  248.523
+  Trying State: Bremen
+    Point out of bounding box of State: Bremen
+  Trying State: Hamburg
+    Point out of bounding box of State: Hamburg
+  Trying State: Hessen
+    Point out of bounding box of State: Hessen
+  Trying State: Mecklenburg-Vorpommern
+    Point out of bounding box of State: Mecklenburg-Vorpommern
+  Trying State: Niedersachsen
+    Point out of bounding box of State: Niedersachsen
+  Trying State: Nordrhein-Westfalen
+    Point out of bounding box of State: Nordrhein-Westfalen
+  Trying State: Rheinland-Pfalz
+    Point out of bounding box of State: Rheinland-Pfalz
+  Trying State: Saarland
+    Point out of bounding box of State: Saarland
+  Trying State: Sachsen
+    Point out of bounding box of State: Sachsen
+  Trying State: Sachsen-Anhalt
+    Point out of bounding box of State: Sachsen-Anhalt
+  Trying State: Schleswig-Holstein
+    Point out of bounding box of State: Schleswig-Holstein
+  Trying State: Thueringen
+    Point out of bounding box of State: Thueringen
+------------------------------------------
+City: Stuttgart
+Locate City: Stuttgart	X:      215	 Y:      648
+  Trying State: Baden-Wuerttemberg
+    Compared line (p | q):                                       Start: X:   93.851	 Y:  541.497	 End: X:      215	 Y:      648
+    Intersected line:                                            Start: X:  158.795	 Y:  599.013	 End: X:  158.848	 Y:  598.305
+    Compared line (p | q):                                       Start: X:  173.747	 Y:  753.723	 End: X:      215	 Y:      648
+State --> Baden-Wuerttemberg
+  Trying State: Bayern
+    Compared line (p | q):                                       Start: X:   199.02	 Y:  463.246	 End: X:      215	 Y:      648
+    Intersected line:                                            Start: X:   208.36	 Y:  563.499	 End: X:  207.389	 Y:  563.115
+    Intersected line:                                            Start: X:  206.495	 Y:  561.478	 End: X:  207.312	 Y:  554.509
+    Intersected line:                                            Start: X:  208.029	 Y:  540.531	 End: X:  203.674	 Y:  536.175
+    Intersected line:                                            Start: X:  202.515	 Y:  508.309	 End: X:  215.986	 Y:  504.606
+  Trying State: Berlin
+    Point out of bounding box of State: Berlin
+  Trying State: Brandenburg
+    Point out of bounding box of State: Brandenburg
+  Trying State: Bremen
+    Point out of bounding box of State: Bremen
+  Trying State: Hamburg
+    Point out of bounding box of State: Hamburg
+  Trying State: Hessen
+    Point out of bounding box of State: Hessen
+  Trying State: Mecklenburg-Vorpommern
+    Point out of bounding box of State: Mecklenburg-Vorpommern
+  Trying State: Niedersachsen
+    Point out of bounding box of State: Niedersachsen
+  Trying State: Nordrhein-Westfalen
+    Point out of bounding box of State: Nordrhein-Westfalen
+  Trying State: Rheinland-Pfalz
+    Point out of bounding box of State: Rheinland-Pfalz
+  Trying State: Saarland
+    Point out of bounding box of State: Saarland
+  Trying State: Sachsen
+    Point out of bounding box of State: Sachsen
+  Trying State: Sachsen-Anhalt
+    Point out of bounding box of State: Sachsen-Anhalt
+  Trying State: Schleswig-Holstein
+    Point out of bounding box of State: Schleswig-Holstein
+  Trying State: Thueringen
+    Point out of bounding box of State: Thueringen
+------------------------------------------
+City: Saarbruecken
+Locate City: Saarbruecken	X:       60	 Y:      589
+  Trying State: Baden-Wuerttemberg
+    Point out of bounding box of State: Baden-Wuerttemberg
+  Trying State: Bayern
+    Point out of bounding box of State: Bayern
+  Trying State: Berlin
+    Point out of bounding box of State: Berlin
+  Trying State: Brandenburg
+    Point out of bounding box of State: Brandenburg
+  Trying State: Bremen
+    Point out of bounding box of State: Bremen
+  Trying State: Hamburg
+    Point out of bounding box of State: Hamburg
+  Trying State: Hessen
+    Point out of bounding box of State: Hessen
+  Trying State: Mecklenburg-Vorpommern
+    Point out of bounding box of State: Mecklenburg-Vorpommern
+  Trying State: Niedersachsen
+    Point out of bounding box of State: Niedersachsen
+  Trying State: Nordrhein-Westfalen
+    Point out of bounding box of State: Nordrhein-Westfalen
+  Trying State: Rheinland-Pfalz
+    Compared line (p | q):                                       Start: X:   10.071	 Y:  421.405	 End: X:       60	 Y:      589
+    Intersected line:                                            Start: X:   52.336	 Y:  559.587	 End: X:   50.994	 Y:  560.359
+    Intersected line:                                            Start: X:   26.291	 Y:  480.875	 End: X:   28.488	 Y:      482
+  Trying State: Saarland
+    Compared line (p | q):                                       Start: X:   23.194	 Y:  553.172	 End: X:       60	 Y:      589
+    Intersected line:                                            Start: X:   26.339	 Y:  560.548	 End: X:   33.381	 Y:  562.745
+State --> Saarland
+  Trying State: Sachsen
+    Point out of bounding box of State: Sachsen
+  Trying State: Sachsen-Anhalt
+    Point out of bounding box of State: Sachsen-Anhalt
+  Trying State: Schleswig-Holstein
+    Point out of bounding box of State: Schleswig-Holstein
+  Trying State: Thueringen
+    Point out of bounding box of State: Thueringen
+------------------------------------------
+City: Wiesbaden
+Locate City: Wiesbaden	X:  148.823	 Y:  508.371
+  Trying State: Baden-Wuerttemberg
+    Point out of bounding box of State: Baden-Wuerttemberg
+  Trying State: Bayern
+    Point out of bounding box of State: Bayern
+  Trying State: Berlin
+    Point out of bounding box of State: Berlin
+  Trying State: Brandenburg
+    Point out of bounding box of State: Brandenburg
+  Trying State: Bremen
+    Point out of bounding box of State: Bremen
+  Trying State: Hamburg
+    Point out of bounding box of State: Hamburg
+  Trying State: Hessen
+    Compared line (p | q):                                       Start: X:  119.308	 Y:  350.145	 End: X:  148.823	 Y:  508.371
+    Intersected line:                                            Start: X:  139.761	 Y:  461.794	 End: X:  140.971	 Y:  462.279
+State --> Hessen
+  Trying State: Mecklenburg-Vorpommern
+    Point out of bounding box of State: Mecklenburg-Vorpommern
+  Trying State: Niedersachsen
+    Point out of bounding box of State: Niedersachsen
+  Trying State: Nordrhein-Westfalen
+    Point out of bounding box of State: Nordrhein-Westfalen
+  Trying State: Rheinland-Pfalz
+    Compared line (p | q):                                       Start: X:   10.071	 Y:  421.405	 End: X:  148.823	 Y:  508.371
+    Intersected line:                                            Start: X:  134.796	 Y:  495.084	 End: X:  130.456	 Y:  496.967
+    Intersected line:                                            Start: X:   69.552	 Y:  459.098	 End: X:   71.266	 Y:  458.264
+  Trying State: Saarland
+    Point out of bounding box of State: Saarland
+  Trying State: Sachsen
+    Point out of bounding box of State: Sachsen
+  Trying State: Sachsen-Anhalt
+    Point out of bounding box of State: Sachsen-Anhalt
+  Trying State: Schleswig-Holstein
+    Point out of bounding box of State: Schleswig-Holstein
+  Trying State: Thueringen
+    Point out of bounding box of State: Thueringen
+------------------------------------------
+City: Mainz
+Locate City: Mainz	X:  148.399	 Y:  523.635
+  Trying State: Baden-Wuerttemberg
+    Point out of bounding box of State: Baden-Wuerttemberg
+  Trying State: Bayern
+    Point out of bounding box of State: Bayern
+  Trying State: Berlin
+    Point out of bounding box of State: Berlin
+  Trying State: Brandenburg
+    Point out of bounding box of State: Brandenburg
+  Trying State: Bremen
+    Point out of bounding box of State: Bremen
+  Trying State: Hamburg
+    Point out of bounding box of State: Hamburg
+  Trying State: Hessen
+    Compared line (p | q):                                       Start: X:  119.308	 Y:  350.145	 End: X:  148.399	 Y:  523.635
+    Intersected line:                                            Start: X:  147.722	 Y:  515.149	 End: X:  146.807	 Y:  515.212
+    Intersected line:                                            Start: X:   141.87	 Y:  491.398	 End: X:  143.868	 Y:  490.248
+    Intersected line:                                            Start: X:  142.766	 Y:   485.11	 End: X:  140.112	 Y:  480.256
+    Intersected line:                                            Start: X:  136.085	 Y:  464.916	 End: X:  138.474	 Y:   462.07
+  Trying State: Mecklenburg-Vorpommern
+    Point out of bounding box of State: Mecklenburg-Vorpommern
+  Trying State: Niedersachsen
+    Point out of bounding box of State: Niedersachsen
+  Trying State: Nordrhein-Westfalen
+    Point out of bounding box of State: Nordrhein-Westfalen
+  Trying State: Rheinland-Pfalz
+    Compared line (p | q):                                       Start: X:   10.071	 Y:  421.405	 End: X:  148.399	 Y:  523.635
+    Intersected line:                                            Start: X:  127.417	 Y:  506.322	 End: X:  123.257	 Y:   509.79
+    Intersected line:                                            Start: X:  140.155	 Y:  517.877	 End: X:  144.298	 Y:  515.995
+    Intersected line:                                            Start: X:   64.574	 Y:  467.812	 End: X:   66.444	 Y:  460.061
+State --> Rheinland-Pfalz
+  Trying State: Saarland
+    Point out of bounding box of State: Saarland
+  Trying State: Sachsen
+    Point out of bounding box of State: Sachsen
+  Trying State: Sachsen-Anhalt
+    Point out of bounding box of State: Sachsen-Anhalt
+  Trying State: Schleswig-Holstein
+    Point out of bounding box of State: Schleswig-Holstein
+  Trying State: Thueringen
+    Point out of bounding box of State: Thueringen
+------------------------------------------
+City: Duesseldorf
+Locate City: Duesseldorf	X:  56.8154	 Y:  397.708
+  Trying State: Baden-Wuerttemberg
+    Point out of bounding box of State: Baden-Wuerttemberg
+  Trying State: Bayern
+    Point out of bounding box of State: Bayern
+  Trying State: Berlin
+    Point out of bounding box of State: Berlin
+  Trying State: Brandenburg
+    Point out of bounding box of State: Brandenburg
+  Trying State: Bremen
+    Point out of bounding box of State: Bremen
+  Trying State: Hamburg
+    Point out of bounding box of State: Hamburg
+  Trying State: Hessen
+    Point out of bounding box of State: Hessen
+  Trying State: Mecklenburg-Vorpommern
+    Point out of bounding box of State: Mecklenburg-Vorpommern
+  Trying State: Niedersachsen
+    Point out of bounding box of State: Niedersachsen
+  Trying State: Nordrhein-Westfalen
+    Compared line (p | q):                                       Start: X:   -0.746	 Y:  259.852	 End: X:  56.8154	 Y:  397.708
+    Intersected line:                                            Start: X:   23.939	 Y:   323.01	 End: X:   25.889	 Y:   321.73
+State --> Nordrhein-Westfalen
+  Trying State: Rheinland-Pfalz
+    Point out of bounding box of State: Rheinland-Pfalz
+  Trying State: Saarland
+    Point out of bounding box of State: Saarland
+  Trying State: Sachsen
+    Point out of bounding box of State: Sachsen
+  Trying State: Sachsen-Anhalt
+    Point out of bounding box of State: Sachsen-Anhalt
+  Trying State: Schleswig-Holstein
+    Point out of bounding box of State: Schleswig-Holstein
+  Trying State: Thueringen
+    Point out of bounding box of State: Thueringen
+------------------------------------------
+City: Bremen
+Locate City: Bremen	X:  193.766	 Y:   200.55
+  Trying State: Baden-Wuerttemberg
+    Point out of bounding box of State: Baden-Wuerttemberg
+  Trying State: Bayern
+    Point out of bounding box of State: Bayern
+  Trying State: Berlin
+    Point out of bounding box of State: Berlin
+  Trying State: Brandenburg
+    Point out of bounding box of State: Brandenburg
+  Trying State: Bremen
+    Compared line (p | q):                                       Start: X:  172.713	 Y:  186.715	 End: X:  193.766	 Y:   200.55
+    Intersected line:                                            Start: X:  181.533	 Y:  192.309	 End: X:  174.019	 Y:  188.259
+    Intersected line:                                            Start: X:  174.019	 Y:  188.259	 End: X:  173.745	 Y:  187.392
+    Intersected line:                                            Start: X:  173.734	 Y:  186.715	 End: X:  173.713	 Y:  187.444
+    Compared line (p | q):                                       Start: X:  174.948	 Y:   149.34	 End: X:  193.766	 Y:   200.55
+State --> Bremen
+  Trying State: Hamburg
+    Point out of bounding box of State: Hamburg
+  Trying State: Hessen
+    Point out of bounding box of State: Hessen
+  Trying State: Mecklenburg-Vorpommern
+    Point out of bounding box of State: Mecklenburg-Vorpommern
+  Trying State: Niedersachsen
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  193.766	 Y:   200.55
+    Intersected line:                                            Start: X:   95.406	 Y:  143.609	 End: X:   98.123	 Y:  141.631
+    Compared line (p | q):                                       Start: X:  172.725	 Y:  186.736	 End: X:  193.766	 Y:   200.55
+    Intersected line:                                            Start: X:  181.545	 Y:  192.331	 End: X:  174.031	 Y:  188.279
+    Intersected line:                                            Start: X:  173.757	 Y:  187.414	 End: X:  173.746	 Y:  186.736
+    Intersected line:                                            Start: X:  173.746	 Y:  186.736	 End: X:  173.725	 Y:  187.465
+    Compared line (p | q):                                       Start: X:   61.982	 Y:  144.596	 End: X:  193.766	 Y:   200.55
+    Intersected line:                                            Start: X:   63.605	 Y:  146.193	 End: X:   68.845	 Y:  144.608
+    Intersected line:                                            Start: X:   72.666	 Y:  146.985	 End: X:   67.385	 Y:  148.475
+    Compared line (p | q):                                       Start: X:   91.845	 Y:  135.017	 End: X:  193.766	 Y:   200.55
+    Intersected line:                                            Start: X:    93.28	 Y:  136.157	 End: X:   93.655	 Y:  135.969
+    Intersected line:                                            Start: X:   96.529	 Y:  137.457	 End: X:   94.543	 Y:  137.626
+    Compared line (p | q):                                       Start: X:  111.796	 Y:  132.173	 End: X:  193.766	 Y:   200.55
+    Intersected line:                                            Start: X:  112.891	 Y:  133.736	 End: X:  113.609	 Y:  132.755
+    Intersected line:                                            Start: X:  115.703	 Y:  133.768	 End: X:  113.525	 Y:  135.986
+    Compared line (p | q):                                       Start: X:  124.294	 Y:  130.163	 End: X:  193.766	 Y:   200.55
+    Intersected line:                                            Start: X:  125.578	 Y:  131.598	 End: X:  126.186	 Y:  130.837
+    Intersected line:                                            Start: X:  127.093	 Y:  131.905	 End: X:  126.208	 Y:  133.153
+    Compared line (p | q):                                       Start: X:    75.67	 Y:  138.618	 End: X:  193.766	 Y:   200.55
+    Intersected line:                                            Start: X:   77.077	 Y:  139.506	 End: X:   79.178	 Y:  139.305
+    Intersected line:                                            Start: X:    78.88	 Y:   140.15	 End: X:   78.318	 Y:   140.32
+    Compared line (p | q):                                       Start: X:  135.438	 Y:  129.156	 End: X:  193.766	 Y:   200.55
+    Compared line (p | q):                                       Start: X:  105.503	 Y:  134.212	 End: X:  193.766	 Y:   200.55
+    Intersected line:                                            Start: X:  108.217	 Y:  135.871	 End: X:  106.826	 Y:  135.555
+    Intersected line:                                            Start: X:  106.503	 Y:  135.069	 End: X:  106.514	 Y:  134.965
+    Compared line (p | q):                                       Start: X:  144.431	 Y:  130.745	 End: X:  193.766	 Y:   200.55
+    Intersected line:                                            Start: X:   145.86	 Y:  133.674	 End: X:  145.431	 Y:  131.993
+    Intersected line:                                            Start: X:  146.937	 Y:  133.302	 End: X:  146.916	 Y:   134.37
+  Trying State: Nordrhein-Westfalen
+    Point out of bounding box of State: Nordrhein-Westfalen
+  Trying State: Rheinland-Pfalz
+    Point out of bounding box of State: Rheinland-Pfalz
+  Trying State: Saarland
+    Point out of bounding box of State: Saarland
+  Trying State: Sachsen
+    Point out of bounding box of State: Sachsen
+  Trying State: Sachsen-Anhalt
+    Point out of bounding box of State: Sachsen-Anhalt
+  Trying State: Schleswig-Holstein
+    Point out of bounding box of State: Schleswig-Holstein
+  Trying State: Thueringen
+    Point out of bounding box of State: Thueringen
+------------------------------------------
+City: Erfurt
+Locate City: Erfurt	X:  335.381	 Y:  418.908
+  Trying State: Baden-Wuerttemberg
+    Point out of bounding box of State: Baden-Wuerttemberg
+  Trying State: Bayern
+    Point out of bounding box of State: Bayern
+  Trying State: Berlin
+    Point out of bounding box of State: Berlin
+  Trying State: Brandenburg
+    Point out of bounding box of State: Brandenburg
+  Trying State: Bremen
+    Point out of bounding box of State: Bremen
+  Trying State: Hamburg
+    Point out of bounding box of State: Hamburg
+  Trying State: Hessen
+    Point out of bounding box of State: Hessen
+  Trying State: Mecklenburg-Vorpommern
+    Point out of bounding box of State: Mecklenburg-Vorpommern
+  Trying State: Niedersachsen
+    Point out of bounding box of State: Niedersachsen
+  Trying State: Nordrhein-Westfalen
+    Point out of bounding box of State: Nordrhein-Westfalen
+  Trying State: Rheinland-Pfalz
+    Point out of bounding box of State: Rheinland-Pfalz
+  Trying State: Saarland
+    Point out of bounding box of State: Saarland
+  Trying State: Sachsen
+    Point out of bounding box of State: Sachsen
+  Trying State: Sachsen-Anhalt
+    Compared line (p | q):                                       Start: X:  301.718	 Y:  207.164	 End: X:  335.381	 Y:  418.908
+    Intersected line:                                            Start: X:  326.846	 Y:  364.059	 End: X:  324.757	 Y:  360.801
+    Intersected line:                                            Start: X:  324.022	 Y:  356.309	 End: X:  325.688	 Y:  354.067
+    Intersected line:                                            Start: X:  325.688	 Y:  354.067	 End: X:  324.423	 Y:  354.606
+    Intersected line:                                            Start: X:  317.917	 Y:  309.965	 End: X:   319.74	 Y:  309.911
+  Trying State: Schleswig-Holstein
+    Point out of bounding box of State: Schleswig-Holstein
+  Trying State: Thueringen
+    Compared line (p | q):                                       Start: X:  258.291	 Y:  351.324	 End: X:  335.381	 Y:  418.908
+    Intersected line:                                            Start: X:  278.382	 Y:  371.806	 End: X:  286.402	 Y:  366.369
+State --> Thueringen
+------------------------------------------
+City: Dresden
+Locate City: Dresden	X:  499.891	 Y:  405.764
+  Trying State: Baden-Wuerttemberg
+    Point out of bounding box of State: Baden-Wuerttemberg
+  Trying State: Bayern
+    Point out of bounding box of State: Bayern
+  Trying State: Berlin
+    Point out of bounding box of State: Berlin
+  Trying State: Brandenburg
+    Point out of bounding box of State: Brandenburg
+  Trying State: Bremen
+    Point out of bounding box of State: Bremen
+  Trying State: Hamburg
+    Point out of bounding box of State: Hamburg
+  Trying State: Hessen
+    Point out of bounding box of State: Hessen
+  Trying State: Mecklenburg-Vorpommern
+    Point out of bounding box of State: Mecklenburg-Vorpommern
+  Trying State: Niedersachsen
+    Point out of bounding box of State: Niedersachsen
+  Trying State: Nordrhein-Westfalen
+    Point out of bounding box of State: Nordrhein-Westfalen
+  Trying State: Rheinland-Pfalz
+    Point out of bounding box of State: Rheinland-Pfalz
+  Trying State: Saarland
+    Point out of bounding box of State: Saarland
+  Trying State: Sachsen
+    Compared line (p | q):                                       Start: X:  388.565	 Y:  346.651	 End: X:  499.891	 Y:  405.764
+    Intersected line:                                            Start: X:  407.816	 Y:  361.148	 End: X:  411.278	 Y:   358.06
+State --> Sachsen
+  Trying State: Sachsen-Anhalt
+    Point out of bounding box of State: Sachsen-Anhalt
+  Trying State: Schleswig-Holstein
+    Point out of bounding box of State: Schleswig-Holstein
+  Trying State: Thueringen
+    Point out of bounding box of State: Thueringen
+------------------------------------------
+City: Magdeburg
+Locate City: Magdeburg	X:  370.996	 Y:  294.677
+  Trying State: Baden-Wuerttemberg
+    Point out of bounding box of State: Baden-Wuerttemberg
+  Trying State: Bayern
+    Point out of bounding box of State: Bayern
+  Trying State: Berlin
+    Point out of bounding box of State: Berlin
+  Trying State: Brandenburg
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  370.996	 Y:  294.677
+    Intersected line:                                            Start: X:  356.315	 Y:  203.599	 End: X:  354.281	 Y:  204.169
+    Intersected line:                                            Start: X:  351.268	 Y:  199.835	 End: X:  354.027	 Y:  197.656
+    Compared line (p | q):                                       Start: X:  459.825	 Y:  240.696	 End: X:  370.996	 Y:  294.677
+  Trying State: Bremen
+    Point out of bounding box of State: Bremen
+  Trying State: Hamburg
+    Point out of bounding box of State: Hamburg
+  Trying State: Hessen
+    Point out of bounding box of State: Hessen
+  Trying State: Mecklenburg-Vorpommern
+    Point out of bounding box of State: Mecklenburg-Vorpommern
+  Trying State: Niedersachsen
+    Point out of bounding box of State: Niedersachsen
+  Trying State: Nordrhein-Westfalen
+    Point out of bounding box of State: Nordrhein-Westfalen
+  Trying State: Rheinland-Pfalz
+    Point out of bounding box of State: Rheinland-Pfalz
+  Trying State: Saarland
+    Point out of bounding box of State: Saarland
+  Trying State: Sachsen
+    Point out of bounding box of State: Sachsen
+  Trying State: Sachsen-Anhalt
+    Compared line (p | q):                                       Start: X:  301.718	 Y:  207.164	 End: X:  370.996	 Y:  294.677
+    Intersected line:                                            Start: X:  316.869	 Y:  227.945	 End: X:  319.545	 Y:  227.395
+State --> Sachsen-Anhalt
+  Trying State: Schleswig-Holstein
+    Point out of bounding box of State: Schleswig-Holstein
+  Trying State: Thueringen
+    Point out of bounding box of State: Thueringen
+------------------------------------------
+City: Hannover
+Locate City: Hannover	X:  253.549	 Y:  273.477
+  Trying State: Baden-Wuerttemberg
+    Point out of bounding box of State: Baden-Wuerttemberg
+  Trying State: Bayern
+    Point out of bounding box of State: Bayern
+  Trying State: Berlin
+    Point out of bounding box of State: Berlin
+  Trying State: Brandenburg
+    Point out of bounding box of State: Brandenburg
+  Trying State: Bremen
+    Point out of bounding box of State: Bremen
+  Trying State: Hamburg
+    Point out of bounding box of State: Hamburg
+  Trying State: Hessen
+    Point out of bounding box of State: Hessen
+  Trying State: Mecklenburg-Vorpommern
+    Point out of bounding box of State: Mecklenburg-Vorpommern
+  Trying State: Niedersachsen
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  253.549	 Y:  273.477
+    Intersected line:                                            Start: X:   89.605	 Y:  149.572	 End: X:   94.194	 Y:  144.814
+    Compared line (p | q):                                       Start: X:  172.725	 Y:  186.736	 End: X:  253.549	 Y:  273.477
+    Intersected line:                                            Start: X:  181.545	 Y:  192.331	 End: X:  174.031	 Y:  188.279
+    Intersected line:                                            Start: X:  174.031	 Y:  188.279	 End: X:  173.757	 Y:  187.414
+    Intersected line:                                            Start: X:  173.725	 Y:  187.465	 End: X:  173.948	 Y:  188.777
+    Intersected line:                                            Start: X:  176.944	 Y:  192.519	 End: X:  179.323	 Y:  193.662
+    Intersected line:                                            Start: X:  182.412	 Y:  195.143	 End: X:  183.986	 Y:   199.34
+    Intersected line:                                            Start: X:  191.737	 Y:  207.874	 End: X:  197.083	 Y:  209.725
+    Compared line (p | q):                                       Start: X:   61.982	 Y:  144.596	 End: X:  253.549	 Y:  273.477
+    Intersected line:                                            Start: X:   63.605	 Y:  146.193	 End: X:   68.845	 Y:  144.608
+    Intersected line:                                            Start: X:   72.666	 Y:  146.985	 End: X:   67.385	 Y:  148.475
+    Compared line (p | q):                                       Start: X:   91.845	 Y:  135.017	 End: X:  253.549	 Y:  273.477
+    Intersected line:                                            Start: X:   92.973	 Y:   136.38	 End: X:    93.28	 Y:  136.157
+    Intersected line:                                            Start: X:   96.529	 Y:  137.457	 End: X:   94.543	 Y:  137.626
+    Compared line (p | q):                                       Start: X:  111.796	 Y:  132.173	 End: X:  253.549	 Y:  273.477
+    Intersected line:                                            Start: X:  112.891	 Y:  133.736	 End: X:  113.609	 Y:  132.755
+    Intersected line:                                            Start: X:  115.703	 Y:  133.768	 End: X:  113.525	 Y:  135.986
+    Compared line (p | q):                                       Start: X:  124.294	 Y:  130.163	 End: X:  253.549	 Y:  273.477
+    Intersected line:                                            Start: X:  125.578	 Y:  131.598	 End: X:  126.186	 Y:  130.837
+    Intersected line:                                            Start: X:  127.093	 Y:  131.905	 End: X:  126.208	 Y:  133.153
+    Compared line (p | q):                                       Start: X:    75.67	 Y:  138.618	 End: X:  253.549	 Y:  273.477
+    Intersected line:                                            Start: X:   78.277	 Y:  140.406	 End: X:    77.69	 Y:  140.362
+    Intersected line:                                            Start: X:   76.733	 Y:  139.601	 End: X:   77.077	 Y:  139.506
+    Compared line (p | q):                                       Start: X:  135.438	 Y:  129.156	 End: X:  253.549	 Y:  273.477
+    Compared line (p | q):                                       Start: X:  105.503	 Y:  134.212	 End: X:  253.549	 Y:  273.477
+    Intersected line:                                            Start: X:  108.217	 Y:  135.871	 End: X:  106.826	 Y:  135.555
+    Intersected line:                                            Start: X:  106.826	 Y:  135.555	 End: X:  106.503	 Y:  135.069
+    Compared line (p | q):                                       Start: X:  144.431	 Y:  130.745	 End: X:  253.549	 Y:  273.477
+    Intersected line:                                            Start: X:   145.86	 Y:  133.674	 End: X:  145.431	 Y:  131.993
+    Intersected line:                                            Start: X:  146.937	 Y:  133.302	 End: X:  146.916	 Y:   134.37
+State --> Niedersachsen
+  Trying State: Nordrhein-Westfalen
+    Point out of bounding box of State: Nordrhein-Westfalen
+  Trying State: Rheinland-Pfalz
+    Point out of bounding box of State: Rheinland-Pfalz
+  Trying State: Saarland
+    Point out of bounding box of State: Saarland
+  Trying State: Sachsen
+    Point out of bounding box of State: Sachsen
+  Trying State: Sachsen-Anhalt
+    Point out of bounding box of State: Sachsen-Anhalt
+  Trying State: Schleswig-Holstein
+    Point out of bounding box of State: Schleswig-Holstein
+  Trying State: Thueringen
+    Point out of bounding box of State: Thueringen
+------------------------------------------
+City: Hamburg
+Locate City: Hamburg	X:  265.845	 Y:   156.03
+  Trying State: Baden-Wuerttemberg
+    Point out of bounding box of State: Baden-Wuerttemberg
+  Trying State: Bayern
+    Point out of bounding box of State: Bayern
+  Trying State: Berlin
+    Point out of bounding box of State: Berlin
+  Trying State: Brandenburg
+    Point out of bounding box of State: Brandenburg
+  Trying State: Bremen
+    Point out of bounding box of State: Bremen
+  Trying State: Hamburg
+    Compared line (p | q):                                       Start: X:   249.76	 Y:  136.688	 End: X:  265.845	 Y:   156.03
+    Intersected line:                                            Start: X:  257.305	 Y:   152.24	 End: X:  260.831	 Y:   147.82
+State --> Hamburg
+  Trying State: Hessen
+    Point out of bounding box of State: Hessen
+  Trying State: Mecklenburg-Vorpommern
+    Point out of bounding box of State: Mecklenburg-Vorpommern
+  Trying State: Niedersachsen
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  265.845	 Y:   156.03
+    Intersected line:                                            Start: X:  174.798	 Y:  140.934	 End: X:  174.861	 Y:  140.278
+    Intersected line:                                            Start: X:  242.103	 Y:  151.101	 End: X:  247.463	 Y:    154.6
+    Compared line (p | q):                                       Start: X:  172.725	 Y:  186.736	 End: X:  265.845	 Y:   156.03
+    Compared line (p | q):                                       Start: X:   61.982	 Y:  144.596	 End: X:  265.845	 Y:   156.03
+    Intersected line:                                            Start: X:   63.605	 Y:  146.193	 End: X:   68.845	 Y:  144.608
+    Intersected line:                                            Start: X:   70.329	 Y:  144.955	 End: X:   72.091	 Y:  146.276
+    Compared line (p | q):                                       Start: X:   91.845	 Y:  135.017	 End: X:  265.845	 Y:   156.03
+    Intersected line:                                            Start: X:   93.655	 Y:  135.969	 End: X:   95.067	 Y:  135.334
+    Intersected line:                                            Start: X:  104.194	 Y:  136.506	 End: X:   96.529	 Y:  137.457
+    Compared line (p | q):                                       Start: X:  111.796	 Y:  132.173	 End: X:  265.845	 Y:   156.03
+    Intersected line:                                            Start: X:  113.806	 Y:  132.586	 End: X:   114.43	 Y:  132.268
+    Intersected line:                                            Start: X:    119.9	 Y:  133.312	 End: X:  118.314	 Y:  133.449
+    Compared line (p | q):                                       Start: X:  124.294	 Y:  130.163	 End: X:  265.845	 Y:   156.03
+    Intersected line:                                            Start: X:  126.471	 Y:  130.563	 End: X:  126.735	 Y:  130.394
+    Intersected line:                                            Start: X:  134.462	 Y:   131.45	 End: X:  130.788	 Y:  132.138
+    Compared line (p | q):                                       Start: X:    75.67	 Y:  138.618	 End: X:  265.845	 Y:   156.03
+    Intersected line:                                            Start: X:   79.178	 Y:  139.305	 End: X:   86.103	 Y:  138.618
+    Intersected line:                                            Start: X:    87.09	 Y:  139.304	 End: X:   83.553	 Y:  139.431
+    Compared line (p | q):                                       Start: X:  135.438	 Y:  129.156	 End: X:  265.845	 Y:   156.03
+    Intersected line:                                            Start: X:  136.438	 Y:  129.749	 End: X:  136.873	 Y:  129.368
+    Intersected line:                                            Start: X:  143.851	 Y:  130.828	 End: X:  143.906	 Y:  131.304
+    Compared line (p | q):                                       Start: X:  105.503	 Y:  134.212	 End: X:  265.845	 Y:   156.03
+    Intersected line:                                            Start: X:    106.6	 Y:  134.868	 End: X:   108.07	 Y:  134.265
+    Intersected line:                                            Start: X:  110.873	 Y:   134.74	 End: X:  111.188	 Y:  135.859
+    Compared line (p | q):                                       Start: X:  144.431	 Y:  130.745	 End: X:  265.845	 Y:   156.03
+    Intersected line:                                            Start: X:  145.442	 Y:   131.61	 End: X:  146.167	 Y:  130.745
+    Intersected line:                                            Start: X:  146.167	 Y:  130.745	 End: X:  146.526	 Y:  131.188
+  Trying State: Nordrhein-Westfalen
+    Point out of bounding box of State: Nordrhein-Westfalen
+  Trying State: Rheinland-Pfalz
+    Point out of bounding box of State: Rheinland-Pfalz
+  Trying State: Saarland
+    Point out of bounding box of State: Saarland
+  Trying State: Sachsen
+    Point out of bounding box of State: Sachsen
+  Trying State: Sachsen-Anhalt
+    Point out of bounding box of State: Sachsen-Anhalt
+  Trying State: Schleswig-Holstein
+    Compared line (p | q):                                       Start: X:  180.869	 Y:   15.482	 End: X:  265.845	 Y:   156.03
+    Intersected line:                                            Start: X:  261.178	 Y:  147.209	 End: X:  260.807	 Y:  147.769
+    Intersected line:                                            Start: X:  207.617	 Y:   61.787	 End: X:  208.263	 Y:   60.719
+    Intersected line:                                            Start: X:  197.547	 Y:   42.333	 End: X:  196.367	 Y:   41.624
+    Intersected line:                                            Start: X:  190.825	 Y:   33.442	 End: X:   190.05	 Y:   29.659
+    Intersected line:                                            Start: X:  186.809	 Y:   25.017	 End: X:  184.695	 Y:   22.661
+    Intersected line:                                            Start: X:  184.664	 Y:    22.46	 End: X:  185.051	 Y:   18.844
+    Compared line (p | q):                                       Start: X:  326.384	 Y:   54.386	 End: X:  265.845	 Y:   156.03
+    Compared line (p | q):                                       Start: X:   163.87	 Y:     0.25	 End: X:  265.845	 Y:   156.03
+    Intersected line:                                            Start: X:  175.921	 Y:   20.457	 End: X:   177.67	 Y:   18.998
+    Intersected line:                                            Start: X:  176.707	 Y:   18.786	 End: X:  174.551	 Y:   18.871
+    Intersected line:                                            Start: X:  169.808	 Y:    9.368	 End: X:  170.945	 Y:    7.104
+    Intersected line:                                            Start: X:  169.861	 Y:    6.887	 End: X:  168.301	 Y:   10.266
+    Compared line (p | q):                                       Start: X:   170.74	 Y:    31.37	 End: X:  265.845	 Y:   156.03
+    Intersected line:                                            Start: X:  172.748	 Y:   33.177	 End: X:  172.347	 Y:   33.896
+    Intersected line:                                            Start: X:  176.203	 Y:   38.857	 End: X:  177.032	 Y:   39.089
+    Compared line (p | q):                                       Start: X:   194.85	 Y:   55.612	 End: X:  265.845	 Y:   156.03
+    Intersected line:                                            Start: X:   199.42	 Y:   55.612	 End: X:  196.274	 Y:   57.653
+    Intersected line:                                            Start: X:  197.891	 Y:   62.019	 End: X:  200.065	 Y:    62.23
+    Compared line (p | q):                                       Start: X:  181.831	 Y:   52.285	 End: X:  265.845	 Y:   156.03
+    Intersected line:                                            Start: X:  186.749	 Y:   58.648	 End: X:  187.621	 Y:   58.394
+    Intersected line:                                            Start: X:  183.465	 Y:   54.229	 End: X:  183.096	 Y:   54.419
+    Compared line (p | q):                                       Start: X:  164.696	 Y:   35.736	 End: X:  265.845	 Y:   156.03
+    Intersected line:                                            Start: X:  169.589	 Y:   42.175	 End: X:  168.324	 Y:   38.644
+    Intersected line:                                            Start: X:      169	 Y:   35.917	 End: X:  166.547	 Y:   38.146
+    Compared line (p | q):                                       Start: X:   178.54	 Y:   41.064	 End: X:  265.845	 Y:   156.03
+    Intersected line:                                            Start: X:  181.334	 Y:   43.527	 End: X:  179.686	 Y:   44.205
+    Intersected line:                                            Start: X:  180.644	 Y:   45.621	 End: X:  182.946	 Y:   44.406
+    Compared line (p | q):                                       Start: X:  177.209	 Y:   49.554	 End: X:  265.845	 Y:   156.03
+    Compared line (p | q):                                       Start: X:  138.262	 Y:   88.274	 End: X:  265.845	 Y:   156.03
+    Intersected line:                                            Start: X:  142.031	 Y:   89.256	 End: X:  141.165	 Y:   90.777
+    Intersected line:                                            Start: X:  139.262	 Y:   89.036	 End: X:  139.304	 Y:   88.792
+    Compared line (p | q):                                       Start: X:  186.009	 Y:  101.683	 End: X:  265.845	 Y:   156.03
+    Intersected line:                                            Start: X:  187.136	 Y:  102.802	 End: X:  187.344	 Y:  102.379
+    Intersected line:                                            Start: X:  188.766	 Y:  102.001	 End: X:  188.619	 Y:   104.55
+  Trying State: Thueringen
+    Point out of bounding box of State: Thueringen
+------------------------------------------
+City: Kiel
+Locate City: Kiel	X:  275.173	 Y:  78.4392
+  Trying State: Baden-Wuerttemberg
+    Point out of bounding box of State: Baden-Wuerttemberg
+  Trying State: Bayern
+    Point out of bounding box of State: Bayern
+  Trying State: Berlin
+    Point out of bounding box of State: Berlin
+  Trying State: Brandenburg
+    Point out of bounding box of State: Brandenburg
+  Trying State: Bremen
+    Point out of bounding box of State: Bremen
+  Trying State: Hamburg
+    Point out of bounding box of State: Hamburg
+  Trying State: Hessen
+    Point out of bounding box of State: Hessen
+  Trying State: Mecklenburg-Vorpommern
+    Point out of bounding box of State: Mecklenburg-Vorpommern
+  Trying State: Niedersachsen
+    Point out of bounding box of State: Niedersachsen
+  Trying State: Nordrhein-Westfalen
+    Point out of bounding box of State: Nordrhein-Westfalen
+  Trying State: Rheinland-Pfalz
+    Point out of bounding box of State: Rheinland-Pfalz
+  Trying State: Saarland
+    Point out of bounding box of State: Saarland
+  Trying State: Sachsen
+    Point out of bounding box of State: Sachsen
+  Trying State: Sachsen-Anhalt
+    Point out of bounding box of State: Sachsen-Anhalt
+  Trying State: Schleswig-Holstein
+    Compared line (p | q):                                       Start: X:  180.869	 Y:   15.482	 End: X:  275.173	 Y:  78.4392
+    Intersected line:                                            Start: X:  185.051	 Y:   18.844	 End: X:  186.535	 Y:   15.482
+    Compared line (p | q):                                       Start: X:  326.384	 Y:   54.386	 End: X:  275.173	 Y:  78.4392
+    Compared line (p | q):                                       Start: X:   163.87	 Y:     0.25	 End: X:  275.173	 Y:  78.4392
+    Intersected line:                                            Start: X:  171.453	 Y:    6.458	 End: X:   172.41	 Y:    5.696
+    Intersected line:                                            Start: X:  172.134	 Y:    1.466	 End: X:  170.231	 Y:    5.948
+    Compared line (p | q):                                       Start: X:   170.74	 Y:    31.37	 End: X:  275.173	 Y:  78.4392
+    Intersected line:                                            Start: X:  173.716	 Y:   32.288	 End: X:  173.293	 Y:   32.617
+    Intersected line:                                            Start: X:  181.898	 Y:   39.163	 End: X:   183.75	 Y:   35.294
+    Compared line (p | q):                                       Start: X:   194.85	 Y:   55.612	 End: X:  275.173	 Y:  78.4392
+    Intersected line:                                            Start: X:   199.42	 Y:   55.612	 End: X:  196.274	 Y:   57.653
+    Intersected line:                                            Start: X:  202.892	 Y:   60.359	 End: X:  204.388	 Y:   58.064
+    Compared line (p | q):                                       Start: X:  181.831	 Y:   52.285	 End: X:  275.173	 Y:  78.4392
+    Intersected line:                                            Start: X:  189.317	 Y:   55.414	 End: X:  189.916	 Y:   54.007
+    Intersected line:                                            Start: X:  186.051	 Y:   53.151	 End: X:  183.465	 Y:   54.229
+    Compared line (p | q):                                       Start: X:  164.696	 Y:   35.736	 End: X:  275.173	 Y:  78.4392
+    Intersected line:                                            Start: X:  168.356	 Y:   37.407	 End: X:  168.631	 Y:   36.899
+    Intersected line:                                            Start: X:      169	 Y:   35.917	 End: X:  166.547	 Y:   38.146
+    Compared line (p | q):                                       Start: X:   178.54	 Y:   41.064	 End: X:  275.173	 Y:  78.4392
+    Intersected line:                                            Start: X:  182.946	 Y:   44.406	 End: X:  186.597	 Y:   43.497
+    Intersected line:                                            Start: X:   187.62	 Y:   41.064	 End: X:  181.334	 Y:   43.527
+    Compared line (p | q):                                       Start: X:  177.209	 Y:   49.554	 End: X:  275.173	 Y:  78.4392
+    Intersected line:                                            Start: X:  178.209	 Y:   49.756	 End: X:  178.262	 Y:   49.935
+    Intersected line:                                            Start: X:  182.053	 Y:   51.047	 End: X:  181.302	 Y:   49.895
+    Compared line (p | q):                                       Start: X:  138.262	 Y:   88.274	 End: X:  275.173	 Y:  78.4392
+    Compared line (p | q):                                       Start: X:  186.009	 Y:  101.683	 End: X:  275.173	 Y:  78.4392
+State --> Schleswig-Holstein
+  Trying State: Thueringen
+    Point out of bounding box of State: Thueringen
+------------------------------------------
+City: Schwerin
+Locate City: Schwerin	X:  357.852	 Y:  150.095
+  Trying State: Baden-Wuerttemberg
+    Point out of bounding box of State: Baden-Wuerttemberg
+  Trying State: Bayern
+    Point out of bounding box of State: Bayern
+  Trying State: Berlin
+    Point out of bounding box of State: Berlin
+  Trying State: Brandenburg
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  357.852	 Y:  150.095
+    Compared line (p | q):                                       Start: X:  459.825	 Y:  240.696	 End: X:  357.852	 Y:  150.095
+  Trying State: Bremen
+    Point out of bounding box of State: Bremen
+  Trying State: Hamburg
+    Point out of bounding box of State: Hamburg
+  Trying State: Hessen
+    Point out of bounding box of State: Hessen
+  Trying State: Mecklenburg-Vorpommern
+    Compared line (p | q):                                       Start: X:   302.89	 Y:   58.694	 End: X:  357.852	 Y:  150.095
+    Intersected line:                                            Start: X:  330.942	 Y:  108.604	 End: X:  333.121	 Y:  108.077
+    Compared line (p | q):                                       Start: X:  453.193	 Y:   34.735	 End: X:  357.852	 Y:  150.095
+    Compared line (p | q):                                       Start: X:  492.285	 Y:   86.084	 End: X:  357.852	 Y:  150.095
+    Compared line (p | q):                                       Start: X:  349.529	 Y:  106.501	 End: X:  357.852	 Y:  150.095
+    Compared line (p | q):                                       Start: X:  453.103	 Y:   55.054	 End: X:  357.852	 Y:  150.095
+    Compared line (p | q):                                       Start: X:  449.366	 Y:   45.662	 End: X:  357.852	 Y:  150.095
+    Compared line (p | q):                                       Start: X:  443.947	 Y:   59.176	 End: X:  357.852	 Y:  150.095
+State --> Mecklenburg-Vorpommern
+  Trying State: Niedersachsen
+    Compared line (p | q):                                       Start: X:   59.544	 Y:  120.329	 End: X:  357.852	 Y:  150.095
+    Intersected line:                                            Start: X:  174.861	 Y:  140.278	 End: X:  178.632	 Y:  128.924
+    Intersected line:                                            Start: X:  232.735	 Y:  137.346	 End: X:  233.595	 Y:  138.138
+    Compared line (p | q):                                       Start: X:  172.725	 Y:  186.736	 End: X:  357.852	 Y:  150.095
+    Compared line (p | q):                                       Start: X:   61.982	 Y:  144.596	 End: X:  357.852	 Y:  150.095
+    Intersected line:                                            Start: X:   63.605	 Y:  146.193	 End: X:   68.845	 Y:  144.608
+    Intersected line:                                            Start: X:   69.668	 Y:  144.671	 End: X:   70.329	 Y:  144.955
+    Compared line (p | q):                                       Start: X:   91.845	 Y:  135.017	 End: X:  357.852	 Y:  150.095
+    Intersected line:                                            Start: X:   95.067	 Y:  135.334	 End: X:   95.994	 Y:  135.091
+    Intersected line:                                            Start: X:  105.541	 Y:  135.344	 End: X:   105.72	 Y:  135.852
+    Compared line (p | q):                                       Start: X:  111.796	 Y:  132.173	 End: X:  357.852	 Y:  150.095
+    Intersected line:                                            Start: X:  113.806	 Y:  132.586	 End: X:   114.43	 Y:  132.268
+    Intersected line:                                            Start: X:  122.915	 Y:  132.859	 End: X:  123.043	 Y:  133.049
+    Compared line (p | q):                                       Start: X:  124.294	 Y:  130.163	 End: X:  357.852	 Y:  150.095
+    Intersected line:                                            Start: X:  126.735	 Y:  130.394	 End: X:  127.342	 Y:  130.204
+    Intersected line:                                            Start: X:   134.07	 Y:  130.848	 End: X:  134.462	 Y:   131.26
+    Compared line (p | q):                                       Start: X:    75.67	 Y:  138.618	 End: X:  357.852	 Y:  150.095
+    Intersected line:                                            Start: X:   79.178	 Y:  139.305	 End: X:   86.103	 Y:  138.618
+    Intersected line:                                            Start: X:    90.28	 Y:  139.112	 End: X:    90.27	 Y:  139.366
+    Compared line (p | q):                                       Start: X:  135.438	 Y:  129.156	 End: X:  357.852	 Y:  150.095
+    Intersected line:                                            Start: X:  136.873	 Y:  129.368	 End: X:  137.254	 Y:   129.21
+    Intersected line:                                            Start: X:   141.78	 Y:  129.675	 End: X:  142.399	 Y:  129.855
+    Compared line (p | q):                                       Start: X:  105.503	 Y:  134.212	 End: X:  357.852	 Y:  150.095
+    Intersected line:                                            Start: X:    106.6	 Y:  134.868	 End: X:   108.07	 Y:  134.265
+    Intersected line:                                            Start: X:  108.651	 Y:  134.212	 End: X:  110.734	 Y:  134.667
+    Compared line (p | q):                                       Start: X:  144.431	 Y:  130.745	 End: X:  357.852	 Y:  150.095
+    Intersected line:                                            Start: X:  145.442	 Y:   131.61	 End: X:  146.167	 Y:  130.745
+    Intersected line:                                            Start: X:  146.167	 Y:  130.745	 End: X:  146.526	 Y:  131.188
+  Trying State: Nordrhein-Westfalen
+    Point out of bounding box of State: Nordrhein-Westfalen
+  Trying State: Rheinland-Pfalz
+    Point out of bounding box of State: Rheinland-Pfalz
+  Trying State: Saarland
+    Point out of bounding box of State: Saarland
+  Trying State: Sachsen
+    Point out of bounding box of State: Sachsen
+  Trying State: Sachsen-Anhalt
+    Point out of bounding box of State: Sachsen-Anhalt
+  Trying State: Schleswig-Holstein
+    Point out of bounding box of State: Schleswig-Holstein
+  Trying State: Thueringen
+    Point out of bounding box of State: Thueringen
+------------------------------------------
+City: Potsdam
+Locate City: Potsdam	X:  458.763	 Y:  260.757
+  Trying State: Baden-Wuerttemberg
+    Point out of bounding box of State: Baden-Wuerttemberg
+  Trying State: Bayern
+    Point out of bounding box of State: Bayern
+  Trying State: Berlin
+    Point out of bounding box of State: Berlin
+  Trying State: Brandenburg
+    Compared line (p | q):                                       Start: X:  344.648	 Y:  149.207	 End: X:  458.763	 Y:  260.757
+    Intersected line:                                            Start: X:   378.95	 Y:  185.122	 End: X:  382.159	 Y:   184.89
+    Compared line (p | q):                                       Start: X:  459.825	 Y:  240.696	 End: X:  458.763	 Y:  260.757
+State --> Brandenburg
+  Trying State: Bremen
+    Point out of bounding box of State: Bremen
+  Trying State: Hamburg
+    Point out of bounding box of State: Hamburg
+  Trying State: Hessen
+    Point out of bounding box of State: Hessen
+  Trying State: Mecklenburg-Vorpommern
+    Point out of bounding box of State: Mecklenburg-Vorpommern
+  Trying State: Niedersachsen
+    Point out of bounding box of State: Niedersachsen
+  Trying State: Nordrhein-Westfalen
+    Point out of bounding box of State: Nordrhein-Westfalen
+  Trying State: Rheinland-Pfalz
+    Point out of bounding box of State: Rheinland-Pfalz
+  Trying State: Saarland
+    Point out of bounding box of State: Saarland
+  Trying State: Sachsen
+    Point out of bounding box of State: Sachsen
+  Trying State: Sachsen-Anhalt
+    Compared line (p | q):                                       Start: X:  301.718	 Y:  207.164	 End: X:  458.763	 Y:  260.757
+    Intersected line:                                            Start: X:  405.375	 Y:  241.567	 End: X:  406.563	 Y:  243.355
+    Intersected line:                                            Start: X:  348.816	 Y:  224.307	 End: X:   354.51	 Y:  221.527
+  Trying State: Schleswig-Holstein
+    Point out of bounding box of State: Schleswig-Holstein
+  Trying State: Thueringen
+    Point out of bounding box of State: Thueringen
+------------------------------------------
+------------------------------------------
+------------------------------------------
+---- States and its calculated Areas -----
+State: 	Baden-Wuerttemberg
+  Bounding Box:             Min: X:   94.851	 Y:  541.497  Max: X:  300.713	 Y:   770.81
+  Area:                 30522.3
+  Exact:                35751.7
+  Difference(%):      -14.6269
+City:  --> 	Stuttgart       X:      215	 Y:      648
+State: --> 	Baden-Wuerttemberg
+------------------------------------------
+State: 	Bayern
+  Bounding Box:             Min: X:   200.02	 Y:  463.246  Max: X:  527.364	 Y:  800.258
+  Area:                 60026.1
+  Exact:                70549.2
+  Difference(%):      -14.9159
+City:  --> 	Muenchen       X:  366.968	 Y:      700
+State: --> 	Bayern
+------------------------------------------
+State: 	Berlin
+  Bounding Box:             Min: X:  460.803	 Y:  240.679  Max: X:  501.897	 Y:  272.113
+  Area:                 766.233
+  Exact:                 891.75
+  Difference(%):      -14.0754
+City:  --> 	Berlin       X:      477	 Y:      256
+State: --> 	Berlin
+------------------------------------------
+State: 	Brandenburg
+  Bounding Box:             Min: X:  345.648	 Y:  149.207  Max: X:  570.941	 Y:   374.78
+  Area:                 25275.9
+  Exact:                29477.2
+  Difference(%):      -14.2525
+City:  --> 	Potsdam       X:  458.763	 Y:  260.757
+State: --> 	Brandenburg
+------------------------------------------
+State: 	Bremen
+  Bounding Box:             Min: X:  173.713	 Y:   149.34  Max: X:  204.515	 Y:  210.922
+  Area:                 340.931
+  Exact:                 404.23
+  Difference(%):      -15.6591
+City:  --> 	Bremen       X:  193.766	 Y:   200.55
+State: --> 	Bremen
+------------------------------------------
+State: 	Hamburg
+  Bounding Box:             Min: X:   250.76	 Y:  136.688  Max: X:   286.18	 Y:  172.063
+  Area:                 633.325
+  Exact:                 755.16
+  Difference(%):      -16.1336
+City:  --> 	Hamburg       X:  265.845	 Y:   156.03
+State: --> 	Hamburg
+------------------------------------------
+State: 	Hessen
+  Bounding Box:             Min: X:  120.308	 Y:  350.145  Max: X:  282.316	 Y:  581.665
+  Area:                 17977.5
+  Exact:                21114.7
+  Difference(%):      -14.8578
+City:  --> 	Wiesbaden       X:  148.823	 Y:  508.371
+State: --> 	Hessen
+------------------------------------------
+State: 	Mecklenburg-Vorpommern
+  Bounding Box:             Min: X:   303.89	 Y:   34.735  Max: X:  538.295	 Y:  199.904
+  Area:                 19658.8
+  Exact:                23174.2
+  Difference(%):      -15.1694
+City:  --> 	Schwerin       X:  357.852	 Y:  150.095
+State: --> 	Mecklenburg-Vorpommern
+------------------------------------------
+State: 	Niedersachsen
+  Bounding Box:             Min: X:   60.544	 Y:  120.329  Max: X:  366.113	 Y:  387.501
+  Area:                 40633.5
+  Exact:                47618.2
+  Difference(%):      -14.6683
+City:  --> 	Hannover       X:  253.549	 Y:  273.477
+State: --> 	Niedersachsen
+------------------------------------------
+State: 	Nordrhein-Westfalen
+  Bounding Box:             Min: X:    0.254	 Y:  259.852  Max: X:  231.536	 Y:  481.384
+  Area:                 28966.4
+  Exact:                34083.5
+  Difference(%):      -15.0135
+City:  --> 	Duesseldorf       X:  56.8154	 Y:  397.708
+State: --> 	Nordrhein-Westfalen
+------------------------------------------
+State: 	Rheinland-Pfalz
+  Bounding Box:             Min: X:   11.071	 Y:  421.405  Max: X:  167.465	 Y:  624.789
+  Area:                 16913.6
+  Exact:                19847.4
+  Difference(%):      -14.7818
+City:  --> 	Mainz       X:  148.399	 Y:  523.635
+State: --> 	Rheinland-Pfalz
+------------------------------------------
+State: 	Saarland
+  Bounding Box:             Min: X:   24.194	 Y:  553.172  Max: X:   93.351	 Y:  607.571
+  Area:                 2179.76
+  Exact:                2568.65
+  Difference(%):      -15.1397
+City:  --> 	Saarbruecken       X:       60	 Y:      589
+State: --> 	Saarland
+------------------------------------------
+State: 	Sachsen
+  Bounding Box:             Min: X:  389.565	 Y:  346.651  Max: X:  591.247	 Y:  500.279
+  Area:                 15667.9
+  Exact:                18413.9
+  Difference(%):      -14.9126
+City:  --> 	Dresden       X:  499.891	 Y:  405.764
+State: --> 	Sachsen
+------------------------------------------
+State: 	Sachsen-Anhalt
+  Bounding Box:             Min: X:  302.718	 Y:  207.164  Max: X:  470.115	 Y:  421.815
+  Area:                 17450.5
+  Exact:                20445.3
+  Difference(%):      -14.6475
+City:  --> 	Magdeburg       X:  370.996	 Y:  294.677
+State: --> 	Sachsen-Anhalt
+------------------------------------------
+State: 	Schleswig-Holstein
+  Bounding Box:             Min: X:  139.262	 Y:     0.25  Max: X:  345.952	 Y:  175.469
+  Area:                 13456.4
+  Exact:                15763.2
+  Difference(%):      -14.6337
+City:  --> 	Kiel       X:  275.173	 Y:  78.4392
+State: --> 	Schleswig-Holstein
+------------------------------------------
+State: 	Thueringen
+  Bounding Box:             Min: X:  259.291	 Y:  351.324  Max: X:  439.172	 Y:   498.94
+  Area:                 13724.6
+  Exact:                16172.1
+  Difference(%):      -15.1341
+City:  --> 	Erfurt       X:  335.381	 Y:  418.908
+State: --> 	Thueringen
+------------------------------------------
+------------------------------------------
+------------ All Cities --------------
+City:  --> 	Muenchen       X:  366.968	 Y:      700
+State: --> 	Bayern
+------------------------------------------
+City:  --> 	Berlin       X:      477	 Y:      256
+State: --> 	Berlin
+------------------------------------------
+City:  --> 	Stuttgart       X:      215	 Y:      648
+State: --> 	Baden-Wuerttemberg
+------------------------------------------
+City:  --> 	Saarbruecken       X:       60	 Y:      589
+State: --> 	Saarland
+------------------------------------------
+City:  --> 	Wiesbaden       X:  148.823	 Y:  508.371
+State: --> 	Hessen
+------------------------------------------
+City:  --> 	Mainz       X:  148.399	 Y:  523.635
+State: --> 	Rheinland-Pfalz
+------------------------------------------
+City:  --> 	Duesseldorf       X:  56.8154	 Y:  397.708
+State: --> 	Nordrhein-Westfalen
+------------------------------------------
+City:  --> 	Bremen       X:  193.766	 Y:   200.55
+State: --> 	Bremen
+------------------------------------------
+City:  --> 	Erfurt       X:  335.381	 Y:  418.908
+State: --> 	Thueringen
+------------------------------------------
+City:  --> 	Dresden       X:  499.891	 Y:  405.764
+State: --> 	Sachsen
+------------------------------------------
+City:  --> 	Magdeburg       X:  370.996	 Y:  294.677
+State: --> 	Sachsen-Anhalt
+------------------------------------------
+City:  --> 	Hannover       X:  253.549	 Y:  273.477
+State: --> 	Niedersachsen
+------------------------------------------
+City:  --> 	Hamburg       X:  265.845	 Y:   156.03
+State: --> 	Hamburg
+------------------------------------------
+City:  --> 	Kiel       X:  275.173	 Y:  78.4392
+State: --> 	Schleswig-Holstein
+------------------------------------------
+City:  --> 	Schwerin       X:  357.852	 Y:  150.095
+State: --> 	Mecklenburg-Vorpommern
+------------------------------------------
+City:  --> 	Potsdam       X:  458.763	 Y:  260.757
+State: --> 	Brandenburg
+------------------------------------------
+------------------------------------------

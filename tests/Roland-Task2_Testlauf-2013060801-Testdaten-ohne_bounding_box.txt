@@ -1,0 +1,157 @@
+Start loading file data/Test.svg
+Parsing new State ParallelOhneQuadrat
+Parsing new State Rechteck
+Parsing new State Dreieck
+Parsing new City PunktInQuadrat
+Parsing new City PunktInParallel
+Parsing new City PunktInRechteck
+Parsing new City PunktInDreieck
+Parsing new City PunktAussen
+------------------------------------------
+------- Start Calculating Areas: ---------
+Area: Dreieck
+Calculating bounding box: Dreieck
+Handle State: Dreieck
+One huge area:
+Calculating area: Dreieck -->  + 10.5 = 10.5
+------------------------------------------
+Area: ParallelOhneQuadrat
+Calculating bounding box: ParallelOhneQuadrat
+Handle State: ParallelOhneQuadrat
+    Compared line (p | q):                                       Start: X:        0	 Y:        1	 End: X:        4	 Y:        3
+    Intersected line:                                            Start: X:        1	 Y:        1	 End: X:        4	 Y:        8
+    Compared line (p | q):                                       Start: X:        0	 Y:        1	 End: X:        8	 Y:        3
+    Intersected line:                                            Start: X:        1	 Y:        1	 End: X:        4	 Y:        8
+    Compared line (p | q):                                       Start: X:        0	 Y:        1	 End: X:        8	 Y:        6
+    Intersected line:                                            Start: X:        1	 Y:        1	 End: X:        4	 Y:        8
+    Compared line (p | q):                                       Start: X:        0	 Y:        1	 End: X:        4	 Y:        6
+    Intersected line:                                            Start: X:        1	 Y:        1	 End: X:        4	 Y:        8
+Area within ParallelOhneQuadrat
+    Compared line (p | q):                                       Start: X:        0	 Y:        1	 End: X:        6	 Y:        8
+    Intersected line:                                            Start: X:        1	 Y:        1	 End: X:        4	 Y:        8
+    Intersected line:                                            Start: X:        4	 Y:        8	 End: X:       11	 Y:        8
+Calculating area: ParallelOhneQuadrat -->  + 49 - 12 + 2 = 39
+------------------------------------------
+Area: Rechteck
+Calculating bounding box: Rechteck
+Handle State: Rechteck
+One huge area:
+Calculating area: Rechteck -->  + 1.5 = 1.5
+------------------------------------------
+------------------------------------------
+------------------------------------------
+------- Start Locating Cities ------------
+City: PunktInQuadrat
+Locate City: PunktInQuadrat	X:        5	 Y:        5
+  Trying State: Dreieck
+    Compared line (p | q):                                       Start: X:        7	 Y:        1	 End: X:        5	 Y:        5
+  Trying State: ParallelOhneQuadrat
+    Compared line (p | q):                                       Start: X:        0	 Y:        1	 End: X:        5	 Y:        5
+    Intersected line:                                            Start: X:        1	 Y:        1	 End: X:        4	 Y:        8
+    Compared line (p | q):                                       Start: X:        3	 Y:        3	 End: X:        5	 Y:        5
+    Intersected line:                                            Start: X:        4	 Y:        6	 End: X:        4	 Y:        3
+    Compared line (p | q):                                       Start: X:        5	 Y:        8	 End: X:        5	 Y:        5
+  Trying State: Rechteck
+    Compared line (p | q):                                       Start: X:        3	 Y:        8	 End: X:        5	 Y:        5
+------------------------------------------
+City: PunktInParallel
+Locate City: PunktInParallel	X:        3	 Y:        4
+  Trying State: Dreieck
+    Compared line (p | q):                                       Start: X:        7	 Y:        1	 End: X:        3	 Y:        4
+  Trying State: ParallelOhneQuadrat
+    Compared line (p | q):                                       Start: X:        0	 Y:        1	 End: X:        3	 Y:        4
+    Intersected line:                                            Start: X:        1	 Y:        1	 End: X:        4	 Y:        8
+    Compared line (p | q):                                       Start: X:        3	 Y:        3	 End: X:        3	 Y:        4
+    Compared line (p | q):                                       Start: X:        5	 Y:        8	 End: X:        3	 Y:        4
+State --> ParallelOhneQuadrat
+  Trying State: Rechteck
+    Compared line (p | q):                                       Start: X:        3	 Y:        8	 End: X:        3	 Y:        4
+------------------------------------------
+City: PunktInRechteck
+Locate City: PunktInRechteck	X:        5	 Y:      8.5
+  Trying State: Dreieck
+    Compared line (p | q):                                       Start: X:        7	 Y:        1	 End: X:        5	 Y:      8.5
+  Trying State: ParallelOhneQuadrat
+    Compared line (p | q):                                       Start: X:        0	 Y:        1	 End: X:        5	 Y:      8.5
+    Intersected line:                                            Start: X:        1	 Y:        1	 End: X:        4	 Y:        8
+    Intersected line:                                            Start: X:        4	 Y:        8	 End: X:       11	 Y:        8
+    Compared line (p | q):                                       Start: X:        3	 Y:        3	 End: X:        5	 Y:      8.5
+    Intersected line:                                            Start: X:        8	 Y:        6	 End: X:        4	 Y:        6
+    Intersected line:                                            Start: X:        4	 Y:        6	 End: X:        4	 Y:        3
+    Compared line (p | q):                                       Start: X:        5	 Y:        8	 End: X:        5	 Y:      8.5
+  Trying State: Rechteck
+    Compared line (p | q):                                       Start: X:        3	 Y:        8	 End: X:        5	 Y:      8.5
+    Intersected line:                                            Start: X:        4	 Y:        8	 End: X:        4	 Y:        9
+State --> Rechteck
+------------------------------------------
+City: PunktInDreieck
+Locate City: PunktInDreieck	X:       10	 Y:      1.5
+  Trying State: Dreieck
+    Compared line (p | q):                                       Start: X:        7	 Y:        1	 End: X:       10	 Y:      1.5
+    Intersected line:                                            Start: X:        8	 Y:        1	 End: X:       11	 Y:        8
+State --> Dreieck
+  Trying State: ParallelOhneQuadrat
+    Compared line (p | q):                                       Start: X:        0	 Y:        1	 End: X:       10	 Y:      1.5
+    Intersected line:                                            Start: X:        1	 Y:        1	 End: X:        4	 Y:        8
+    Intersected line:                                            Start: X:       11	 Y:        8	 End: X:        8	 Y:        1
+    Compared line (p | q):                                       Start: X:        3	 Y:        3	 End: X:       10	 Y:      1.5
+    Compared line (p | q):                                       Start: X:        5	 Y:        8	 End: X:       10	 Y:      1.5
+  Trying State: Rechteck
+    Compared line (p | q):                                       Start: X:        3	 Y:        8	 End: X:       10	 Y:      1.5
+------------------------------------------
+City: PunktAussen
+Locate City: PunktAussen	X:        1	 Y:      8.5
+  Trying State: Dreieck
+    Compared line (p | q):                                       Start: X:        7	 Y:        1	 End: X:        1	 Y:      8.5
+  Trying State: ParallelOhneQuadrat
+    Compared line (p | q):                                       Start: X:        0	 Y:        1	 End: X:        1	 Y:      8.5
+    Compared line (p | q):                                       Start: X:        3	 Y:        3	 End: X:        1	 Y:      8.5
+    Compared line (p | q):                                       Start: X:        5	 Y:        8	 End: X:        1	 Y:      8.5
+  Trying State: Rechteck
+    Compared line (p | q):                                       Start: X:        3	 Y:        8	 End: X:        1	 Y:      8.5
+------------------------------------------
+------------------------------------------
+------------------------------------------
+---- States and its calculated Areas -----
+State: 	Dreieck
+  Bounding Box:             Min: X:        8	 Y:        1  Max: X:       11	 Y:        8
+  Area:                    10.5
+  Exact:                   10.5
+  Difference(%):             0
+City:  --> 	PunktInDreieck       X:       10	 Y:      1.5
+State: --> 	Dreieck
+------------------------------------------
+State: 	ParallelOhneQuadrat
+  Bounding Box:             Min: X:        1	 Y:        1  Max: X:       11	 Y:        9
+  Area:                      39
+  Exact:                     39
+  Difference(%):             0
+City:  --> 	PunktInParallel       X:        3	 Y:        4
+State: --> 	ParallelOhneQuadrat
+------------------------------------------
+State: 	Rechteck
+  Bounding Box:             Min: X:        4	 Y:        8  Max: X:      5.5	 Y:        9
+  Area:                     1.5
+  Exact:                    1.5
+  Difference(%):             0
+City:  --> 	PunktInRechteck       X:        5	 Y:      8.5
+State: --> 	Rechteck
+------------------------------------------
+------------------------------------------
+------------ All Cities --------------
+City:  --> 	PunktInQuadrat       X:        5	 Y:        5
+State: --> 	Unknown
+------------------------------------------
+City:  --> 	PunktInParallel       X:        3	 Y:        4
+State: --> 	ParallelOhneQuadrat
+------------------------------------------
+City:  --> 	PunktInRechteck       X:        5	 Y:      8.5
+State: --> 	Rechteck
+------------------------------------------
+City:  --> 	PunktInDreieck       X:       10	 Y:      1.5
+State: --> 	Dreieck
+------------------------------------------
+City:  --> 	PunktAussen       X:        1	 Y:      8.5
+State: --> 	Unknown
+------------------------------------------
+------------------------------------------

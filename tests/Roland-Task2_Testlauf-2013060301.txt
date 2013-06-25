@@ -1,0 +1,254 @@
+Ohne die Erkennung, ob ein Bundesland in einem anderen liegt.
+
+
+Start loading file data/Test.svg
+------------------------------------------
+------ Bounding boxes of the states: -----
+State:              Dreieck  Min: X: 8	 Y: 1  Max: X: 11	 Y: 8  Area: 21
+State:             Parallel  Min: X: 1	 Y: 1  Max: X: 11	 Y: 9  Area: 80
+State:  ParallelOhneQuadrat  Min: X: 51	 Y: 1  Max: X: 61	 Y: 9  Area: 80
+State:    QuadratInParallel  Min: X: 4	 Y: 3  Max: X: 8	 Y: 6  Area: 12
+State:             Rechteck  Min: X: 4	 Y: 8  Max: X: 5.5	 Y: 9  Area: 1.5
+------------------------------------------
+------------------------------------------
+------- Start calculating areas: ---------
+Start calculating area: Dreieck
+Start calculating area: Parallel
+Start calculating area: ParallelOhneQuadrat
+Start calculating area: QuadratInParallel
+Start calculating area: Rechteck
+------------------------------------------
+------------------------------------------
+---- States and its calculated Areas -----
+State:                   Dreieck:       10.5	exact:       10.5	Difference(%):          0
+State:                  Parallel:         51	exact:         39	Difference(%):    30.7692
+State:       ParallelOhneQuadrat:         39	exact:         39	Difference(%):          0
+State:         QuadratInParallel:         12	exact:         12	Difference(%):          0
+State:                  Rechteck:        1.5	exact:        1.5	Difference(%):          0
+------------------------------------------
+------------------------------------------
+------- Cities and its States ------------
+City: PunktInParallel	X:          3	Y:          4
+Compared line (p | q):                     Start: X: 0	 Y: 1	 End: X: 3	 Y: 4
+Intersected line of: Parallel        Start: X: 1	 Y: 1	 End: X: 4	 Y: 8
+State: Parallel
+------------------------------------------
+City: PunktInParallelOhneQuadrat	X:         53	Y:          4
+Compared line (p | q):                     Start: X: 50	 Y: 1	 End: X: 53	 Y: 4
+Intersected line of: ParallelOhneQuadrat        Start: X: 51	 Y: 1	 End: X: 54	 Y: 8
+State: ParallelOhneQuadrat
+------------------------------------------
+City: PunktInParallelOhneQuadratInQuadrat	X:         55	Y:          5
+Compared line (p | q):                     Start: X: 50	 Y: 1	 End: X: 55	 Y: 5
+Intersected line of: ParallelOhneQuadrat        Start: X: 51	 Y: 1	 End: X: 54	 Y: 8
+Intersected line of: ParallelOhneQuadrat        Start: X: 54	 Y: 6	 End: X: 54	 Y: 3
+------------------------------------------
+City:  PunktInQuadrat	X:          5	Y:          5
+Compared line (p | q):                     Start: X: 0	 Y: 1	 End: X: 5	 Y: 5
+Intersected line of: Parallel        Start: X: 1	 Y: 1	 End: X: 4	 Y: 8
+State: Parallel
+Compared line (p | q):                     Start: X: 3	 Y: 3	 End: X: 5	 Y: 5
+Intersected line of: QuadratInParallel        Start: X: 4	 Y: 3	 End: X: 4	 Y: 6
+State: QuadratInParallel
+------------------------------------------
+------------------------------------------
+Start loading file data/DeutschlandMitStaedten.svg
+------------------------------------------
+------ Bounding boxes of the states: -----
+State:   Baden-Wuerttemberg  Min: X: 94.851	 Y: 541.497  Max: X: 300.713	 Y: 770.81  Area: 47206.8
+State:               Bayern  Min: X: 200.02	 Y: 463.246  Max: X: 527.364	 Y: 800.258  Area: 110319
+State:               Berlin  Min: X: 460.803	 Y: 240.679  Max: X: 501.897	 Y: 272.113  Area: 1291.75
+State:          Brandenburg  Min: X: 345.648	 Y: 149.207  Max: X: 570.941	 Y: 374.78  Area: 50820
+State:               Bremen  Min: X: 173.713	 Y: 149.34  Max: X: 204.515	 Y: 210.922  Area: 1896.85
+State:              Hamburg  Min: X: 250.76	 Y: 136.688  Max: X: 286.18	 Y: 172.063  Area: 1252.98
+State:               Hessen  Min: X: 120.308	 Y: 350.145  Max: X: 282.316	 Y: 581.665  Area: 37508.1
+State: Mecklenburg-Vorpommern  Min: X: 303.89	 Y: 34.735  Max: X: 538.295	 Y: 199.904  Area: 38716.4
+State:        Niedersachsen  Min: X: 60.544	 Y: 120.329  Max: X: 366.113	 Y: 387.501  Area: 81639.5
+State:  Nordrhein-Westfalen  Min: X: 0.254	 Y: 259.852  Max: X: 231.536	 Y: 481.384  Area: 51236.4
+State:      Rheinland-Pfalz  Min: X: 11.071	 Y: 421.405  Max: X: 167.465	 Y: 624.789  Area: 31808
+State:             Saarland  Min: X: 24.194	 Y: 553.172  Max: X: 93.351	 Y: 607.571  Area: 3762.07
+State:              Sachsen  Min: X: 389.565	 Y: 346.651  Max: X: 591.247	 Y: 500.279  Area: 30984
+State:       Sachsen-Anhalt  Min: X: 302.718	 Y: 207.164  Max: X: 470.115	 Y: 421.815  Area: 35931.9
+State:   Schleswig-Holstein  Min: X: 139.262	 Y: 0.25  Max: X: 345.952	 Y: 175.469  Area: 36216
+State:           Thueringen  Min: X: 259.291	 Y: 351.324  Max: X: 439.172	 Y: 498.94  Area: 26553.3
+------------------------------------------
+------------------------------------------
+------- Start calculating areas: ---------
+Start calculating area: Baden-Wuerttemberg
+Start calculating area: Bayern
+Start calculating area: Berlin
+Start calculating area: Brandenburg
+Start calculating area: Bremen
+Start calculating area: Hamburg
+Start calculating area: Hessen
+Start calculating area: Mecklenburg-Vorpommern
+Start calculating area: Niedersachsen
+Start calculating area: Nordrhein-Westfalen
+Start calculating area: Rheinland-Pfalz
+Start calculating area: Saarland
+Start calculating area: Sachsen
+Start calculating area: Sachsen-Anhalt
+Start calculating area: Schleswig-Holstein
+Start calculating area: Thueringen
+------------------------------------------
+------------------------------------------
+---- States and its calculated Areas -----
+State:        Baden-Wuerttemberg:    30506.1	exact:    35751.7	Difference(%):   -14.6723
+State:                    Bayern:    60026.1	exact:    70549.2	Difference(%):   -14.9159
+State:                    Berlin:    766.233	exact:     891.75	Difference(%):   -14.0754
+State:               Brandenburg:    25275.9	exact:    29477.2	Difference(%):   -14.2525
+State:                    Bremen:    193.219	exact:     404.23	Difference(%):   -52.2007
+State:                   Hamburg:    633.325	exact:     755.16	Difference(%):   -16.1336
+State:                    Hessen:    17977.5	exact:    21114.7	Difference(%):   -14.8578
+State:    Mecklenburg-Vorpommern:    17159.6	exact:    23174.2	Difference(%):   -25.9536
+State:             Niedersachsen:    40633.5	exact:    47618.2	Difference(%):   -14.6683
+State:       Nordrhein-Westfalen:    28966.4	exact:    34083.5	Difference(%):   -15.0135
+State:           Rheinland-Pfalz:    16913.6	exact:    19847.4	Difference(%):   -14.7818
+State:                  Saarland:    2179.76	exact:    2568.65	Difference(%):   -15.1397
+State:                   Sachsen:    15667.9	exact:    18413.9	Difference(%):   -14.9126
+State:            Sachsen-Anhalt:    17450.5	exact:    20445.3	Difference(%):   -14.6475
+State:        Schleswig-Holstein:    12563.1	exact:    15763.2	Difference(%):   -20.3011
+State:                Thueringen:    13724.6	exact:    16172.1	Difference(%):   -15.1341
+------------------------------------------
+------------------------------------------
+------- Cities and its States ------------
+City:          Berlin	X:        477	Y:        256
+Compared line (p | q):                     Start: X: 459.803	 Y: 240.679	 End: X: 477	 Y: 256
+Intersected line of: Berlin        Start: X: 467.135	 Y: 248.509	 End: X: 468.261	 Y: 246.278
+State: Berlin
+Compared line (p | q):                     Start: X: 344.648	 Y: 149.207	 End: X: 477	 Y: 256
+Intersected line of: Brandenburg        Start: X: 382.159	 Y: 184.89	 End: X: 387.17	 Y: 183.061
+Intersected line of: Brandenburg        Start: X: 468.28	 Y: 246.294	 End: X: 467.154	 Y: 248.523
+------------------------------------------
+City:          Bremen	X:    193.766	Y:     200.55
+Compared line (p | q):                     Start: X: 172.713	 Y: 149.34	 End: X: 193.766	 Y: 200.55
+Intersected line of: Bremen        Start: X: 192.24	 Y: 195.151	 End: X: 188.011	 Y: 193.08
+State: Bremen
+Compared line (p | q):                     Start: X: 59.544	 Y: 120.329	 End: X: 193.766	 Y: 200.55
+Intersected line of: Niedersachsen        Start: X: 95.406	 Y: 143.609	 End: X: 98.123	 Y: 141.631
+Intersected line of: Niedersachsen        Start: X: 173.725	 Y: 187.465	 End: X: 173.948	 Y: 188.777
+------------------------------------------
+City:         Dresden	X:    499.891	Y:    405.764
+Compared line (p | q):                     Start: X: 388.565	 Y: 346.651	 End: X: 499.891	 Y: 405.764
+Intersected line of: Sachsen        Start: X: 407.816	 Y: 361.148	 End: X: 411.278	 Y: 358.06
+State: Sachsen
+------------------------------------------
+City:     Duesseldorf	X:    56.8154	Y:    397.708
+Compared line (p | q):                     Start: X: -0.746	 Y: 259.852	 End: X: 56.8154	 Y: 397.708
+Intersected line of: Nordrhein-Westfalen        Start: X: 23.939	 Y: 323.01	 End: X: 25.889	 Y: 321.73
+State: Nordrhein-Westfalen
+------------------------------------------
+City:          Erfurt	X:    335.381	Y:    418.908
+Compared line (p | q):                     Start: X: 301.718	 Y: 207.164	 End: X: 335.381	 Y: 418.908
+Intersected line of: Sachsen-Anhalt        Start: X: 326.846	 Y: 364.059	 End: X: 324.757	 Y: 360.801
+Intersected line of: Sachsen-Anhalt        Start: X: 324.022	 Y: 356.309	 End: X: 325.688	 Y: 354.067
+Intersected line of: Sachsen-Anhalt        Start: X: 325.688	 Y: 354.067	 End: X: 324.423	 Y: 354.606
+Intersected line of: Sachsen-Anhalt        Start: X: 317.917	 Y: 309.965	 End: X: 319.74	 Y: 309.911
+Compared line (p | q):                     Start: X: 258.291	 Y: 351.324	 End: X: 335.381	 Y: 418.908
+Intersected line of: Thueringen        Start: X: 278.382	 Y: 371.806	 End: X: 286.402	 Y: 366.369
+State: Thueringen
+------------------------------------------
+City:         Hamburg	X:    265.845	Y:     156.03
+Compared line (p | q):                     Start: X: 249.76	 Y: 136.688	 End: X: 265.845	 Y: 156.03
+Intersected line of: Hamburg        Start: X: 257.305	 Y: 152.24	 End: X: 260.831	 Y: 147.82
+State: Hamburg
+Compared line (p | q):                     Start: X: 59.544	 Y: 120.329	 End: X: 265.845	 Y: 156.03
+Intersected line of: Niedersachsen        Start: X: 174.798	 Y: 140.934	 End: X: 174.861	 Y: 140.278
+Intersected line of: Niedersachsen        Start: X: 242.103	 Y: 151.101	 End: X: 247.463	 Y: 154.6
+Intersected line of: Niedersachsen        Start: X: 125.305	 Y: 132.16	 End: X: 125.578	 Y: 131.598
+Intersected line of: Niedersachsen        Start: X: 127.093	 Y: 131.905	 End: X: 126.208	 Y: 133.153
+Compared line (p | q):                     Start: X: 138.262	 Y: 0.25	 End: X: 265.845	 Y: 156.03
+Intersected line of: Schleswig-Holstein        Start: X: 260.807	 Y: 147.769	 End: X: 257.281	 Y: 152.189
+Intersected line of: Schleswig-Holstein        Start: X: 189.259	 Y: 68.349	 End: X: 195.889	 Y: 67.198
+Intersected line of: Schleswig-Holstein        Start: X: 168.356	 Y: 37.407	 End: X: 168.631	 Y: 36.899
+Intersected line of: Schleswig-Holstein        Start: X: 169	 Y: 35.917	 End: X: 166.547	 Y: 38.146
+Intersected line of: Schleswig-Holstein        Start: X: 178.674	 Y: 49.554	 End: X: 178.41	 Y: 49.586
+Intersected line of: Schleswig-Holstein        Start: X: 180.292	 Y: 51.648	 End: X: 180.577	 Y: 51.838
+Intersected line of: Schleswig-Holstein        Start: X: 185.728	 Y: 58.859	 End: X: 186.749	 Y: 58.648
+Intersected line of: Schleswig-Holstein        Start: X: 182.883	 Y: 54.692	 End: X: 182.831	 Y: 54.958
+------------------------------------------
+City:        Hannover	X:    253.549	Y:    273.477
+Compared line (p | q):                     Start: X: 59.544	 Y: 120.329	 End: X: 253.549	 Y: 273.477
+Intersected line of: Niedersachsen        Start: X: 89.605	 Y: 149.572	 End: X: 94.194	 Y: 144.814
+Intersected line of: Niedersachsen        Start: X: 79.178	 Y: 139.305	 End: X: 86.103	 Y: 138.618
+Intersected line of: Niedersachsen        Start: X: 87.09	 Y: 139.304	 End: X: 83.553	 Y: 139.431
+State: Niedersachsen
+------------------------------------------
+City:            Kiel	X:    275.173	Y:    78.4392
+Compared line (p | q):                     Start: X: 138.262	 Y: 0.25	 End: X: 275.173	 Y: 78.4392
+Intersected line of: Schleswig-Holstein        Start: X: 190.825	 Y: 33.442	 End: X: 190.05	 Y: 29.659
+Intersected line of: Schleswig-Holstein        Start: X: 166.273	 Y: 15.722	 End: X: 165.976	 Y: 17.138
+Intersected line of: Schleswig-Holstein        Start: X: 173.181	 Y: 21.853	 End: X: 175.921	 Y: 20.457
+State: Schleswig-Holstein
+------------------------------------------
+City:       Magdeburg	X:    370.996	Y:    294.677
+Compared line (p | q):                     Start: X: 344.648	 Y: 149.207	 End: X: 370.996	 Y: 294.677
+Intersected line of: Brandenburg        Start: X: 356.315	 Y: 203.599	 End: X: 354.281	 Y: 204.169
+Intersected line of: Brandenburg        Start: X: 351.268	 Y: 199.835	 End: X: 354.027	 Y: 197.656
+Compared line (p | q):                     Start: X: 301.718	 Y: 207.164	 End: X: 370.996	 Y: 294.677
+Intersected line of: Sachsen-Anhalt        Start: X: 316.869	 Y: 227.945	 End: X: 319.545	 Y: 227.395
+State: Sachsen-Anhalt
+------------------------------------------
+City:           Mainz	X:    148.399	Y:    523.635
+Compared line (p | q):                     Start: X: 119.308	 Y: 350.145	 End: X: 148.399	 Y: 523.635
+Intersected line of: Hessen        Start: X: 147.722	 Y: 515.149	 End: X: 146.807	 Y: 515.212
+Intersected line of: Hessen        Start: X: 141.87	 Y: 491.398	 End: X: 143.868	 Y: 490.248
+Intersected line of: Hessen        Start: X: 142.766	 Y: 485.11	 End: X: 140.112	 Y: 480.256
+Intersected line of: Hessen        Start: X: 136.085	 Y: 464.916	 End: X: 138.474	 Y: 462.07
+Compared line (p | q):                     Start: X: 10.071	 Y: 421.405	 End: X: 148.399	 Y: 523.635
+Intersected line of: Rheinland-Pfalz        Start: X: 127.417	 Y: 506.322	 End: X: 123.257	 Y: 509.79
+Intersected line of: Rheinland-Pfalz        Start: X: 140.155	 Y: 517.877	 End: X: 144.298	 Y: 515.995
+Intersected line of: Rheinland-Pfalz        Start: X: 64.574	 Y: 467.812	 End: X: 66.444	 Y: 460.061
+State: Rheinland-Pfalz
+------------------------------------------
+City:        Muenchen	X:    366.968	Y:        700
+Compared line (p | q):                     Start: X: 199.02	 Y: 463.246	 End: X: 366.968	 Y: 700
+Intersected line of: Bayern        Start: X: 274.308	 Y: 569.875	 End: X: 273.498	 Y: 568.088
+Intersected line of: Bayern        Start: X: 272.832	 Y: 566.977	 End: X: 271.706	 Y: 566.766
+Intersected line of: Bayern        Start: X: 230.037	 Y: 511.312	 End: X: 235.144	 Y: 510.392
+State: Bayern
+------------------------------------------
+City:         Potsdam	X:    458.763	Y:    260.757
+Compared line (p | q):                     Start: X: 344.648	 Y: 149.207	 End: X: 458.763	 Y: 260.757
+Intersected line of: Brandenburg        Start: X: 378.95	 Y: 185.122	 End: X: 382.159	 Y: 184.89
+State: Brandenburg
+Compared line (p | q):                     Start: X: 301.718	 Y: 207.164	 End: X: 458.763	 Y: 260.757
+Intersected line of: Sachsen-Anhalt        Start: X: 405.375	 Y: 241.567	 End: X: 406.563	 Y: 243.355
+Intersected line of: Sachsen-Anhalt        Start: X: 348.816	 Y: 224.307	 End: X: 354.51	 Y: 221.527
+------------------------------------------
+City:    Saarbruecken	X:         60	Y:        589
+Compared line (p | q):                     Start: X: 10.071	 Y: 421.405	 End: X: 60	 Y: 589
+Intersected line of: Rheinland-Pfalz        Start: X: 52.336	 Y: 559.587	 End: X: 50.994	 Y: 560.359
+Intersected line of: Rheinland-Pfalz        Start: X: 26.291	 Y: 480.875	 End: X: 28.488	 Y: 482
+Compared line (p | q):                     Start: X: 23.194	 Y: 553.172	 End: X: 60	 Y: 589
+Intersected line of: Saarland        Start: X: 26.339	 Y: 560.548	 End: X: 33.381	 Y: 562.745
+State: Saarland
+------------------------------------------
+City:        Schwerin	X:    357.852	Y:    150.095
+Compared line (p | q):                     Start: X: 344.648	 Y: 149.207	 End: X: 357.852	 Y: 150.095
+Compared line (p | q):                     Start: X: 302.89	 Y: 34.735	 End: X: 357.852	 Y: 150.095
+Intersected line of: Mecklenburg-Vorpommern        Start: X: 333.776	 Y: 108.023	 End: X: 338.714	 Y: 107.791
+State: Mecklenburg-Vorpommern
+Compared line (p | q):                     Start: X: 59.544	 Y: 120.329	 End: X: 357.852	 Y: 150.095
+Intersected line of: Niedersachsen        Start: X: 174.861	 Y: 140.278	 End: X: 178.632	 Y: 128.924
+Intersected line of: Niedersachsen        Start: X: 232.735	 Y: 137.346	 End: X: 233.595	 Y: 138.138
+------------------------------------------
+City:       Stuttgart	X:        215	Y:        648
+Compared line (p | q):                     Start: X: 93.851	 Y: 541.497	 End: X: 215	 Y: 648
+Intersected line of: Baden-Wuerttemberg        Start: X: 158.795	 Y: 599.013	 End: X: 158.848	 Y: 598.305
+State: Baden-Wuerttemberg
+Compared line (p | q):                     Start: X: 199.02	 Y: 463.246	 End: X: 215	 Y: 648
+Intersected line of: Bayern        Start: X: 208.36	 Y: 563.499	 End: X: 207.389	 Y: 563.115
+Intersected line of: Bayern        Start: X: 206.495	 Y: 561.478	 End: X: 207.312	 Y: 554.509
+Intersected line of: Bayern        Start: X: 208.029	 Y: 540.531	 End: X: 203.674	 Y: 536.175
+Intersected line of: Bayern        Start: X: 202.515	 Y: 508.309	 End: X: 215.986	 Y: 504.606
+------------------------------------------
+City:       Wiesbaden	X:    148.823	Y:    508.371
+Compared line (p | q):                     Start: X: 119.308	 Y: 350.145	 End: X: 148.823	 Y: 508.371
+Intersected line of: Hessen        Start: X: 139.761	 Y: 461.794	 End: X: 140.971	 Y: 462.279
+State: Hessen
+Compared line (p | q):                     Start: X: 10.071	 Y: 421.405	 End: X: 148.823	 Y: 508.371
+Intersected line of: Rheinland-Pfalz        Start: X: 134.796	 Y: 495.084	 End: X: 130.456	 Y: 496.967
+Intersected line of: Rheinland-Pfalz        Start: X: 69.552	 Y: 459.098	 End: X: 71.266	 Y: 458.264
+------------------------------------------
+------------------------------------------

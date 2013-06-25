@@ -1,0 +1,39 @@
+
+
+
+Start loading file data/DeutschlandMitStaedten.svg
+Start calculating areas: 
+Start calculating area: Baden-Wuerttemberg
+Calculated area for Baden-Wuerttemberg is 49740.9
+Start calculating area: Bayern
+Calculated area for Bayern is 60026.1
+Start calculating area: Berlin
+Calculated area for Berlin is 766.233
+Start calculating area: Brandenburg
+Calculated area for Brandenburg is 37502.3
+Start calculating area: Bremen
+Calculated area for Bremen is 4811.53
+Start calculating area: Hamburg
+Calculated area for Hamburg is 633.325
+Start calculating area: Hessen
+Calculated area for Hessen is 17977.5
+Start calculating area: Mecklenburg-Vorpommern
+Calculated area for Mecklenburg-Vorpommern is 17521.5
+Start calculating area: Niedersachsen
+Calculated area for Niedersachsen is 56388.7
+Start calculating area: Nordrhein-Westfalen
+Calculated area for Nordrhein-Westfalen is 28966.4
+Start calculating area: Quadrat
+Calculated area for Quadrat is 9
+Start calculating area: Rheinland-Pfalz
+Calculated area for Rheinland-Pfalz is 16913.6
+Start calculating area: Saarland
+Calculated area for Saarland is 2179.76
+Start calculating area: Sachsen
+Calculated area for Sachsen is 15667.9
+Start calculating area: Sachsen-Anhalt
+Calculated area for Sachsen-Anhalt is 17450.5
+Start calculating area: Schleswig-Holstein
+Calculated area for Schleswig-Holstein is 29374
+Start calculating area: Thueringen
+Calculated area for Thueringen is 13724.6

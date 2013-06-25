@@ -1,0 +1,47 @@
+Run in Debug-Mode -O0
+
+
+Start loading file data/Strecken_test.dat
+Start calculating file data/Strecken_test.dat
+Max. lines to compare: 276
+-------------------------------------
+File name: data/Strecken_test.dat
+Valid lines: 24
+Invalid lines: 0
+Compared lines: 276
+Intersected lines: 13
+DeltaT: 0 seconds
+-------------------------------------
+Start loading file data/Strecken_1000.dat
+Start calculating file data/Strecken_1000.dat
+Max. lines to compare: 499500
+-------------------------------------
+File name: data/Strecken_1000.dat
+Valid lines: 1000
+Invalid lines: 0
+Compared lines: 499500
+Intersected lines: 111915
+DeltaT: 0.399 seconds
+-------------------------------------
+Start loading file data/Strecken_10000.dat
+Start calculating file data/Strecken_10000.dat
+Max. lines to compare: 49995000
+-------------------------------------
+File name: data/Strecken_10000.dat
+Valid lines: 10000
+Invalid lines: 0
+Compared lines: 49995000
+Intersected lines: 11695678
+DeltaT: 38.452 seconds
+-------------------------------------
+Start loading file data/Strecken_100000.dat
+Start calculating file data/Strecken_100000.dat
+Max. lines to compare: 4999950000
+-------------------------------------
+File name: data/Strecken_100000.dat
+Valid lines: 100000
+Invalid lines: 0
+Compared lines: 4999950000
+Intersected lines: 1155477334
+DeltaT: 5047.24 seconds
+-------------------------------------

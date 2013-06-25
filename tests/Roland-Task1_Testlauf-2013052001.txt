@@ -1,0 +1,45 @@
+Run in Release-Mode -O3
+RAM 6504 K
+
+Start loading file data/Strecken_1000.dat
+Start calculating file data/Strecken_1000.dat
+Max. lines to compare: 499500
+Iterations: 10
+-------------------------------------
+File name: data/Strecken_1000.dat
+Valid lines: 1000
+Invalid lines: 0
+Compared lines: 499500
+Intersected lines: 111915
+Average time: 0.0383 seconds
+Min. time: 0.035 seconds
+Max. time: 0.046 seconds
+-------------------------------------
+-------------------------------------
+Start loading file data/Strecken_10000.dat
+Start calculating file data/Strecken_10000.dat
+Max. lines to compare: 49995000
+Iterations: 10
+-------------------------------------
+File name: data/Strecken_10000.dat
+Valid lines: 10000
+Invalid lines: 0
+Compared lines: 49995000
+Intersected lines: 11695676
+Average time: 5.2404 seconds
+Min. time: 3.626 seconds
+Max. time: 5.834 seconds
+-------------------------------------
+-------------------------------------
+Start loading file data/Strecken_100000.dat
+Start calculating file data/Strecken_100000.dat
+Max. lines to compare: 4999950000
+-------------------------------------
+File name: data/Strecken_100000.dat
+Valid lines: 100000
+Invalid lines: 0
+Compared lines: 4999950000
+Intersected lines: 1155477297
+DeltaT: 530.371 seconds
+-------------------------------------
+-------------------------------------
