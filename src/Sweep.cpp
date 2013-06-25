@@ -27,7 +27,7 @@ Sweep::~Sweep(){
  */
 void Sweep::leftendpoint(){
 	DBG();
-	Line& segA=NULL, segB=NULL;
+	Line *segA, *segB;
 	Line *aktseg;
 
 	//Linie in Segmentqueue an richtiger stelle einordnen
@@ -168,7 +168,7 @@ void Sweep::treatintersection(){
  * findet oberen Nachbar in der Liste
  * ist er nicht vorhanden wird NULL übergeben
  */
-Line& Sweep::getneighbour_high(Line* a_seg){
+Line* Sweep::getneighbour_high(Line* a_seg){
 	list<Line>::iterator it;
 	for ( it=segmentqueue.begin(); it != segmentqueue.end(); ++it) {
 		if (*it == *a_seg) {
@@ -182,7 +182,7 @@ Line& Sweep::getneighbour_high(Line* a_seg){
  * findet unteren Nachbar in der Liste
  * ist er nicht vorhanden wird NULL übergeben
  */
-Line& Sweep::getneighbour_low(Line* a_seg){
+Line* Sweep::getneighbour_low(Line* a_seg){
 	list<Line>::iterator it;
 	for ( it=segmentqueue.begin(); it != segmentqueue.end(); ++it) {
 		if (*it == *a_seg) {
@@ -196,7 +196,7 @@ Line& Sweep::getneighbour_low(Line* a_seg){
  * findet Segment in der Liste
  * ist es nicht vorhanden wird NULL übergeben
  */
-Line& Sweep::getseg(Line* a_seg){
+Line* Sweep::getseg(Line* a_seg){
 	list<Line>::iterator it;
 	for ( it=segmentqueue.begin(); it != segmentqueue.end(); ++it) {
 		if (*it == *a_seg) {

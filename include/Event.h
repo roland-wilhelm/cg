@@ -18,6 +18,9 @@ enum MyEventtype { 	STARTPUNKT = 1,
 					ENDPUNKT = 2,
 					INTERSECTION = 3};
 
+class Line;
+class Point;
+
 class Event {
 
 private:

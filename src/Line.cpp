@@ -212,7 +212,8 @@ Point* Line::getend(){
  * Koordinaten des Schnittpunktes berechnen
  */
 Point Line::intersectionpoint(Line &a_line) {
-	Point temp,a_start = a_line.getstart(), a_end = a_line.getend();
+	Point temp;
+	Point *a_start( a_line.getstart() ), *a_end( a_line.getend() );
 	double m_m, a_m, m_t, a_t;
 	double xwert=0.0, ywert=0.0;
 
@@ -224,8 +225,8 @@ Point Line::intersectionpoint(Line &a_line) {
 
 	//a_m Steigung der Argumentline
 	//a_t Achsenabschnitt der Argumentline
-	a_m = (a_start.get_y() - a_end.get_y() ) / ( a_start.get_x() - a_end.get_y() );
-	a_t = a_start.get_y() - ( a_m * a_start.get_x() );
+	a_m = (a_start->get_y() - a_end->get_y() ) / ( a_start->get_x() - a_end->get_y() );
+	a_t = a_start->get_y() - ( a_m * a_start->get_x() );
 
 	xwert = (a_t-m_t) / (m_m-a_m);
 	ywert = (m_m*xwert) + m_t;

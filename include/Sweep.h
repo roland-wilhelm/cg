@@ -47,9 +47,9 @@ public:
 	//void addseg(const Line *a_seg) { segmentqueue.push_front(*a_seg); }
 	Line* addseg(Line *a_seg);
 	void sortseg() { segmentqueue.sort(); }
-	Line& getneighbour_high(Line* a_seg);
-	Line& getneighbour_low(Line* a_seg);
-	Line& getseg(Line* a_seg);
+	Line* getneighbour_high(Line* a_seg);
+	Line* getneighbour_low(Line* a_seg);
+	Line* getseg(Line* a_seg);
 	void delseg() { segmentqueue.pop_front(); }
 
 	void addinter(Event *a_event) { output.push_front(*a_event);
