@@ -49,8 +49,8 @@ void start_aufgabe1(unsigned int a_iterations) {
 			}
 			else {
 
-				//lines[i].start_calculating_intersected_lines(a_iterations);
-				lines[i].start_calculating_intersected_lines_openmp();
+				lines[i].start_calculating_intersected_lines(a_iterations);
+				//lines[i].start_calculating_intersected_lines_openmp();
 				lines[i].print_calculated_result();
 			}
 
