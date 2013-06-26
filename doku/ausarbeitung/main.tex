@@ -1,0 +1,145 @@
+% Dokumentenkopf ---------------------------------------------------------------
+%   Diese Vorlage basiert auf "scrreprt" aus dem koma-script.
+% ------------------------------------------------------------------------------
+\documentclass[
+	ngerman,
+    11pt, % Schriftgr??e
+    DIV10, % Seitengroesse (siehe Koma Skript Dokumentation !)
+    ngerman, % f?r Umlaute, Silbentrennung etc.
+    a4paper, % Papierformat
+    oneside, % einseitiges Dokument
+    titlepage, % es wird eine Titelseite verwendet
+    parskip=half, % Abstand zwischen Abs?tzen (halbe Zeile)
+    headings=normal, % Gr??e der ?berschriften verkleinern
+%	chapterprefix=true, % Ausgabe Kapitel + Nummer
+    listof=totoc, % Verzeichnisse im Inhaltsverzeichnis auff?hren
+	bibliography=totoc, % Literaturverzeichnis im Inhaltsverzeichnis auff?hren
+    index=totoc, % Index im Inhaltsverzeichnis auff?hren
+    captions=tableheading, % Beschriftung von Tabellen unterhalb ausgeben
+    final, % Status des Dokuments (final/draft)
+	pointlessnumbers % keine Nummern hinter Kapitelnummern
+%	numbers=noenddot
+	abstracton % Erzeugen einer Zusammenfassung
+]{scrartcl}
+
+
+% Meta-Informationen -----------------------------------------------------------
+%   Informationen ?ber das Dokument, wie z.B. Titel, Autor, Matrikelnr. etc
+%   werden in der Datei Meta.tex definiert und k?nnen danach global
+%   verwendet werden.
+% ------------------------------------------------------------------------------
+\input{Konfiguration/Meta}
+
+% ben?tigte Packages -----------------------------------------------------------
+%   LaTeX-Packages, die ben?tigt werden, sind in die Datei Packages.tex
+%   "ausgelagert", um diese Vorlage m?glichst ?bersichtlich zu halten.
+% ------------------------------------------------------------------------------
+\input{Konfiguration/Packages}
+
+% Erstellung eines Index und Abk?rzungsverzeichnisses aktivieren ---------------
+\makeindex
+%\makenomenclature
+
+% Kopf- und Fu?zeilen, Seitenr?nder etc. ---------------------------------------
+\input{Konfiguration/Seitenstil}
+
+% eigene Definitionen f?r Silbentrennung
+\include{Silbentrennung}
+
+% eigene LaTeX-Befehle
+\include{Konfiguration/Befehle}
+
+% Das eigentliche Dokument -----------------------------------------------------
+%   Der eigentliche Inhalt des Dokuments beginnt hier. Die einzelnen Seiten
+%   und Kapitel werden in eigene Dateien ausgelagert und hier nur inkludiert.
+% ------------------------------------------------------------------------------
+\begin{document}
+
+% auch subsubsection nummerieren
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+% Deckblatt und Abstract ohne Seitenzahl
+\ohead{}
+\include{Konfiguration/deckblatt}
+%\includegraphics[width=1.00\textwidth]{thema.pdf}
+%\includegraphics[width=1.00\textwidth]{erklaerung.pdf}
+%\includepdf{thema.pdf} 
+% Selbst?ndigkeitserkl?rung
+\ohead{\pagemark}
+
+% Seitennummerierung -----------------------------------------------------------
+%   Vor dem Hauptteil werden die Seiten in gro?en r?mischen Ziffern 
+%   nummeriert.
+% ------------------------------------------------------------------------------
+%\pagenumbering{Roman}
+%\include{Inhalt/Abstract}
+
+% Inhaltverzeichnis im PDF anzeigen aber nicht im Inhaltverzeichnis selbst
+%\clearpage %%% ggf. \cleardoublepage
+%\phantomsection
+\clearpage
+\pdfbookmark{\contentsname}{toc}
+\tableofcontents %die Tilden zum Einrücken im Bookmark
+
+%\tableofcontents % Inhaltsverzeichnis
+\clearpage
+\listoffigures % Abbildungsverzeichnis
+%\clearpage
+%\listoftables % Tabellenverzeichnis
+\clearpage
+\renewcommand{\lstlistlistingname}{Listingsverzeichnis}
+\lstlistoflistings % Listings-Verzeichnis
+
+
+% Abk?rzungsverzeichnis --------------------------------------------------------
+%\include{Inhalt/Abkuerzungsverzeichnis}
+
+%\input{Inhalt/Glossar}
+% f?r korrekte ?berschrift in der Kopfzeile
+%\clearpage\markboth{\nomname}{\nomname} 
+%\printnomenclature
+%\label{sec:Glossar}
+
+
+% arabische Seitenzahlen im Hauptteil ------------------------------------------
+\clearpage
+\pagenumbering{arabic}
+
+% die Inhaltskapitel werden in "Inhalt.tex" inkludiert -------------------------
+%\linespread{3.0}
+\input{Inhalt}
+
+
+
+
+% Literaturverzeichnis ---------------------------------------------------------
+%   Das Literaturverzeichnis wird aus der BibTeX-Datenbank "lit.bib"
+%   erstellt.
+% ------------------------------------------------------------------------------
+% \nocite{*} % alles auflisten
+\bibliographystyle{literatur/plaindin} % DIN-Stil des Literaturverzeichnisses
+\bibliography{literatur/literatur} % Aufruf: bibtex Bachelorarbeit
+
+
+
+% Anhang -----------------------------------------------------------------------
+%   Die Inhalte des Anhangs werden analog zu den Kapiteln inkludiert.
+%   Dies geschieht in der Datei "Anhang.tex".
+% ------------------------------------------------------------------------------
+%\begin{appendix}
+%    \clearpage
+%    \pagenumbering{roman}
+%    \chapter{Anhang}
+%    \label{sec:Anhang}
+%     Rand der Aufz?hlungen in Tabellen anpassen
+%    \setdefaultleftmargin{1em}{}{}{}{}{}
+%    \input{Anhang}
+%\end{appendix}
+
+% Index ------------------------------------------------------------------------
+%   Zum Erstellen eines Index, die folgende Zeile auskommentieren.
+% ------------------------------------------------------------------------------
+%\printindex
+
+\end{document}
