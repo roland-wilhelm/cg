@@ -47,8 +47,8 @@ public:
 
 	//Funktionen zum Segment
 	const unsigned int get_linenr(){return m_seg->get_lines_nr();}
-	Line* get_line() { return m_seg; }
-	Line* get_line2() { return m_seg2; }
+	Line* const get_line() { return m_seg; }
+	Line* const get_line2() { return m_seg2; }
 
 };
 

@@ -13,11 +13,16 @@ using namespace std;
 
 unsigned int Line::m_lines_nr = 0;
 
-ostream& operator <<(ostream &os, Line &a_line) {
+std::ostream& operator <<(ostream &os, Line &a_line) {
 
 	DBG();
 
-	os << "Start: " << a_line.m_start << "\t End: " << a_line.m_end;
+	//os << "Start: " << a_line.m_start << "\t End: " << a_line.m_end << endl;
+	os << "Start: ";
+	os << *(a_line.getstart());
+	os << "\t End: ";
+	os << *(a_line.getend());
+	os << endl;
 
 	return os;
 }
@@ -89,21 +94,21 @@ unsigned int Line::get_lines_nr() {
  * Ermittelt ob Schnittpunkt existiert
  *
  */
-bool Line::is_intersection_max(Line &a_line) {
+bool Line::is_intersection_max(Line *a_line) {
 
 	//DBG("Line %p", &a_line);
 
 	//siehe Vorlesung Folie 2-19
 	//both give 0 -> kollinear oder überlappend
-	if ( ccw_max(m_start, m_end, a_line.m_start) == 0 && ccw_max(m_start, m_end, a_line.m_end) == 0) {
+	if ( ccw_max(m_start, m_end, a_line->m_start) == 0 && ccw_max(m_start, m_end, a_line->m_end) == 0) {
 
 		// prüfung ob Ausgangsline ein Punkt ist -> vereinfachter überlappungstest, da Drehung der
 		// Linie bei einem Punkt nicht funktioniert
 		if ( m_start == m_end ) {
 
 			//Punkt liegt auf Linie??
-			if( ( m_start > a_line.m_start && m_start < a_line.m_end )
-				|| (m_start < a_line.m_start && m_start > a_line.m_end)){
+			if( ( m_start > a_line->m_start && m_start < a_line->m_end )
+				|| (m_start < a_line->m_start && m_start > a_line->m_end)){
 				return true;
 			}
 			else
@@ -117,11 +122,11 @@ bool Line::is_intersection_max(Line &a_line) {
 				  q(m_start.get_y()-m_end.get_y(), m_end.get_x()-m_start.get_x());
 
 			//Start-Punkt auf der Linie (inkl Ränder)
-			if( ccw_max(m_start, a_line.m_start, p)*ccw_max(m_end,q,a_line.m_start) >= 0 ){
+			if( ccw_max(m_start, a_line->m_start, p)*ccw_max(m_end,q,a_line->m_start) >= 0 ){
 				return true;
 			}
 			//End-Punkt auf der Linie (inkl Ränder)
-			else if(ccw_max(m_start, a_line.m_end, p)*ccw_max(m_end,q,a_line.m_end) >= 0){
+			else if(ccw_max(m_start, a_line->m_end, p)*ccw_max(m_end,q,a_line->m_end) >= 0){
 				return true;
 			}
 			else
@@ -130,8 +135,8 @@ bool Line::is_intersection_max(Line &a_line) {
 	}
 	//one clockwise, the other anti-clockwise
 	//Punkte liegen je links und rechts
-	else if ( (ccw_max(m_start, m_end, a_line.m_start)*ccw_max(m_start, m_end, a_line.m_end)) <= 0
-		  && ccw_max(a_line.m_start, a_line.m_end, m_start)*ccw_max(a_line.m_start, a_line.m_end, m_end) <= 0 ) {
+	else if ( (ccw_max(m_start, m_end, a_line->m_start)*ccw_max(m_start, m_end, a_line->m_end)) <= 0
+		  && ccw_max(a_line->m_start, a_line->m_end, m_start)*ccw_max(a_line->m_start, a_line->m_end, m_end) <= 0 ) {
 
 		//->Schnittpunkt!!
 		return true;
@@ -211,9 +216,9 @@ Point* Line::getend(){
 /*
  * Koordinaten des Schnittpunktes berechnen
  */
-Point Line::intersectionpoint(Line &a_line) {
+Point Line::intersectionpoint(Line *a_line) {
 	Point temp;
-	Point *a_start( a_line.getstart() ), *a_end( a_line.getend() );
+	Point *a_start( a_line->getstart() ), *a_end( a_line->getend() );
 	double m_m, a_m, m_t, a_t;
 	double xwert=0.0, ywert=0.0;
 

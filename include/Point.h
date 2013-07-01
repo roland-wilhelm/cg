@@ -34,7 +34,7 @@ class Point {
 		bool operator ==(const Point &a_point);
 		bool operator < (Point &a_point);
 		bool operator > (Point &a_point);
-		friend std::ostream& operator <<(std::ostream &os, const Point &a_point);
+		friend std::ostream& operator <<(std::ostream &os, Point &a_point);
 
 
 

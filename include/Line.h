@@ -30,8 +30,8 @@ class Line {
 		virtual ~Line();
 
 		static unsigned int get_lines_nr();
-		bool is_intersection_max(Line &a_line);
-		Point intersectionpoint(Line &a_line);
+		bool is_intersection_max(Line *a_line);
+		Point intersectionpoint(Line *a_line);
 
 		Point* getstart();
 		Point* getend();
@@ -41,7 +41,5 @@ class Line {
 		bool operator < (Line &a_line);
 		double get_yvalue(double a_xwert);
 };
-
-
 
 #endif /* LINE_H_ */

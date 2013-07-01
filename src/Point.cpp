@@ -12,11 +12,14 @@
 using namespace std;
 
 
-ostream& operator <<(ostream &os, Point &a_point) {
+std::ostream& operator <<(ostream &os,Point &a_point) {
 
 	DBG();
 
-	os << "X: " << a_point.get_x() << "\t Y: " << a_point.get_y();
+	os << "X: ";
+	os << a_point.get_x();
+	os << "\t Y: ";
+	os << a_point.get_y();
 
 	return os;
 }

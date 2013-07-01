@@ -16,7 +16,7 @@ Event::Event(Point* a_punkt, Line* a_line, MyEventtype a_type):	m_type(a_type),
 
 }
 
-Event::Event(Point* a_punkt, Line* a_line, Line* a_line2):	m_type(INTERSECTION),
+Event::Event(Point *a_punkt, Line* a_line, Line* a_line2):	m_type(INTERSECTION),
 															m_punkt(a_punkt),
 															m_seg(a_line),
 															m_seg2(a_line2)
@@ -39,19 +39,19 @@ bool Event::operator == (const Event& a_event){
 
 }
 
-bool operator < (Event& a_event1, Event& a_event2){
+bool Event::operator < (Event& a_event){
 
-	if(a_event1.get_x() < a_event2.get_x())
+	if(this->get_x() < a_event.get_x())
 		return true;
-	else if( a_event1.get_x() == a_event2.get_x() ) { //Behandlung von gleichen x-Werten
+	else if( this->get_x() == a_event.get_x() ) { //Behandlung von gleichen x-Werten
 		//Startpunkt immer zuerst
-		if(a_event1.gettype() == STARTPUNKT)
+		if(this->gettype() == STARTPUNKT)
 			return true;
 		//Endpunkt immer als letztes
-		else if(a_event1.gettype() == ENDPUNKT)
+		else if(this->gettype() == ENDPUNKT)
 			return false;
 		//Schnittpunkt vor ENDPUNKT
-		else if(a_event1.gettype() == INTERSECTION && a_event2.gettype() == ENDPUNKT)
+		else if(this->gettype() == INTERSECTION && a_event.gettype() == ENDPUNKT)
 			return true;
 		//aber hinter STARTPUNKT
 		else

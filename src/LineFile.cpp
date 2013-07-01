@@ -198,7 +198,7 @@ bool LineFile::start_calculating_intersected_lines_max() {
 		//cout << "\nLine "<< i+1 << " schneidet: ";
 		for(unsigned int j = i+1; j < m_lines.size(); j++) {
 
-			if(m_lines[i]->is_intersection_max(*m_lines[j]) == true) {
+			if(m_lines[i]->is_intersection_max(m_lines[j]) == true) {
 		//		cout << j+1 << ",";
 				m_intersected_lines_nr++;
 			}
@@ -254,6 +254,7 @@ void LineFile::print_calculated_result() {
 	DBG();
 
 	cout << "-------------------------------------" << endl;
+	cout << "--------------Aufg 1-----------------" << endl;
 	cout << "Intersected lines: " << m_intersected_lines_nr << endl;
 	print_delta_time();
 	cout << "-------------------------------------" << endl;
@@ -267,4 +268,23 @@ void LineFile::sweepiniteventqueue(){
 		m_sweep.addevent(m_lines[i]->getend(), m_lines[i]);
 	}
 
+}
+
+void LineFile::sweepstart() {
+	start_timer();
+	m_sweep.calcinters();
+	stop_timer();
+
+	m_sweepinters = m_sweep.getinters();
+}
+
+
+void LineFile::sweepprint(){
+	DBG();
+
+	cout << "-------------------------------------" << endl;
+	cout << "-----------Aufg 3 - Sweep------------" << endl;
+	cout << "Intersected lines: " << m_intersected_lines_nr << endl;
+	print_delta_time();
+	cout << "-------------------------------------" << endl;
 }

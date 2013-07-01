@@ -52,6 +52,8 @@ class LineFile {
 		void print_calculated_result();
 
 		void sweepiniteventqueue();
+		void sweepstart();
+		void sweepprint();
 
 };
 
