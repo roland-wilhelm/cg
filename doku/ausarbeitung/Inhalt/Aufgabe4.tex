@@ -1,2 +1,135 @@
-\section{Aufgabe 4}
-\label{sec:Aufgabe4}
+\section{Maximaler Kreis in einer konvexen Hülle}
+\label{sec:aufgabe4}
+In dieser Aufgabe 4 werden für zwei vorgegebene konvexe Polygone der größtmögliche einbeschreibbare Kreis mit Linearer Programmierung berechnet.
+Die vorgegebenen Polygone sind in den Dateien \textit{Polygon.txt} und \textit{testpolygon.txt} abgespeichert.
+Nachdem das Problem beschrieben wurde, wird auf Basis der Testdatei \textit{testpolygon.txt} ein lineares Programm definiert und hergeleitet.
+Dieses lineare Programm wird schlussendlich auf das Polygon in der Datei \textit{Polygon.txt} angewendet und das Ergebnis dargestellt.
+
+\subsection{Herleitung Problem}
+\label{sec:problem}
+Gegeben ist ein konvexes Polygon $P \subseteq \mathbb{R}^{2}$. Bei dem Problem in dieser Aufgabe suchen wir
+nach dem größtmöglichen Kreis $K \subseteq \mathbb{R}^{2}$, der vollständig in $P$ enthalten ist; das heißt, es gilt
+$K \subseteq P$ wobei der Radius von $K$ maximal ist. 
+Damit der Kreis $K$ mit Mittelpunkt $m := (m_x, m_y)$ und Radius $r$ komplett in $P$ enthalten ist, müssen
+folgende Bedingungen erfüllt sein:
+
+\begin{itemize}
+\item Der Punkt $m$ hat mindestens den Abstand $r$ von allen Strecken.
+\item Der Punkt $m$ liegt innerhalb des konvexen Polygons $P$.
+\end{itemize}
+
+Um den Abstand $r$ des Mittelpunktes $m$ von einer Strecke $P_{i}$ zu berechnen, wird die folgende Formel genutzt.
+$$ r = N_{0i} * [m - P_{i}] $$
+Dabei beinhaltet die Matrix $N_{0i}$ in der Zeile $i$ den jeweiligen Normaleneinheitsvektor für die Strecke $P_{i}$. 
+
+Der Kreis $K$ liegt also genau dann vollständig in $P$, wenn folgende Ungleichung für alle Strecken erfüllt ist.
+$$ N_{0i} * [m - P_{i}] \geq r,    i = 1, ..., n$$
+
+
+
+\subsection{Lösung durch lineare Programmierung}
+\label{sec:loesung}
+Das Ziel ist es den größten Kreis zu finden. Wir definieren ein lineares Programm mit den Variablen $m_x$, $m_y$ und $r$, indem
+die Variable $r$ unter der Nebenbedingung $$ N_{0i} * [m - P_{i}] \geq r,    i = 1, ..., n$$ \textbf{maximiert} wird.
+Die entsprechende Zielfunktion wird definiert als 
+$$f := 
+\begin{pmatrix}
+ 0 \\
+ 0 \\
+ 1  
+\end{pmatrix}$$
+
+Zur Lösung des lineare Problems wird das Programm \NeuerBegriff{MATLAB} (MATrix LABoratory) verwendet. Nachfolgend werden nur die wichtigsten Programmteile dargestellt und erklärt, 
+dass komplette Programm \NeuerBegriff{incircle.m} kann in der mitgelieferten Datei unter \NeuerBegriff{matlab/incircle.m} begutachtet und getestet werden.
+Die jeweiligen konvexen
+Polygone werden durch das Programm als Matrizen in den \NeuerBegriff{Workspace} importiert und stehen anschließend im
+\NeuerBegriff{Command Window} zur Verfügung. Die Matrizen für die konvexen Polygonen $P$ haben dabei folgende Strukturen:
+
+$$ P = 
+\begin{bmatrix}
+ 0 & 0 \\
+ 10 & 0 \\
+ 10 & 10 \\
+ 0 & 10 
+\end{bmatrix}$$
+
+Die jeweiligen Zeilen der Matrix bilden den Startpunkt einer Strecke ab. Die Anzahl der Zeilen ist zugleich die Anzahl der zur Verfügung stehenden
+Strecken indem der Kreis eingebettet werden soll.
+Die Spalte 1 gibt die x-Werte und die Spalte 2 die y-Werte eines Startpunktes wieder.
+Um aus den einzelnen Punkten ein konvexes Polygon zu erhalten, werden die Startpunkte miteinander verbunden; also der Punkt in der Zeile wird mit dem Punkt
+in der Zeile 2 verbunden \usw , der letzte Punkt (hier Zeile 4) wird mit dem Punkt in der Zeile 1 verbunden.
+
+Das Listing \ref{lst:convexHull} zeigt die Erstellung einer konvexen Hülle.
+Durch den MATLAB Befehl \texttt{convhulln(xy)} wird aus den vorgegebenen Strecken (xy) eine konvexe Hülle erzeugt und die entsprechenden Indizes zurückgegeben.
+Dadurch können dann in Zeilen 2 und 3 die jeweiligen Start- und Endpunkte einer Strecke bestimmt werden.
+\begin{lstlisting} [caption={Erstellen einer konvexen Hülle mit MATLAB}\label{lst:convexHull},captionpos=b] 
+	ecken = convhulln(xy);
+	A = xy(ecken(:,1),:);
+	B = xy(ecken(:,2),:);
+\end{lstlisting}
+
+Nachdem die Start- und Endpunkte für alle verfügbaren Strecken berechnet worden sind, werden für diese in den Zeilen 1 - 3
+der dazugehörige Normaleneinheitsvektor berechnet. Um sicherzustellen, dass alle Normaleneinheitsvektoren zum Mittelpunkt $m$ zeigen,
+findet in den Zeilen 3 - 6 eine Überprüfung statt. Hier werden aus allen Startpunkten der x- und y-Mittelwert berechnet und als 
+sicherer Mittelpunkt $M_0$ abgespeichert. Ist bei der anschließenden Subtraktion ein negativer Normaleneinheitsvektor vorhanden, wird
+dieser um 180 Grad gedreht.
+
+\begin{lstlisting} [caption={Berechnung des Normaleneinheitsvektor mit MATLAB}\label{lst:einheitsvektor},captionpos=b] 
+	N_p = (B - A) * [0 1; -1 0];
+	Betrag = sqrt(sum(N_p.^2,2));
+	N_p = N_p./[Betrag, Betrag];
+	M_0 = mean(A,1);
+	index = sum(N_p.*bsxfun(@minus, M_0, A), 2) < 0;
+	N_p(index,:) = -N_p(index, :);
+\end{lstlisting}
+
+Nachdem alle erforderlichen Daten berechnet worden sind, wird nun unter Einhaltung der Nebenbedingung, dass Ungleichungssystem
+aufgestellt. Mit dem MATLAB Befehl \NeuerBegriff{linprog} kann ein Ungleichungssystem in der Form
+$$ A * x \leq b $$ gelöst werden. Durch Umformung der Nebenbedingung 
+$$ N_{0i} * [m - P_{i}] \geq r $$ erhält man das angepasste Ungleichungssystem
+$$ -N_{0} * m + r \leq - N_{0} * P $$ für das Programm MATLAB. Das Listing \ref{lst:ungleichung} berechnet in den Zeilen 1 und 2 jeweils die
+linke Seite sowie rechte Seite. In den Zeilen 3 und 4 wird die dazugehörige Zielfunktion definiert.
+
+
+\begin{lstlisting} [caption={Erstellung der Ungleichung mit MATLAB}\label{lst:ungleichung},captionpos=b] 
+	b = -sum(N_p.*A, 2);
+	A = [-N_p.*ones(strecken_nr, 2), ones(strecken_nr, 1)];
+	f = zeros(3, 1);
+	f(3) = -1;
+\end{lstlisting}
+
+Die erzeugten Parameter werden in der ersten Zeile dem Befehl \textit{linprog} übergeben, dieses liefert uns dann
+in den entsprechenden Rückgabewerten die Lösung des linearen Problems zurück.
+
+\begin{lstlisting} [caption={Starten der Berechnung mit MATLAB}\label{lst:startBerechnung},captionpos=b] 
+	[result, fval, exitflag, output] = linprog(f, A, b);
+	C = result(1:2)';
+	R = result(3); 
+\end{lstlisting}
+
+
+
+
+\subsection{Ergebnisse}
+Im Abschnitt \ref{sec:loesung} wurde das entwickelte MATLAB-Programm schrittweise vorgestellt und erklärt. Hier werden nun die entsprechenden 
+Lösungen für die Dateien \textit{Polygon.txt} und \textit{testpolygon.txt} vorgestellt.
+
+Wird das Polygon in der Datei \textit{testpolygon.txt} dem MATLAB-Skript \textit{incircle} übergeben, werden die Werte $m = (5.0, 5.0)$ für den Mittelpunkt
+und $r = 5.0$ für den Radius des Kreises berechnet. Die Abbildung \ref{fig:testPolygon} bildet das Ergebnis grafisch ab.
+\begin{figure}[htb]
+\centering
+\includegraphics[width=1.0\textwidth]{testpolygon-mit_kreis.png}
+\caption{Testpolygon mit Kreis}
+\label{fig:testPolygon}
+\end{figure}
+
+Mit der Datei \textit{testpolygon.txt} werden die Werte $m = (472.5705, 476.6642)$ für den Mittelpunkt
+und $r =  438.5922$ für den Radius des Kreises berechnet. Die entsprechende Grafik wird in der Abbildung \ref{fig:polygon} abgebildet.
+Das konvexe Polygon wird blau und der größtmögliche einbeschreibbare Kreis grün dargestellt.
+\begin{figure}[htb]
+\centering
+\includegraphics[width=1.0\textwidth]{polygon-mit_kreis.png}
+\caption{Polygon mit Kreis}
+\label{fig:polygon}
+\end{figure}
+

@@ -1,4 +1,4 @@
-function [C,R] = incircle2(x,y)
+function [C,R] = incircle(x,y)
 % incircle: Berechnet den Größten Kreis innerhalb einer vorgegeben konvexen
 % Hülle.
 %
@@ -24,34 +24,31 @@ if (nargin == 2) && isvector(x) && isvector(y) && (numel(x) == numel(y))
   xy = [x(:),y(:)];  
   
   % berechnet die konvexe Hülle und gibt die einzelnen Indizes zurück
-  ecken = convhulln(xy);
+  edges = convhulln(xy);
 elseif (nargin == 1) && (size(x,2) == 2)
   % a single list of points as rows of x
   xy = x;
-  ecken = convhulln(xy);
+  edges = convhulln(xy);
 else
     disp('Input nicht zulaessig.');
     return;  
 end
 % Anzahl der Strecken
-strecken_nr = size(ecken,1);
+ne = size(edges,1);
 
 % Startpunkt jeder Strecke
-%%disp('Startpunkte.');
-A = xy(ecken(:,1),:);
+A = xy(edges(:,1),:);
 % Endpunkt jeder Strecke
-%%disp('Endpunkte.');
-B = xy(ecken(:,2),:);
+B = xy(edges(:,2),:);
 
 % Der Normalenvektor zu jeder Strecke
-% Richtungsvektor der Strecke um +90 Grad cw drehen
-N_p = (B - A) * [0 1; -1 0];
+% Richtungsvektor der Strecke um 90 Grad cw drehen
+N = (B - A)*[0 1;-1 0];
 
 % Komponentenweise, berechne den Betrag jeder Zeile (2 = Zeilensumme)
-Betrag = sqrt(sum(N_p.^2,2));
+L = sqrt(sum(N.^2,2));
 % Komponentenweise, berechen den normierten Normalenvektor
-%%disp('Normierte Normalenvektor.');
-N_p = N_p./[Betrag, Betrag];
+N = N./[L,L];
 
 % Ein Mittelpunkt innerhalb der konvexen Hülle (1 = Spaltensumme)
 % M_0 Mittelwert über alle x und y
@@ -61,41 +58,46 @@ M_0 = mean(A,1);
 % nein, dann drehe sie nach innen
 % Zeilenweise M_0 - A
 % Komponentenweise Multiplikation
-index = sum(N_p.*bsxfun(@minus, M_0, A), 2) < 0;
-N_p(index,:) = -N_p(index, :);
+k = sum(N.*bsxfun(@minus,M_0,A),2) < 0;
+N(k,:) = -N(k,:);
 
-% Vorbereitungen sind abgeschlossen, jetzt muss das
-% LP Problem gelöst werden. Also die Gleichung aufstellen
-%
-% Ausgangspunkt:
-% N_p: normierte Normalenvektor aller Strecken, Matrix 1. Zeile x,y einer
-% Strecke
-% Mittelpunkt: Der zu berechnende Mittelpunkt (x,y)
-% Startpunkt: Startpunkt aller Polygon, Matrix 1. Zeile (x,y)
-% N_p * [ Mittelpunkt - Startpunkt ] >= r
-% --> -N_p * [ Mittelpunkt - Startpunkt ] + r <= 0
-% --> -N_p * Mittelpunkt + r <= -N_p * Startpunkt
+% LP-Problem
+% Matrix für lineare Nebenbedingungen.
+% N = normierter Normalvektor der Koordinaten
+% Nuller für den Radius
+% -1 für die Slak-Variablen
+Aeq = [N,zeros(ne,1),-eye(ne)];
+% Vektor für lineare Nebenbedingungen.
+% Zeilen in beq müssen gleich Zeilen in Aeq
+% normierte Startpunktkoordinaten
+beq = sum(N.*A,2);
 
-% Rechte Seite der Ungleichung
-% -N_pi * Startpunkt_i
-b = -sum(N_p.*A, 2);
+% Vektor für die unteren Schranken
+% untere Grenze für Mittelpunkt (m_x,m_y)
+% Radius sowie die Slack-Variablen (>=0)
+LB = [-inf;-inf;0;zeros(ne,1)];
+% Vektor für die oberen Schranken
+UB = [];
 
-% Matrix A: -N_p * Mittelpunkt + r
-A = [-N_p.*ones(strecken_nr, 2), ones(strecken_nr, 1)];
-
+% Ungleichheiten durch die Slack-Variablen Beschränkung
+% Kreismittelpuunkt (m_x, m_y)
+% Radius
+% -1 Sklack-Varibalen
+A = [zeros(ne,2),ones(ne,1),-eye(ne)];
+% Wegen Slack-Variablen --> LGS b=0
+b = zeros(ne,1);
 
 % Lineare Zielfunktion -R
 % Die ersten beiden Variablen beinhalten den Mittelpunkt
-% die 3. den Radius.
-f = zeros(3, 1);
+% die 3. den Radius, Rest für Slack-Variablen
+f = zeros(ne+3,1);
 % Zielfunktion -r
 f(3) = -1;
 
-%%options = optimset('LargeScale','off','Simplex','on');
 options = optimset('linprog');
 options.Display = 'off';
-[result,fval,exitflag, output] = linprog(f,A,b,[],[],[],[],[],options);
-%%[result, fval, exitflag, output] = linprog(f, A, b);
+[result,fval,exitflag] = linprog(f,A,b,Aeq,beq,LB,UB,[],options);
+
 % Ergebnis auswerten
 C = result(1:2)';
 R = result(3); 
