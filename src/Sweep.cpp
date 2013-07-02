@@ -128,8 +128,7 @@ void Sweep::treatintersection(){
 		neighbourB = getneighbour_low(segA);
 		//Swap Elements
 		//segB vor segA einordnen und altes Element segB löschen
-		delseg(segB);
-		segmentqueue.insert(it_A, *segB);
+		iter_swap(--it_A, it_B);
 
 	}
 	else if ( *it_B == *(--(--it_A)) ) {
@@ -137,8 +136,7 @@ void Sweep::treatintersection(){
 		neighbourB = getneighbour_high(segA);
 		//Swap Elements
 		//segA vor segB einordnen und altes Element segA löschen
-		delseg(segA);
-		segmentqueue.insert(it_B, *segA);
+		iter_swap(++it_A, it_B);
 
 	}
 
