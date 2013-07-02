@@ -50,7 +50,7 @@ public:
 	Line* getneighbour_high(Line *a_seg);
 	Line* getneighbour_low(Line *a_seg);
 	Line* getseg(Line* a_seg);
-	void delseg() { segmentqueue.pop_front(); }
+	void delseg(Line* a_seg) { segmentqueue.remove(*a_seg); }
 
 	void addinter(Event *a_event) { output.push_front(*a_event);
 									output.unique(); }

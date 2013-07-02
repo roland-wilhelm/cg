@@ -5,6 +5,7 @@
  *      Author: Max
  */
 #include <stdlib.h>
+#include <algorithm>
 
 #include "Sweep.h"
 #include "Event.h"
@@ -89,7 +90,7 @@ void Sweep::rightendpoint(){
 	segA = getneighbour_high(ereignis->get_line());
 	segB = getneighbour_low(ereignis->get_line());
 
-	delevent();
+	delseg(ereignis->get_line());
 	if ( segA != NULL ) {
 		if ( segA->is_intersection_max(segB) == true ) {
 			//Koordinaten vom Schnittpunkt berechnen
@@ -120,6 +121,7 @@ void Sweep::treatintersection(){
 	//die beiden Segmente des Schnittpunkts in der Seqmentqueue
 	//finden und vertauschen (swappen)
 	for (it = segmentqueue.begin(); it != segmentqueue.end(); ++it) {
+		DBG(*it);
 		if ( *segA == *it)
 			break;
 	}
@@ -127,7 +129,7 @@ void Sweep::treatintersection(){
 	/*
 	 * NeighbourA ist der Nachbar von A nach dem Swappen
 	 */
-	if ( *segB == *it++){
+	if ( *segB == *(++it) ){
 		neighbourA = getneighbour_high(segB);
 		neighbourB = getneighbour_low(segA);
 		//Swap Elements
@@ -137,7 +139,7 @@ void Sweep::treatintersection(){
 
 
 	}
-	else if (*segB == *it--) {
+	else if (*segB == *(--it) ) {
 		segB = &(*--it);
 		neighbourA = getneighbour_low(segB);
 		neighbourB = getneighbour_high(segA);
@@ -184,10 +186,18 @@ void Sweep::treatintersection(){
 Line* Sweep::getneighbour_high(Line *a_seg){
 	list<Line>::iterator it;
 
+	it = find(segmentqueue.begin(), segmentqueue.end(), *a_seg);
+	if(it != segmentqueue.end() )
+		return &(*++it);
+	else
+		return NULL;
+
+/*	Iterator funktionier nicht....Dauerschleife
 	if (segmentqueue.empty() || (segmentqueue.size() == 1) )
 		return NULL;
 	else {
 		for ( it=segmentqueue.begin(); it != segmentqueue.end(); ++it) {
+			DBG(*it);
 			if (*it == *a_seg) {
 				if (++it != segmentqueue.end())
 					return &(*++it);
@@ -195,6 +205,7 @@ Line* Sweep::getneighbour_high(Line *a_seg){
 		}
 	}
 	return NULL;
+*/
 }
 
 /*
@@ -204,10 +215,20 @@ Line* Sweep::getneighbour_high(Line *a_seg){
 Line* Sweep::getneighbour_low(Line *a_seg){
 	list<Line>::iterator it;
 
+	it = find(segmentqueue.begin(), segmentqueue.end(), *a_seg);
+
+	if (it != segmentqueue.end())
+		return &(*--it);
+	else
+		return NULL;
+
+	/* Iterator geht nicht - Dauerschleife
 	if (segmentqueue.empty() || (segmentqueue.size() == 1) )
 		return NULL;
+
 	else {
 		for ( it=segmentqueue.begin(); it != segmentqueue.end(); ++it) {
+			DBG(*it);
 			if (*it == *a_seg) {
 				if ( it != segmentqueue.begin() )
 					return &(*--it);
@@ -216,6 +237,7 @@ Line* Sweep::getneighbour_low(Line *a_seg){
 	}
 
 	return NULL;
+	*/
 }
 
 /*
@@ -225,15 +247,24 @@ Line* Sweep::getneighbour_low(Line *a_seg){
 Line* Sweep::getseg(Line* a_seg){
 	list<Line>::iterator it;
 
+	it = find(segmentqueue.begin(), segmentqueue.end(), *a_seg);
+	if ( it != segmentqueue.end() )
+		return &(*it);
+	else
+		return NULL;
+
+	/* Iterator läuft in Dauerschleife
 	if (segmentqueue.empty())
 		return NULL;
 
 	for ( it=segmentqueue.begin(); it != segmentqueue.end(); ++it) {
+		DBG(*it);
 		if (*it == *a_seg) {
 			return a_seg;
 		}
 	}
 	return NULL;
+	*/
 }
 
 /*
@@ -277,28 +308,32 @@ Line* Sweep::addseg(Line* a_seg) {
 
 	list<Line>::iterator newseg;
 
-	for ( newseg = segmentqueue.begin(); newseg != segmentqueue.end(); ++newseg ) {
-	//Iterator solange y-achsenabschnitt > ist
-	//dann an dieser Position einfügen
-	//und die Referenz auf das Element zurückgeben
-		if ( newseg->get_yvalue(getxposition()) > a_seg->get_yvalue(getxposition()) ) {
-			segmentqueue.insert (newseg, *a_seg);
-			return a_seg;
+	if ( segmentqueue.empty() ) {
+		segmentqueue.push_front(*a_seg);
+		return a_seg;
+	}
+	else {
+
+		for ( newseg = segmentqueue.begin(); newseg != segmentqueue.end(); ++newseg ) {
+		//Iterator solange y-achsenabschnitt > ist, dann an dieser Position einfügen
+		//und die Referenz auf das Element zurückgeben
+			if ( newseg->get_yvalue(getxposition()) > a_seg->get_yvalue(getxposition()) ) {
+				segmentqueue.insert (newseg, *a_seg);
+				return a_seg;
+			}
 		}
 	}
-
 	segmentqueue.insert (newseg, *a_seg);
 	return a_seg;
 
 }
 
 void Sweep::calcinters(){
-
+bool test = false;
 
 	//Eventqueue nach x sortieren
 	eventqueue.sort();
-
-	while(eventqueue.empty() == false) {
+	while( (test = eventqueue.empty()) == false) {
 		ereignis = eventqueue.begin();
 
 		switch(ereignis->gettype()){
