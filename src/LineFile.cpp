@@ -268,6 +268,9 @@ void LineFile::sweepiniteventqueue(){
 		m_sweep.addevent(m_lines[i]->getend(), m_lines[i]);
 	}
 
+	m_sweep.print_eventqueue();
+	m_sweep.print_segmentqueue();
+	m_sweep.print_outputqueue();
 }
 
 void LineFile::sweepstart() {

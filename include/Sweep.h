@@ -22,13 +22,9 @@ using namespace std;
 class Sweep {
 
 private:
-
-	//Point** Eventqueue;
 	list<Event> eventqueue;
-	//Line** Segmentqueue;
 	list<Line> segmentqueue;
-	list<Event>::iterator ereignis;
-	//Point** Intersectionqueue;
+	Event *ereignis;
 	list<Event> output;
 
 public:
@@ -40,20 +36,22 @@ public:
 	void treatintersection();
 
 	void addevent(Point *a_point, Line *a_line);
-	void addevent(Event *a_event);
+	void addevent(Event a_event);
 	void sortevent() { eventqueue.sort(); }
-	void delevent() { eventqueue.pop_front(); }
+	void delevent(Event *a_event) { eventqueue.remove(*a_event); }
+	void print_eventqueue();
 
-	//void addseg(const Line *a_seg) { segmentqueue.push_front(*a_seg); }
 	Line* addseg(Line *a_seg);
 	void sortseg() { segmentqueue.sort(); }
 	Line* getneighbour_high(Line *a_seg);
 	Line* getneighbour_low(Line *a_seg);
 	Line* getseg(Line* a_seg);
 	void delseg(Line* a_seg) { segmentqueue.remove(*a_seg); }
+	void print_segmentqueue();
 
-	void addinter(Event *a_event) { output.push_front(*a_event);
+	void addinter(Event a_event) { output.push_front(a_event);
 									output.unique(); }
+	void print_outputqueue();
 
 	double getxposition();
 	void calcinters();

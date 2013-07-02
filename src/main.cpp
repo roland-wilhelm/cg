@@ -11,10 +11,10 @@
 
 using namespace std;
 
-#define MAX_FILES 2
+#define MAX_FILES 1
 #define STRECKEN_BASE "data/"
-#define STRECKEN_SWEEP_1 "s_1000_1.dat"
-#define STRECKEN_SWEEP_2 "s_1000_10.dat"
+#define STRECKEN_SWEEP_TEST  STRECKEN_BASE "s_1000_test.dat"
+#define STRECKEN_SWEEP STRECKEN_BASE "s_1000_1.dat"
 #define STRECKEN_TEST STRECKEN_BASE "Strecken_test.dat"
 #define STRECKEN_1000 STRECKEN_BASE "Strecken_1000.dat"
 #define STRECKEN_10000 STRECKEN_BASE "Strecken_10000.dat"
@@ -24,8 +24,8 @@ using namespace std;
 int main(int argc, char **argv) {
 
 	const char *files[] = {
-			STRECKEN_SWEEP_1,
-			STRECKEN_SWEEP_2,
+			STRECKEN_SWEEP_TEST,
+			STRECKEN_SWEEP,
 			STRECKEN_TEST,
 			STRECKEN_1000,
 			STRECKEN_10000,

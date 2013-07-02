@@ -200,14 +200,14 @@ double Line::get_yvalue(double a_xwert) {
 }
 
 Point* Line::getstart(){
-	if (m_start < m_end)
+	if ( m_start.get_x() < m_end.get_x() )
 		return &m_start;
 	else
 		return &m_end;
 }
 
 Point* Line::getend(){
-	if (m_start < m_end)
+	if ( m_start.get_x() < m_end.get_x() )
 			return &m_end;
 		else
 			return &m_start;
@@ -217,7 +217,7 @@ Point* Line::getend(){
  * Koordinaten des Schnittpunktes berechnen
  */
 Point Line::intersectionpoint(Line *a_line) {
-	Point temp;
+	Point temp(0.0,0.0);
 	Point *a_start( a_line->getstart() ), *a_end( a_line->getend() );
 	double m_m, a_m, m_t, a_t;
 	double xwert=0.0, ywert=0.0;
@@ -233,8 +233,8 @@ Point Line::intersectionpoint(Line *a_line) {
 	a_m = (a_start->get_y() - a_end->get_y() ) / ( a_start->get_x() - a_end->get_y() );
 	a_t = a_start->get_y() - ( a_m * a_start->get_x() );
 
-	xwert = (a_t-m_t) / (m_m-a_m);
-	ywert = (m_m*xwert) + m_t;
+	xwert = (double)(a_t-m_t) / (m_m-a_m);
+	ywert = (double)(m_m*xwert) + m_t;
 
 	temp.set_point(xwert,ywert);
 	return temp;

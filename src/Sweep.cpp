@@ -5,7 +5,9 @@
  *      Author: Max
  */
 #include <stdlib.h>
+#include <iostream>
 #include <algorithm>
+#include <iterator>
 
 #include "Sweep.h"
 #include "Event.h"
@@ -13,7 +15,7 @@
 
 Sweep::Sweep():	eventqueue(),
 				segmentqueue(),
-				ereignis(eventqueue.begin()),
+				ereignis(NULL),
 				output() {
 	DBG();
 	eventqueue.clear();
@@ -49,11 +51,11 @@ void Sweep::leftendpoint(){
 			//und in Queue einsortieren (Event und Output)
 			//nur in Outputqueue falls Schnittpunkt hinter/auf sweep Position liegt!
 			interp1 = aktseg->intersectionpoint(segA);
-			Event Inter1(&interp1,aktseg,segA);
+			Event Inter1(interp1,aktseg,segA);
 			if(Inter1.get_x() > getxposition()) {
-				addinter( &Inter1 );
+				addinter( Inter1 );
 			}
-			addevent( &Inter1 );
+			addevent( Inter1 );
 		}
 	}
 
@@ -63,11 +65,12 @@ void Sweep::leftendpoint(){
 			//und in Queue einsortieren (Event und Output)
 			//nur in Outputqueue falls Schnittpunkt hinter/auf sweep Position liegt!
 			interp2 = aktseg->intersectionpoint(segB);
-			Event Inter2(&interp2, aktseg, segB);
+			Event Inter2(interp2, aktseg, segB);
 			if(Inter2.get_x() > getxposition()) {
-				addinter( &Inter2 );
+				addevent( Inter2 );
 			}
-			addevent( &Inter2 );
+			addinter( Inter2 );
+
 		}
 	}
 
@@ -97,11 +100,11 @@ void Sweep::rightendpoint(){
 			//und in Queue einsortieren (Event und Output)
 			//nur in Outputqueue falls Schnittpunkt vor sweep Position liegt!
 			interp1 = segA->intersectionpoint(segB);
-			Event Inter1(&interp1, segB, segA);
+			Event Inter1(interp1, segB, segA);
 			if(Inter1.get_x() > getxposition()) {
-				addinter( &Inter1 );
+				addinter( Inter1 );
 			}
-			addevent( &Inter1 );
+			addevent( Inter1 );
 		}
 	}
 }
@@ -110,43 +113,33 @@ void Sweep::rightendpoint(){
  * Behandlung von Schnittpunkten
  */
 void Sweep::treatintersection(){
-	Line *segA=NULL, *segB=NULL, *neighbourA=NULL, *neighbourB=NULL;
+	Line *segA=ereignis->get_line(), *segB=ereignis->get_line2(), *neighbourA=NULL, *neighbourB=NULL;
 	Point interp1, interp2;
-	list<Line>::iterator it;
+	list<Line>::iterator it_A = find(segmentqueue.begin(),segmentqueue.end(), *segA);
+	list<Line>::iterator it_B = find(segmentqueue.begin(),segmentqueue.end(),*segB);
 
 	DBG();
-	segA = ereignis->get_line();
-	segB = ereignis->get_line2();
-
-	//die beiden Segmente des Schnittpunkts in der Seqmentqueue
-	//finden und vertauschen (swappen)
-	for (it = segmentqueue.begin(); it != segmentqueue.end(); ++it) {
-		DBG(*it);
-		if ( *segA == *it)
-			break;
-	}
 
 	/*
 	 * NeighbourA ist der Nachbar von A nach dem Swappen
 	 */
-	if ( *segB == *(++it) ){
+	if ( *it_B == *(++it_A) ){
 		neighbourA = getneighbour_high(segB);
 		neighbourB = getneighbour_low(segA);
 		//Swap Elements
 		//segB vor segA einordnen und altes Element segB löschen
-		segmentqueue.insert(it, *segB);
-		segmentqueue.erase(it++);
-
+		delseg(segB);
+		segmentqueue.insert(it_A, *segB);
 
 	}
-	else if (*segB == *(--it) ) {
-		segB = &(*--it);
+	else if ( *it_B == *(--(--it_A)) ) {
 		neighbourA = getneighbour_low(segB);
 		neighbourB = getneighbour_high(segA);
 		//Swap Elements
 		//segA vor segB einordnen und altes Element segA löschen
-		segmentqueue.insert(--it, *segA);
-		segmentqueue.erase(it);
+		delseg(segA);
+		segmentqueue.insert(it_B, *segA);
+
 	}
 
 	//Nun mit den Nachbarsegmenten auf Schnittpunkte prüfen,
@@ -157,11 +150,11 @@ void Sweep::treatintersection(){
 				//und in Queue einsortieren (Event und Output)
 				//nur in Outputqueue falls Schnittpunkt vor sweep Position liegt!
 				interp1 = segA->intersectionpoint(neighbourA);
-				Event Inter1(&interp1, neighbourA, segA);
+				Event Inter1(interp1, neighbourA, segA);
 				if(Inter1.get_x() > getxposition()) {
-					addinter( &Inter1 );
+					addinter( Inter1 );
 				}
-				addevent( &Inter1 );
+				addevent( Inter1 );
 			}
 		}
 	if ( neighbourB != NULL ) {
@@ -170,11 +163,11 @@ void Sweep::treatintersection(){
 				//und in Queue einsortieren (Event und Output)
 				//nur in Outputqueue falls Schnittpunkt vor sweep Position liegt!
 				interp2 = segB->intersectionpoint(neighbourB);
-				Event Inter2(&interp2, neighbourB, segB);
+				Event Inter2(interp2, neighbourB, segB);
 				if(Inter2.get_x() > getxposition()) {
-					addinter( &Inter2 );
+					addinter( Inter2 );
 				}
-				addevent( &Inter2 );
+				addevent( Inter2 );
 			}
 		}
 }
@@ -187,25 +180,10 @@ Line* Sweep::getneighbour_high(Line *a_seg){
 	list<Line>::iterator it;
 
 	it = find(segmentqueue.begin(), segmentqueue.end(), *a_seg);
-	if(it != segmentqueue.end() )
-		return &(*++it);
+	if(it != segmentqueue.end() && it != segmentqueue.begin() )
+		return &(*(++it));
 	else
 		return NULL;
-
-/*	Iterator funktionier nicht....Dauerschleife
-	if (segmentqueue.empty() || (segmentqueue.size() == 1) )
-		return NULL;
-	else {
-		for ( it=segmentqueue.begin(); it != segmentqueue.end(); ++it) {
-			DBG(*it);
-			if (*it == *a_seg) {
-				if (++it != segmentqueue.end())
-					return &(*++it);
-			}
-		}
-	}
-	return NULL;
-*/
 }
 
 /*
@@ -217,27 +195,10 @@ Line* Sweep::getneighbour_low(Line *a_seg){
 
 	it = find(segmentqueue.begin(), segmentqueue.end(), *a_seg);
 
-	if (it != segmentqueue.end())
-		return &(*--it);
+	if (it != segmentqueue.begin() && it != segmentqueue.begin())
+		return &(*(--it));
 	else
 		return NULL;
-
-	/* Iterator geht nicht - Dauerschleife
-	if (segmentqueue.empty() || (segmentqueue.size() == 1) )
-		return NULL;
-
-	else {
-		for ( it=segmentqueue.begin(); it != segmentqueue.end(); ++it) {
-			DBG(*it);
-			if (*it == *a_seg) {
-				if ( it != segmentqueue.begin() )
-					return &(*--it);
-			}
-		}
-	}
-
-	return NULL;
-	*/
 }
 
 /*
@@ -252,19 +213,6 @@ Line* Sweep::getseg(Line* a_seg){
 		return &(*it);
 	else
 		return NULL;
-
-	/* Iterator läuft in Dauerschleife
-	if (segmentqueue.empty())
-		return NULL;
-
-	for ( it=segmentqueue.begin(); it != segmentqueue.end(); ++it) {
-		DBG(*it);
-		if (*it == *a_seg) {
-			return a_seg;
-		}
-	}
-	return NULL;
-	*/
 }
 
 /*
@@ -283,6 +231,10 @@ double Sweep::getxposition() {
  * Funktion um die Eventqueue mit Start- und Endpunkten zu füllen
  */
 void Sweep::addevent(Point* a_point, Line* a_line){
+	//Eventqueue vor hinzufügen
+	DBG("Eventqueue vor hinzufügen eines Event")
+	print_eventqueue();
+
 	//a_point ist startpunkt
 	if ( a_point == a_line->getstart() ){
 		eventqueue.push_front( Event(a_point, a_line, STARTPUNKT) );
@@ -292,11 +244,20 @@ void Sweep::addevent(Point* a_point, Line* a_line){
 		eventqueue.push_front( Event(a_point, a_line, ENDPUNKT) );
 	}
 
+	DBG("Eventqueue vor hinzufügen eines Event")
+	print_eventqueue();
 }
 
-void Sweep::addevent(Event* a_event) {
-	eventqueue.push_front(*a_event);
+void Sweep::addevent(Event a_event) {
+	//Eventqueue vor hinzufügen
+	DBG("Eventqueue vor hinzufügen einer Intersection")
+	print_eventqueue();
+	eventqueue.push_front(a_event);
+
+
 	eventqueue.sort();
+	DBG("Eventqueue nach hinzufügen einer Intersection")
+	print_eventqueue();
 }
 
 /*
@@ -305,8 +266,11 @@ void Sweep::addevent(Event* a_event) {
 Line* Sweep::addseg(Line* a_seg) {
 	//segmentqueue.push_front(*a_seg);
 	//sortseg();
-
 	list<Line>::iterator newseg;
+
+	//Segment vor hinzufügen
+	DBG("Segment vor hinzufügen eines neuen")
+	print_segmentqueue();
 
 	if ( segmentqueue.empty() ) {
 		segmentqueue.push_front(*a_seg);
@@ -324,17 +288,58 @@ Line* Sweep::addseg(Line* a_seg) {
 		}
 	}
 	segmentqueue.insert (newseg, *a_seg);
+	segmentqueue.unique();
+
+	//Segment vor hinzufügen
+	DBG("Segment nach hinzufügen eines neuen")
+	print_segmentqueue();
 	return a_seg;
 
 }
 
+void Sweep::print_eventqueue(){
+	list<Event>::iterator it;
+
+	for(it = eventqueue.begin(); it != eventqueue.end(); ++it)
+		cout << "Event[P(" << it->get_x() <<"," << it->get_y() << ")-T" << it->gettype() <<"], ";
+
+	cout << endl;
+}
+
+
+void Sweep::print_segmentqueue(){
+	list<Line>::iterator it;
+
+	for(it = segmentqueue.begin(); it != segmentqueue.end(); ++it)
+		cout << "Segment[P1(" << it->getstart()->get_x() << "/" << it->getstart()->get_y() << "), P2("
+		     << it->getend()->get_x() << "/"  << it->getend()->get_y() << ")], ";
+
+	cout << endl;
+}
+
+void Sweep::print_outputqueue(){
+	list<Event>::iterator it;
+
+	for(it = output.begin(); it != output.end(); ++it)
+		cout << "Schnitt(" << it->get_x() << "," << it->get_y() << "), ";
+
+	cout << endl;
+}
+
 void Sweep::calcinters(){
 bool test = false;
+list<Event>::iterator neweve;
 
 	//Eventqueue nach x sortieren
 	eventqueue.sort();
 	while( (test = eventqueue.empty()) == false) {
-		ereignis = eventqueue.begin();
+		//zwischenergebnisse
+		print_eventqueue();
+		print_segmentqueue();
+		print_outputqueue();
+
+		neweve = eventqueue.begin();
+		ereignis = &(*neweve);
 
 		switch(ereignis->gettype()){
 			case STARTPUNKT:
@@ -354,7 +359,7 @@ bool test = false;
 				break;
 		}
 		//Erstes Event aus Queue entfernen
-		delevent();
+		delevent(ereignis);
 	} //end while
 
 
