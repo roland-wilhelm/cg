@@ -1,4 +1,4 @@
-function [C,R] = incircle2(x,y)
+function [C,R] = incircle(x,y)
 % incircle: Berechnet den Größten Kreis innerhalb einer vorgegeben konvexen
 % Hülle.
 %

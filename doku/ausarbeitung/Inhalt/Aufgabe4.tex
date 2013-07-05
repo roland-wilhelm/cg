@@ -60,7 +60,7 @@ Um aus den einzelnen Punkten ein konvexes Polygon zu erhalten, werden die Startp
 in der Zeile 2 verbunden \usw , der letzte Punkt (hier Zeile 4) wird mit dem Punkt in der Zeile 1 verbunden.
 
 Das Listing \ref{lst:convexHull} zeigt die Erstellung einer konvexen Hülle.
-Durch den MATLAB Befehl \texttt{convhulln(xy)} wird aus den vorgegebenen Strecken (xy) eine konvexe Hülle erzeugt und die entsprechenden Indizes zurückgegeben.
+Durch den MATLAB Befehl \textit{convhulln(xy)} wird aus den vorgegebenen Strecken (xy) eine konvexe Hülle erzeugt und die entsprechenden Indizes zurückgegeben.
 Dadurch können dann in Zeilen 2 und 3 die jeweiligen Start- und Endpunkte einer Strecke bestimmt werden.
 \begin{lstlisting} [caption={Erstellen einer konvexen Hülle mit MATLAB}\label{lst:convexHull},captionpos=b] 
 	ecken = convhulln(xy);
@@ -85,7 +85,16 @@ dieser um 180 Grad gedreht.
 
 Nachdem alle erforderlichen Daten berechnet worden sind, wird nun unter Einhaltung der Nebenbedingung, dass Ungleichungssystem
 aufgestellt. Mit dem MATLAB Befehl \NeuerBegriff{linprog} kann ein Ungleichungssystem in der Form
-$$ A * x \leq b $$ gelöst werden. Durch Umformung der Nebenbedingung 
+$$ A * x \leq b $$ gelöst werden. Dieser Befehl berechnet das Minimum eines linearen Problems, da hier aber ein maximaler Radius $r$ gesucht wird,
+muss die Zielfunktion $f$ entsprechend angepasst werden. Soll ein Maximum anstatt eines Minimum berechnet werden, müssen alle Koeffizienten der Zielfunktion $f$
+negiert werden. Die angepasste Zielfunktion lautet $$f := 
+\begin{pmatrix}
+ 0 \\
+ 0 \\
+ -1  
+\end{pmatrix}$$ 
+
+Durch Umformung der Nebenbedingung 
 $$ N_{0i} * [m - P_{i}] \geq r $$ erhält man das angepasste Ungleichungssystem
 $$ -N_{0} * m + r \leq - N_{0} * P $$ für das Programm MATLAB. Das Listing \ref{lst:ungleichung} berechnet in den Zeilen 1 und 2 jeweils die
 linke Seite sowie rechte Seite. In den Zeilen 3 und 4 wird die dazugehörige Zielfunktion definiert.
