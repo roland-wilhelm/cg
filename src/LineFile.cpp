@@ -188,22 +188,17 @@ bool LineFile::read_file(const char *a_file) {
 
 bool LineFile::start_calculating_intersected_lines_max() {
 	//m_lines[] ist array mit allen Segmenten
-	//DBG();
 
 	m_intersected_lines_nr = 0;
 	start_timer();
 
-	//cout << "Start calculating file " << m_file_name << endl;
 	for(unsigned int i = 0; i < m_lines.size(); i++) {
-		//cout << "\nLine "<< i+1 << " schneidet: ";
 		for(unsigned int j = i+1; j < m_lines.size(); j++) {
 
 			if(m_lines[i]->is_intersection_max(m_lines[j]) == true) {
-		//		cout << j+1 << ",";
 				m_intersected_lines_nr++;
 			}
 		}
-		//cout << endl;
 	}
 
 	stop_timer();

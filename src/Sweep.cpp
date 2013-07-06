@@ -94,7 +94,7 @@ void Sweep::rightendpoint(){
 	segB = getneighbour_low(ereignis->get_line());
 
 	delseg(ereignis->get_line());
-	if ( segA != NULL ) {
+	if ( segA != NULL && segB != NULL) {
 		if ( segA->is_intersection_max(segB) == true ) {
 			//Koordinaten vom Schnittpunkt berechnen
 			//und in Queue einsortieren (Event und Output)
@@ -102,9 +102,9 @@ void Sweep::rightendpoint(){
 			interp1 = segA->intersectionpoint(segB);
 			Event Inter1(interp1, segB, segA);
 			if(Inter1.get_x() > getxposition()) {
-				addinter( Inter1 );
+				addevent( Inter1 );
 			}
-			addevent( Inter1 );
+			addinter( Inter1 );
 		}
 	}
 }
@@ -150,9 +150,9 @@ void Sweep::treatintersection(){
 				interp1 = segA->intersectionpoint(neighbourA);
 				Event Inter1(interp1, neighbourA, segA);
 				if(Inter1.get_x() > getxposition()) {
-					addinter( Inter1 );
+					addevent( Inter1 );
 				}
-				addevent( Inter1 );
+				addinter( Inter1 );
 			}
 		}
 	if ( neighbourB != NULL ) {
@@ -163,9 +163,9 @@ void Sweep::treatintersection(){
 				interp2 = segB->intersectionpoint(neighbourB);
 				Event Inter2(interp2, neighbourB, segB);
 				if(Inter2.get_x() > getxposition()) {
-					addinter( Inter2 );
+					addevent( Inter2 );
 				}
-				addevent( Inter2 );
+				addinter( Inter2 );
 			}
 		}
 }
