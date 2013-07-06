@@ -1,2 +1,214 @@
-\section{Aufgabe 3}
+\section{Aufgabe 3 - Line Sweep}
 \label{sec:Aufgabe3}
+Der Line Sweep Algorithmus ist ein Versuch die Schnittpunkt suche zu beschleunigen. Die Laufzeit wird nun outputsensitiv, also abhängig von der Anzahl der gefundenen Schnittpunkte. Es wird eine fiktive vertikale Linie erzeugt, die sich Punkt für Punkt durch die Linien arbeitet. Bei der Art wird zwischen Anfangs-, End- und Schnittpunkt unterschieden, je nach Art des Punktes werden eine andere Aktionen durchgeführt. Schnittpunkte können immer nur zwischen benachbarten Segmenten auftreten. Der Algorithmus terminiert, wenn alls Punkte bzw. Events bearbeitet wurden.
+
+Es gibt beim Line Sweep allerdings einige Funktionseinschränkungen, die die Gleichzeitigkeit von Ereignissen betreffen. Diese beherrscht er nur mit sehr aufwendig zu implementierenden Mechanismen. Um die Aufgabe nicht unnötig komplexer zu gestalten werden diese nicht eingebaut und darauf geachtet folgende Regeln einzuhalten:
+\begin{itemize}
+\item X-Koordinaten von Schnitt- und Endpunkten sind paarweise verschieden
+\item Länge der Segmente >0
+\item nur echte Schnittpunkte
+\item keine Linien parallel zur Y-Achse
+\item keine Mehrfachschnittpunkte
+\item keine überlappenden Segmente
+\end{itemize}
+
+
+
+\subsection{Initialisierung}
+Die Sweep Line besteht aus mehreren Queues, die den aktuellen und zukünftigen Zustand verwalten. Die erste Queue ist die Eventqueue, hier werden die Punkte abgelegt und mit der Information versehen, auch welcher Linie sie liegen. Bei Schnittpunkten werden die beiden Linien vermerkt, die sich dort schneiden.
+\begin{lstlisting}[captionpos=b, caption={Attribute der Klasse Event}, label=A3:Eventpriv]
+class Event {
+private:
+	MyEventtype m_type;
+	Point m_punkt;
+	Line* m_seg;
+	Line* m_seg2; //falls schnittpunkt
+...
+\end{lstlisting}
+
+In der zweiten Liste werden die Segmente verwaltet, die sich aktuell mit der Seep Line schneiden. An einem Startpunkt wird die damit verbundene Linie an der richtigen Stelle in diese Queue eingefügt und auf Schnittpunkte mit ihren Nachbarn überprüft. Erreicht die Sweep Line einen Endpunkt, wird die entsprechende Linie entfernt und die neuen Nachbarn auf einen Schnittpunkt getestet. Wird ein Schnittpunkt behandelt, müssen die beiden Segmente auf der dieser Schnittpunkt liegt die Positionen tauschen. Gefundene Schnittpunkte werden in die Output Liste und als neues Event in die Eventqueue eingefügt. Hier ist besonders darauf zu achten, dass die Schnittpunkte an der richtigen Position einsortiert werden.
+\begin{lstlisting}[captionpos=b, caption={Attribute der Klasse Sweep}, label=A3:Sweeppriv]
+class Sweep {
+private:
+	list<Event> eventqueue;
+	list<Line> segmentqueue;
+	Event *ereignis;
+	list<Event> output;
+...
+\end{lstlisting}
+
+Um die Eventqueue zu initialisieren wurde eine neue Funktion in die Klasse LineFile eingefügt. Diese fügt alls Punkte ein und definiert ob es sich um einen Start- oder Endpunkt handelt. Anschließend wird die Liste durch eine in der STL enthaltende Funktion nach der X-Koordinate sortiert.
+\begin{lstlisting}[captionpos=b, caption={Initialisierung der Sweep Line}, label=A3:Sweepinit]
+void LineFile::sweepiniteventqueue(){
+	for(unsigned int i = 0; i < m_lines.size(); i++) {
+		m_sweep.addevent(m_lines[i]->getstart(),m_lines[i]);
+		m_sweep.addevent(m_lines[i]->getend(), m_lines[i]);
+	}
+
+}
+...
+void Sweep::addevent(Point* a_point, Line* a_line){
+	//a_point ist startpunkt
+	if ( a_point == a_line->getstart() ){
+		eventqueue.push_front( Event(a_point, a_line, STARTPUNKT) );
+	}
+	//a_point ist endpunkt
+	else {
+		eventqueue.push_front( Event(a_point, a_line, ENDPUNKT) );
+	}
+	print_eventqueue();
+}
+\end{lstlisting}
+
+
+
+\subsection{Behandlung von Events}
+Da die Eventqueue immer nach aufsteigenden X-Koordinaten sortiert sein muss, kann der aktuelle X-Wert der Sweep Line durch die X-Koordinate des ersten Elements in der Eventqueue bestimmt werden. Wird die Sweep gestartet, wählt sie das erste Event aus der Queue und führt je nach Art des Punktes die entsprechende Aktion aus. Anschließend wird das Event aus der Queue entfernt und wieder das erste ausgewählt. Dieser Vorgang wir solange wiederholt, bis keine Events mehr in der Eventqueue enthalten sind. Dann können die Schnittpunkte aus der Outputqueue ausgelesen werden. Da der Vorgang des Auswählens und Löschen von Events bei allen Punkten gleich ist, wird dieser im Folgenden nicht weiter erwähnt.
+\begin{lstlisting}[captionpos=b, caption={Schleife der Sweep Line}, label=A3:Sweeprun]
+void Sweep::calcinters(){
+bool test = false;
+list<Event>::iterator neweve;
+
+	eventqueue.sort();
+	while( (test = eventqueue.empty()) == false) {
+		neweve = eventqueue.begin();
+		ereignis = &(*neweve);
+
+		switch(ereignis->gettype()){
+			case STARTPUNKT:
+				leftendpoint( );
+				break;
+
+			case ENDPUNKT:
+				rightendpoint( );
+				break;
+
+			case INTERSECTION:
+				treatintersection( );
+				break;
+
+			default:
+				exit(1);
+				break;
+		}
+		delevent(ereignis);
+	}
+}
+\end{lstlisting}
+
+
+\subsubsection{Startpunkte}
+Wie schon kurz beschrieben, wird bei der Behandlung eines Startpunktes das neue Segment in die Segmentqueue eingefügt. Es ist wichtig, dass es an der richtigen Stelle eingefügt wird, da nur zwischen Nachbarn ein Schnittpunkt liegen kann. Ist die Nachbarschaft nicht korrekt sortiert, kommt es zu schwer nachvollziehbaren Fehlern.
+\begin{lstlisting}[captionpos=b, caption={Einfügen von Segmenten in die Sweep Line}, label=A3:addseg]
+Line* Sweep::addseg(Line* a_seg) {
+	list<Line>::iterator newseg;
+
+	if ( segmentqueue.empty() ) {
+		segmentqueue.push_front(*a_seg);
+		return a_seg;
+	}
+	else {
+		for ( newseg = segmentqueue.begin(); newseg != segmentqueue.end(); ++newseg ) {
+			if ( newseg->get_yvalue(getxposition()) > a_seg->get_yvalue(getxposition()) ) {
+				segmentqueue.insert (newseg, *a_seg);
+				return a_seg;
+			}
+		}
+	}
+	segmentqueue.insert (newseg, *a_seg);
+	segmentqueue.unique();
+	return a_seg;
+}
+\end{lstlisting}
+
+Anschließend werden die beiden Nachbarn des gerade eingefügten Segments gesucht. Falls diese existieren, wird wie in Aufgabe 1 getestet ob ein Schnittpunkt zwischen dem Segment und seinem Nachbarn existiert. Existiert ein Schnittpunkt, werden erst anschließend die genauen Koordinaten bestimmt, dadurch soll die Laufzeit optimiert werden. Für den berechneten Schnittpunkt wird am Ende ein Event erzeugt, das sowohl in die Outputqueue als auch in die Eventqueue einsortiert wird.
+Dieser Vorgang wird anschließend für den zweiten Nachbarn wiederholt, soweit dieser existiert.
+\begin{lstlisting}[captionpos=b, caption={Schnittpunktprüfug bei Startpunkten}, label=A3:Behandlung_Start]
+...
+if ( neighbourA != NULL ) {
+		if( aktseg->is_intersection_max(neighbourA) == true ) {
+			interp1 = aktseg->intersectionpoint(neighbourA);
+			Event Inter1(interp1,aktseg,neighbourA);
+			addinter( Inter1 );
+			addevent( Inter1 );
+		}
+	}
+...
+\end{lstlisting}
+
+\subsubsection{Endpunkte}
+Handelt es sich beim aktuell behandelten Event um einen Endpunkt, muss das entsprechende Segment aus der Queue entfernt werden und die anschließend neuen Nachbarsegmente auf Schnittpunkte überprüft werden. Um diesen Vorgang durchführen zu können, muss man zuerst die Nachbarn der Linie bestimmen. Das suchen von Elementen wird immer mit der STL-Funktion find() durchgeführt. Nun kann das Segment entfernt werden. Existieren beide Nachbarn, kann versucht werden den Schnittpunkt zu bestimmen. Falls ein Schnittpunkt zwischen den Nachbarn besteht, wird dieser wie beim Startpunkt beschrieben in die Output- und Eventqueue eingefügt. Man muss nun allerdings darauf achten, dass man diesen Schnittpunkt möglicherweise schon berechnet hat. Es dürfen also nur Punkte in die Eventqueue eingefügt werden, deren X-Koordinate größer ist als die aktuelle Position der Sweep Line.
+
+\begin{lstlisting}[captionpos=b, caption={Behandlung von Endpunkten}, label=A3:Behandlung_End]
+void Sweep::rightendpoint(){
+	Line *segA=NULL, *segB=NULL;
+	Point interp1;
+
+	segA = getneighbour_high(ereignis->get_line());
+	segB = getneighbour_low(ereignis->get_line());
+
+	delseg(ereignis->get_line());
+	if ( segA != NULL && segB != NULL) {
+		if ( segA->is_intersection_max(segB) == true ) {
+			interp1 = segA->intersectionpoint(segB);
+			Event Inter1(interp1, segB, segA);
+			if(Inter1.get_x() > getxposition()) {
+				addevent( Inter1 );
+			}
+			addinter( Inter1 );
+		}
+	}
+}
+\end{lstlisting}
+
+\subsubsection{Schnittpunkte}
+Die Behandlung von Schnittpunkten klingt vorerst sehr einfach ist allerdings relativ komplex umzusetzten. Es müssen die Segmente, die sich am Schnittpunkt schneiden, in der Segmentqueue vertauscht werden und anschließend je mit ihrem neuen Nachbarn auf einen Schnittpunkt überprüft werden. Hierfür müssen zunächst beide Segmente in der Queue gefunden werden und man muss spezifizieren welche Line in der Queue einen früheren Platz belegt. Nun werden die beiden Nachbarn des Schnittpärchens bestimmt. Das Vertauschen der beiden Schnittsegmente übernimmt nun die STL-Funktion \text{iter\_swap\(iterator, iterator\)}. Nun werden die beiden Segmente je mit ihrem neuen Nachbarsegment auf einen Schnittpunkt geprüft. Existiert ein Schnittpunkt, wird dieser, wie aus den anderen Events bekannt, als Event in Eventqueue und Outputqueue eingefügt. Auch hier gilt die Voraussetzung, dass nur Events eingefügt werden dürfen, deren X-Koordinate größer ist als die aktuelle Position der Sweep Line.
+
+\begin{lstlisting}[captionpos=b, caption={Behandlung von Schnittpunkten}, label={A3:BehandlungSchnitt}]
+void Sweep::treatintersection(){
+	Line *segA=ereignis->get_line(), *segB=ereignis->get_line2(), *neighbourA=NULL, *neighbourB=NULL;
+	Point interp1, interp2;
+	list<Line>::iterator it_A = find(segmentqueue.begin(),segmentqueue.end(), *segA);
+	list<Line>::iterator it_B = find(segmentqueue.begin(),segmentqueue.end(),*segB);
+
+	if ( *it_B == *(++it_A) ){
+		neighbourA = getneighbour_high(segB);
+		neighbourB = getneighbour_low(segA);
+		//Swap Elements
+		//segB vor segA einordnen und altes Element segB löschen
+		iter_swap(--it_A, it_B);
+
+	}
+	else if ( *it_B == *(--(--it_A)) ) { //iterator wurde in if() verändert
+		neighbourA = getneighbour_low(segB);
+		neighbourB = getneighbour_high(segA);
+		iter_swap(++it_A, it_B);
+
+	}
+
+	if ( neighbourA != NULL ) {
+			if ( segA->is_intersection_max(neighbourA) == true ) {
+				interp1 = segA->intersectionpoint(neighbourA);
+				Event Inter1(interp1, neighbourA, segA);
+				if(Inter1.get_x() > getxposition()) {
+					addevent( Inter1 );
+				}
+				addinter( Inter1 );
+			}
+		}
+	if ( neighbourB != NULL ) {
+			if ( segB->is_intersection_max(neighbourB) == true ) {
+				interp2 = segB->intersectionpoint(neighbourB);
+				Event Inter2(interp2, neighbourB, segB);
+				if(Inter2.get_x() > getxposition()) {
+					addevent( Inter2 );
+				}
+				addinter( Inter2 );
+			}
+		}
+}
+\end{lstlisting}
+
+
+
+
