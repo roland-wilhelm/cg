@@ -1,4 +1,4 @@
-\section{Maximaler Kreis in einer konvexen Hülle}
+\section{Aufgabe 4 - Maximaler Kreis in einem konvexen Polygon}
 \label{sec:aufgabe4}
 In dieser Aufgabe 4 werden für zwei vorgegebene konvexe Polygone der größtmögliche einbeschreibbare Kreis mit Linearer Programmierung berechnet.
 Die vorgegebenen Polygone sind in den Dateien \textit{Polygon.txt} und \textit{testpolygon.txt} abgespeichert.
@@ -62,7 +62,8 @@ in der Zeile 2 verbunden \usw , der letzte Punkt (hier Zeile 4) wird mit dem Pun
 Das Listing \ref{lst:convexHull} zeigt die Erstellung einer konvexen Hülle.
 Durch den MATLAB Befehl \textit{convhulln(xy)} wird aus den vorgegebenen Strecken (xy) eine konvexe Hülle erzeugt und die entsprechenden Indizes zurückgegeben.
 Dadurch können dann in Zeilen 2 und 3 die jeweiligen Start- und Endpunkte einer Strecke bestimmt werden.
-\begin{lstlisting} [caption={Erstellen einer konvexen Hülle mit MATLAB}\label{lst:convexHull},captionpos=b] 
+
+\begin{lstlisting} [caption={Erstellen einer konvexen Hülle mit MATLAB},label={lst:convexHull},captionpos=b] 
 	ecken = convhulln(xy);
 	A = xy(ecken(:,1),:);
 	B = xy(ecken(:,2),:);
@@ -74,7 +75,7 @@ findet in den Zeilen 3 - 6 eine Überprüfung statt. Hier werden aus allen Startpu
 sicherer Mittelpunkt $M_0$ abgespeichert. Ist bei der anschließenden Subtraktion ein negativer Normaleneinheitsvektor vorhanden, wird
 dieser um 180 Grad gedreht.
 
-\begin{lstlisting} [caption={Berechnung des Normaleneinheitsvektor mit MATLAB}\label{lst:einheitsvektor},captionpos=b] 
+\begin{lstlisting} [caption={Berechnung des Normaleneinheitsvektor mit MATLAB},label={lst:einheitsvektor},captionpos=b] 
 	N_p = (B - A) * [0 1; -1 0];
 	Betrag = sqrt(sum(N_p.^2,2));
 	N_p = N_p./[Betrag, Betrag];
@@ -100,7 +101,7 @@ $$ -N_{0} * m + r \leq - N_{0} * P $$ für das Programm MATLAB. Das Listing \ref{
 linke Seite sowie rechte Seite. In den Zeilen 3 und 4 wird die dazugehörige Zielfunktion definiert.
 
 
-\begin{lstlisting} [caption={Erstellung der Ungleichung mit MATLAB}\label{lst:ungleichung},captionpos=b] 
+\begin{lstlisting} [caption={Erstellung der Ungleichung mit MATLAB},label={lst:ungleichung},captionpos=b] 
 	b = -sum(N_p.*A, 2);
 	A = [-N_p.*ones(strecken_nr, 2), ones(strecken_nr, 1)];
 	f = zeros(3, 1);
@@ -110,7 +111,7 @@ linke Seite sowie rechte Seite. In den Zeilen 3 und 4 wird die dazugehörige Ziel
 Die erzeugten Parameter werden in der ersten Zeile dem Befehl \textit{linprog} übergeben, dieses liefert uns dann
 in den entsprechenden Rückgabewerten die Lösung des linearen Problems zurück.
 
-\begin{lstlisting} [caption={Starten der Berechnung mit MATLAB}\label{lst:startBerechnung},captionpos=b] 
+\begin{lstlisting} [caption={Starten der Berechnung mit MATLAB},label={lst:startBerechnung},captionpos=b] 
 	[result, fval, exitflag, output] = linprog(f, A, b);
 	C = result(1:2)';
 	R = result(3); 

@@ -1,2 +1,416 @@
-\section{Aufgabe 2}
+\section{Aufgabe 2 - Berechnung von Flächen}
 \label{sec:Aufgabe2}
+In dieser Aufgabe werden die Flächen der einzelnen Bundesländer in Deutschland berechnet. Des Weiteren werden
+Algorithmen implementiert um Städte, angegeben durch x und y Werte, einem Bundesland zuzuordnen.
+
+Dabei wird die Aufgabestellung zuerst Designet und die erforderlich Datenstruktur entwickelt. Anschließend
+wird ein \textit{SVG-Parser} implementiert, um die Grafikdateien einzulesen und die erforderlichen Werte abzuspeichern.
+Dabei wird eine Testdatei erzeugt, um die Software und ihre Funktionalität zu testen.
+Schlussendlich wird das Programm auf die eigentliche Deutschlandkarte angewendet und die Ergebnisse präsentiert.
+
+
+\subsection{Softwaredesign und Datenstruktur}
+\label{sec:softwaredesign}
+Um die Anforderungen der Flächenberechnung von Bundesländern sowie die Lokalisierung von Städten in Deutschland zu erfüllen,
+wurde das in Abbildung \ref{fig:klassendiagrammAufgabe2} dargestellte Klassendiagramm entworfen.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=1.0\textwidth]{Klassendiagramm-Aufgabe2.png}
+\caption{Klassendiagramm: Entwurf und Datenstruktur der Aufgabe 2}
+\label{fig:klassendiagrammAufgabe2}
+\end{figure}
+
+Jedes Bundesland wird durch eine Klasse \texttt{State} repräsentiert. Diese Klasse speichert die jeweilige Fläche sowie die
+dazugehörige Bounding Box des Bundeslandes ab. Diese Klasse kann dabei eine oder mehrere Flächen besitzen, um auch Bundesländer mit mehreren Flächen bzw. Bundesländer in Bundesländer darstellen zu können. Dies wird durch die Klasse \texttt{Area} behandelt.
+Jede Klasse \texttt{Area} hat dabei eine Fläche, Bounding Box sowie ein Flag \textit{m\_within\_state}, welches kennzeichnet ob die Fläche wieder in einer Fläche liegt.
+Des Weiteren werden Städte durch die Klasse \texttt{City} abgebildet mit den Parametern Name der Stadt sowie deren Koordinaten.
+Mit der Methode \textit{locate\_and\_push\_city\_to\_state} wird die Stadt einem Bundesland zugeordnet und im entsprechenden Bundesland abgespeichert.
+Die Klasse \texttt{SvgFile} ist für das Einlesen und Parsen der SVG-Dateien verantwortlich. Hierdurch wird auch die Berechnung sowie die Darstellung der Ergebnisse gestartet.
+
+
+\subsubsection{Parsen der Grafikdatei}
+\label{sec:parser}
+Um die erforderlichen Koordinatenwerte aus der SVG-Datei zu erhalten, wurde ein entsprechender Parser dafür entwickelt.
+Basis dafür war der XML-Parser \textit{tinyXML2}, dieser besteht lediglich aus einer Quell- und Headerdatei und kann einfach in ein Projekt integriert werden. Dieser übernimmt das Lesen der XML-Struktur und gibt diese an den SVG-Parser weiter.
+Das Listing \ref{lst:parser} zeigt das parsen entsprechender Zeilen sowie die Abspeicherungen der Koordinaten zu einer bestimmten Fläche bzw. Bundesland. Dabei werden aktuell folgende SVG-Kommandos unterstützt:
+
+\begin{itemize}
+\item M: Startpunkt des Polygons, die Werte x und y sind absolute Koordinaten.
+\item L: Zeichnet eine Strecke vom Startpunkt zum Endpunkt L. Dieser Endpunkt wird durch absolute Koordinatenwerte abgebildet.
+\item l: Hat die selbe Funktion wie L, der Endpunkt wird jedoch durch relative Werte abgebildet.
+\item H: Zeichnet eine horizontal Strecke. Angabe in absoluten Werten
+\item z: Schließt das Polygon, indem vom aktuellen Punkt zum Startpunkt eine Strecke gezeichnet wird.
+\end{itemize}
+
+Die Zeile 2 im abgebildeten Quellcode zeigt, wie jede SVG relevante Zeile nach den entsprechenden Kommandos aufgesplittet wird.
+Die wird dann der Funktion \textit{svg2Point(...)} übergeben. In dieser wird der String in absolute Koordinaten konvertiert und anschließend aus den Punkten ein Point-Objekt erzeugt. Diese Point-Objekte werden solange zu der Fläche Area hinzugefügt, bis ein
+z-Kommando das Ende einer Fläche kennzeichnet und diese Flächen zu einem Bundesland (State) zuordnet.
+Dieser Vorgang wiederholt sich solange, bis alle Koordinaten der Bundesländer abgespeichert sind.
+
+\begin{lstlisting} [caption={Parsen der SVG-Datei und Abspeicherung der Fläche},label={lst:parser},captionpos=b] 
+for(;;) {
+	string::size_type diff = splitString(str, "MLlHz", &start);
+	if(diff > 0) {
+		// Token available
+		string sub = str.substr(start, diff);
+		if( (sub == string("z")) && (area.empty() == false) ) {
+			// Push filled vector of points to the state and clear it for the next area
+			m_states[string(id)].push_area_to_state(area);
+			area.clear();
+		}
+		bool result = svg2Point(id, sub, &offset, area);
+		if(result == false) {
+			return false;
+		}
+		start += diff;
+	}
+	else {
+		break;
+	}
+}
+\end{lstlisting}
+
+
+\subsubsection{Flächenberechnung}
+\label{sec:flaechenberechnung}
+Um den Flächeninhalt eines Polygons (hier Area) zu berechnen, wird die \textbf{Gaußsche Trapezformel}\footnote{http://de.wikipedia.org/wiki/Gaußsche\_Trapezformel} verwendet.
+Hierbei werden alle Koordinaten, die zu einer bestimmten Fläche (Klasse Area) zugeordnet wurden, durch den Algorithmus berechnet (siehe Listing \ref{lst:flaecheArea}).
+
+\begin{lstlisting} [caption={Flächenberechnung in der Klasse Area},label={lst:flaecheArea},captionpos=b] 
+for(; iterPoints != (m_points.end() - 1);	iterPoints++) {
+
+	double x1 = iterPoints->get_x();
+	double y1 = iterPoints->get_y();
+
+	double x2 = (iterPoints+1)->get_x();
+	double y2 = (iterPoints+1)->get_y();
+
+	area += (( y1 + y2 ) * ( x1 - x2 ));
+}
+
+m_area = fabs(area) / 2;
+\end{lstlisting}
+
+Nachdem die einzelnen Flächen berechnet worden sind, wird jetzt die Gesamtfläche eines Bundeslandes berechnet.
+Listing \ref{lst:flaecheState} zeigt die Vorgehensweise. Dabei wird zuerst in jedem Flächen-Objekt nachgeschlagen, ob sich die Fläche in einer Fläche oder außerhalb liegt. Danach werden je nach Lage der Fläche, die Flächen addiert oder subtrahiert.
+Bis schlussendlich alle Flächen eines Bundeslandes behandelt worden sind und die Gesamtfläche feststeht.
+
+
+\begin{lstlisting} [caption={Berechnung der Fläche eines Bundeslandes in der Klasse State},label={lst:flaecheState},captionpos=b] 
+for(; iterAreas != m_areas.end();	iterAreas++) {
+
+	if(iterAreas->is_within_state() == true) {
+
+		m_area -= iterAreas->get_area();
+		os << " - " << iterAreas->get_area();
+	}
+	else {
+
+		m_area += iterAreas->get_area();
+		os << " + " << iterAreas->get_area();
+	}
+
+}
+\end{lstlisting}
+
+
+
+\subsubsection{Lokalisierung der Städte}
+\label{sec:lokalisierung}
+Um vorgegebene Städte mit ihren Koordinaten einem Bundesland zuzuordnen, muss überprüft werden, ob sich die Koordinate
+in einem bestimmten Polygon befindet. Dies kann durch die Anzahl der Schnittpunkte bestimmt werden. Dabei wird ein Punkt außerhalb des Bundeslandes bestimmt und eine Strecke zu der gesuchten Stadt gezogen. Die Anzahl der Schnittpunkt, die die Strecke dabei verursacht gibt Aufschluss, ob sich der Punkt innerhalb oder außerhalb befindet. Ist die Anzahl der Schnittpunkte gerade befindet sich Stadt außerhalb, ansonsten innerhalb. Um einen Punkt außerhalb des Bundeslandes bestimmen zu können, kann die berechnete Bounding Box genutzt werden.
+
+Das Listing \ref{lst:lokalisierungCity} zeigt die Klasse \texttt{City}. Wird nun für eine Stadt das entsprechende Bundesland gesucht, werden alle Bundesländer nacheinander abgesucht. 
+
+\begin{lstlisting} [caption={Lokalisierung einer Stadt in der Klasse City},label={lst:lokalisierungCity},captionpos=b] 
+for(; iterStates != a_states.end(); iterStates++) {
+
+	cout << "  Trying State: " << iterStates->second.get_name() << endl;
+	bool result = iterStates->second.point_in_state(m_point);
+	if(result == true) {
+
+		cout << "State --> " << iterStates->first << endl;
+		m_name_state = iterStates->first;
+		iterStates->second.push_city_to_state(m_name_city, *this);
+	}
+
+}
+\end{lstlisting}
+
+Dabei wird in der Klasse \texttt{State} (siehe Listing \ref{lst:lokalisierungState}) zuerst durch die ermittelte Bounding Box eines Bundeslandes überprüft, ob sich der Punkt innerhalb der Bounding Box befindet. Wenn nicht kann die Stadt nicht in diesem Bundesland liegen, ansonsten muss es näher untersucht werden.
+Um eine nähere Untersuchung durchführen zu können, werden die Flächen eines Bundeslandes mittels einer Hilfsstrecke auf die Anzahl der Schnittpunkte überprüft. Dabei werden alle Strecken dieser Fläche mit der Hilfsstrecke auf Schnittpunkt überprüft und mitgezählt.
+Sind die Schnittpunkte aller Flächen ungerade befindet sich die Stadt innerhalb des Bundeslandes. Ist die Anzahl gerade liegt die Stadt nicht in diesem Bundesland und das nächste Bundesland kann untersucht werden.
+
+\begin{lstlisting} [caption={Lokalisierung einer Stadt in der Klasse State},label={lst:lokalisierungState},captionpos=b] 
+bool result = point_in_bounding_box(a_point);
+if(result == false) {
+
+	cout << "    Point out of bounding box of State: " << m_name << endl;
+	return false;
+}
+
+...
+
+for(; iterAreas != m_areas.end(); iterAreas++) {
+
+	int intersections = 0;
+	iterAreas->point_in_area(a_point, &intersections);
+	total += intersections;
+}
+
+if(total % 2 == 1)
+	return true;
+\end{lstlisting}
+
+
+
+\subsection{Anwendung auf eine Testdatei}
+\label{sec:a2testdatei}
+Um die beschriebene Funktionalitäten und Algorithmen zu testen, wurde eine Testdatei (data/Test.svg) erstellt.
+Hier wurden verschiedene Objekte gezeichnet um vor allem die Fläche in Fläche Berechnungen zu testen sowie die Lokalisierungen von vorgegebenen Punkten.
+
+Das Listing \ref{lst:ergebnisTest} präsentiert das Ergebnis der Berechnungen. Das Ergebnis wird exemplarisch mit dem State \textit{Dreieck}erläutert. Dabei wird die dazugehörige Bounding Box, welche für die Hilfsstrecke benötigt wird, abgebildet. Die berechnete Fläche
+\textit{Area} sowie die vorher ermittelte richtige Fläche \textit{Exact} werden miteinander verglichen und die Differenz angezeigt.
+Die Stadt \textit{PunktinDreieck} mit ihren Koordinaten wurde dabei im Bundesland \textit{Dreieck} lokalisiert.
+
+Am Schluss werden nochmals alle Bundesländer mit ihren Städten aufgelistet. Hierbei wird gezeigt, dass nicht alle Städte (hier: PunktInQuadrat und PunktAussen) einem Bundesland zugeordnet werden konnten. Diese werden dann mit \textit{unknown} gekennzeichnet.
+
+
+\begin{lstlisting} [caption={Ergebnisse für die Testdatei},label={lst:ergebnisTest},captionpos=b] 
+---- States and its calculated Areas -----
+State: 	Dreieck
+  Bounding Box:             Min: X:        8	 Y:        1  Max: X:       11	 Y:        8
+  Area:                    10.5
+  Exact:                   10.5
+  Difference(%):             0
+City:  --> 	PunktInDreieck       X:       10	 Y:      1.5
+State: --> 	Dreieck
+------------------------------------------
+State: 	ParallelOhneQuadrat
+  Bounding Box:             Min: X:        1	 Y:        1  Max: X:       11	 Y:        9
+  Area:                      39
+  Exact:                     39
+  Difference(%):             0
+City:  --> 	PunktInParallel       X:        3	 Y:        4
+State: --> 	ParallelOhneQuadrat
+------------------------------------------
+State: 	Rechteck
+  Bounding Box:             Min: X:        4	 Y:        8  Max: X:      5.5	 Y:        9
+  Area:                     1.5
+  Exact:                    1.5
+  Difference(%):             0
+City:  --> 	PunktInRechteck       X:        5	 Y:      8.5
+State: --> 	Rechteck
+------------------------------------------
+------------------------------------------
+------------ All Cities --------------
+City:  --> 	PunktInQuadrat       X:        5	 Y:        5
+State: --> 	Unknown
+------------------------------------------
+City:  --> 	PunktInParallel       X:        3	 Y:        4
+State: --> 	ParallelOhneQuadrat
+------------------------------------------
+City:  --> 	PunktInRechteck       X:        5	 Y:      8.5
+State: --> 	Rechteck
+------------------------------------------
+City:  --> 	PunktInDreieck       X:       10	 Y:      1.5
+State: --> 	Dreieck
+------------------------------------------
+City:  --> 	PunktAussen       X:        1	 Y:      8.5
+State: --> 	Unknown
+------------------------------------------
+------------------------------------------
+\end{lstlisting}
+
+
+\subsection{Präsentation der Ergebnisse}
+\label{sec:a2ergebnisse}
+Nach dem alle Tests abgeschlossen und überprüft wurden, wird jetzt die eigentliche Datei (data/DeutschlandMitStaedten.svg) der Berechnungen unterzogen. Wie die Ergebnisse interpretiert werden, kann im Abschnitt \ref{sec:a2testdatei} nachgelesen werden.
+
+Die Abweichung der Flächen um ca. 15 Prozent von den berechneten zu den statistischen ermittelten Werten, lassen sich durch die Genauigkeit der Deutschlandkarte erklären.
+
+\begin{lstlisting} [caption={Ergebnisse für die Deutschlandkarte},label={lst:ergebnisse},captionpos=b] 
+---- States and its calculated Areas -----
+State: 	Baden-Wuerttemberg
+  Bounding Box:             Min: X:   94.851	 Y:  541.497  Max: X:  300.713	 Y:   770.81
+  Area:                 30522.3
+  Exact:                35751.7
+  Difference(%):      -14.6269
+City:  --> 	Stuttgart       X:      215	 Y:      648
+State: --> 	Baden-Wuerttemberg
+------------------------------------------
+State: 	Bayern
+  Bounding Box:             Min: X:   200.02	 Y:  463.246  Max: X:  527.364	 Y:  800.258
+  Area:                 60026.1
+  Exact:                70549.2
+  Difference(%):      -14.9159
+City:  --> 	Muenchen       X:  366.968	 Y:      700
+State: --> 	Bayern
+------------------------------------------
+State: 	Berlin
+  Bounding Box:             Min: X:  460.803	 Y:  240.679  Max: X:  501.897	 Y:  272.113
+  Area:                 766.233
+  Exact:                 891.75
+  Difference(%):      -14.0754
+City:  --> 	Berlin       X:      477	 Y:      256
+State: --> 	Berlin
+------------------------------------------
+State: 	Brandenburg
+  Bounding Box:             Min: X:  345.648	 Y:  149.207  Max: X:  570.941	 Y:   374.78
+  Area:                 25275.9
+  Exact:                29477.2
+  Difference(%):      -14.2525
+City:  --> 	Potsdam       X:  458.763	 Y:  260.757
+State: --> 	Brandenburg
+------------------------------------------
+State: 	Bremen
+  Bounding Box:             Min: X:  173.713	 Y:   149.34  Max: X:  204.515	 Y:  210.922
+  Area:                 340.931
+  Exact:                 404.23
+  Difference(%):      -15.6591
+City:  --> 	Bremen       X:  193.766	 Y:   200.55
+State: --> 	Bremen
+------------------------------------------
+State: 	Hamburg
+  Bounding Box:             Min: X:   250.76	 Y:  136.688  Max: X:   286.18	 Y:  172.063
+  Area:                 633.325
+  Exact:                 755.16
+  Difference(%):      -16.1336
+City:  --> 	Hamburg       X:  265.845	 Y:   156.03
+State: --> 	Hamburg
+------------------------------------------
+State: 	Hessen
+  Bounding Box:             Min: X:  120.308	 Y:  350.145  Max: X:  282.316	 Y:  581.665
+  Area:                 17977.5
+  Exact:                21114.7
+  Difference(%):      -14.8578
+City:  --> 	Wiesbaden       X:  148.823	 Y:  508.371
+State: --> 	Hessen
+------------------------------------------
+State: 	Mecklenburg-Vorpommern
+  Bounding Box:             Min: X:   303.89	 Y:   34.735  Max: X:  538.295	 Y:  199.904
+  Area:                 19658.8
+  Exact:                23174.2
+  Difference(%):      -15.1694
+City:  --> 	Schwerin       X:  357.852	 Y:  150.095
+State: --> 	Mecklenburg-Vorpommern
+------------------------------------------
+State: 	Niedersachsen
+  Bounding Box:             Min: X:   60.544	 Y:  120.329  Max: X:  366.113	 Y:  387.501
+  Area:                 40633.5
+  Exact:                47618.2
+  Difference(%):      -14.6683
+City:  --> 	Hannover       X:  253.549	 Y:  273.477
+State: --> 	Niedersachsen
+------------------------------------------
+State: 	Nordrhein-Westfalen
+  Bounding Box:             Min: X:    0.254	 Y:  259.852  Max: X:  231.536	 Y:  481.384
+  Area:                 28966.4
+  Exact:                34083.5
+  Difference(%):      -15.0135
+City:  --> 	Duesseldorf       X:  56.8154	 Y:  397.708
+State: --> 	Nordrhein-Westfalen
+------------------------------------------
+State: 	Rheinland-Pfalz
+  Bounding Box:             Min: X:   11.071	 Y:  421.405  Max: X:  167.465	 Y:  624.789
+  Area:                 16913.6
+  Exact:                19847.4
+  Difference(%):      -14.7818
+City:  --> 	Mainz       X:  148.399	 Y:  523.635
+State: --> 	Rheinland-Pfalz
+------------------------------------------
+State: 	Saarland
+  Bounding Box:             Min: X:   24.194	 Y:  553.172  Max: X:   93.351	 Y:  607.571
+  Area:                 2179.76
+  Exact:                2568.65
+  Difference(%):      -15.1397
+City:  --> 	Saarbruecken       X:       60	 Y:      589
+State: --> 	Saarland
+------------------------------------------
+State: 	Sachsen
+  Bounding Box:             Min: X:  389.565	 Y:  346.651  Max: X:  591.247	 Y:  500.279
+  Area:                 15667.9
+  Exact:                18413.9
+  Difference(%):      -14.9126
+City:  --> 	Dresden       X:  499.891	 Y:  405.764
+State: --> 	Sachsen
+------------------------------------------
+State: 	Sachsen-Anhalt
+  Bounding Box:             Min: X:  302.718	 Y:  207.164  Max: X:  470.115	 Y:  421.815
+  Area:                 17450.5
+  Exact:                20445.3
+  Difference(%):      -14.6475
+City:  --> 	Magdeburg       X:  370.996	 Y:  294.677
+State: --> 	Sachsen-Anhalt
+------------------------------------------
+State: 	Schleswig-Holstein
+  Bounding Box:             Min: X:  139.262	 Y:     0.25  Max: X:  345.952	 Y:  175.469
+  Area:                 13456.4
+  Exact:                15763.2
+  Difference(%):      -14.6337
+City:  --> 	Kiel       X:  275.173	 Y:  78.4392
+State: --> 	Schleswig-Holstein
+------------------------------------------
+State: 	Thueringen
+  Bounding Box:             Min: X:  259.291	 Y:  351.324  Max: X:  439.172	 Y:   498.94
+  Area:                 13724.6
+  Exact:                16172.1
+  Difference(%):      -15.1341
+City:  --> 	Erfurt       X:  335.381	 Y:  418.908
+State: --> 	Thueringen
+------------------------------------------
+------------------------------------------
+------------ All Cities --------------
+City:  --> 	Muenchen       X:  366.968	 Y:      700
+State: --> 	Bayern
+------------------------------------------
+City:  --> 	Berlin       X:      477	 Y:      256
+State: --> 	Berlin
+------------------------------------------
+City:  --> 	Stuttgart       X:      215	 Y:      648
+State: --> 	Baden-Wuerttemberg
+------------------------------------------
+City:  --> 	Saarbruecken       X:       60	 Y:      589
+State: --> 	Saarland
+------------------------------------------
+City:  --> 	Wiesbaden       X:  148.823	 Y:  508.371
+State: --> 	Hessen
+------------------------------------------
+City:  --> 	Mainz       X:  148.399	 Y:  523.635
+State: --> 	Rheinland-Pfalz
+------------------------------------------
+City:  --> 	Duesseldorf       X:  56.8154	 Y:  397.708
+State: --> 	Nordrhein-Westfalen
+------------------------------------------
+City:  --> 	Bremen       X:  193.766	 Y:   200.55
+State: --> 	Bremen
+------------------------------------------
+City:  --> 	Erfurt       X:  335.381	 Y:  418.908
+State: --> 	Thueringen
+------------------------------------------
+City:  --> 	Dresden       X:  499.891	 Y:  405.764
+State: --> 	Sachsen
+------------------------------------------
+City:  --> 	Magdeburg       X:  370.996	 Y:  294.677
+State: --> 	Sachsen-Anhalt
+------------------------------------------
+City:  --> 	Hannover       X:  253.549	 Y:  273.477
+State: --> 	Niedersachsen
+------------------------------------------
+City:  --> 	Hamburg       X:  265.845	 Y:   156.03
+State: --> 	Hamburg
+------------------------------------------
+City:  --> 	Kiel       X:  275.173	 Y:  78.4392
+State: --> 	Schleswig-Holstein
+------------------------------------------
+City:  --> 	Schwerin       X:  357.852	 Y:  150.095
+State: --> 	Mecklenburg-Vorpommern
+------------------------------------------
+City:  --> 	Potsdam       X:  458.763	 Y:  260.757
+State: --> 	Brandenburg
+------------------------------------------
+------------------------------------------
+\end{lstlisting}
+
+
