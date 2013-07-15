@@ -209,6 +209,65 @@ void Sweep::treatintersection(){
 }
 \end{lstlisting}
 
+\subsection{Ergebnisse des Line Sweep}
+Um den Algorithmus zu testen, wurde eine Datei mit sehr einfachen Beispieldaten erstellt. Dabei handelt es sich um drei Strecken, die sich in insgesamt drei Punkten schneiden. Das Besipiel ist in Abbildung \ref{fig:testdaten} dargestellt und wurde gew\"ahlt, da der Ablauf dadurch sehr leich nachvollziehbar ist.
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.5\textwidth]{A3_testdaten.png}
+\caption{einfache Datens\"atze zum Test des Line Sweep}
+\label{fig:testdaten}
+\end{figure}
+
+Das Ergebnis ist mit drei Schnittpunkten korrekt, wie in Listing \ref{A3:DebugLineSweep} zu sehen ist sind allerdings die errechneten Schnittpunkte falsch. Zur\"uckzuf\"uhren ist der Fehler auf die implementierung der \textit(get\_neighbour\_high() und get\_neighbour\_low()) Funktion. Diese geben ung\"ultige Werte zur\"uck, wenn es sich bei der als Parameter \"ubergebenen Linie um das obere bzw. untere Ende der Liste handelt. F\"ur diesen Fall ist zwar eigentlich eine Abfrage vorgesehen, diese erf\"ullt allerdings nicht ihre Funktion. Wie die Fehlerkorrektur aussehen m\"usste, konnte nicht herausgefunden werden.
+
+\begin{lstlisting}[captionpos=b, caption={Debugausgabe und Ergebnis des Line Sweep}, label={A3:DebugLineSweep}]
+Event[P(1,1)-T1], 
+Event[P(1,1)-T1], 
+Event[P(4,4)-T2], Event[P(1,1)-T1], 
+Event[P(4,4)-T2], Event[P(1,1)-T1], 
+Event[P(3,4)-T1], Event[P(4,4)-T2], Event[P(1,1)-T1], 
+Event[P(3,4)-T1], Event[P(4,4)-T2], Event[P(1,1)-T1], 
+Event[P(6,1)-T2], Event[P(3,4)-T1], Event[P(4,4)-T2], Event[P(1,1)-T1], 
+Event[P(6,1)-T2], Event[P(3,4)-T1], Event[P(4,4)-T2], Event[P(1,1)-T1], 
+Event[P(1.5,2)-T1], Event[P(6,1)-T2], Event[P(3,4)-T1], Event[P(4,4)-T2], Event[P(1,1)-T1], 
+Event[P(1.5,2)-T1], Event[P(6,1)-T2], Event[P(3,4)-T1], Event[P(4,4)-T2], Event[P(1,1)-T1], 
+Event[P(7,2)-T2], Event[P(1.5,2)-T1], Event[P(6,1)-T2], Event[P(3,4)-T1], Event[P(4,4)-T2], Event[P(1,1)-T1], 
+Event[P(7,2)-T2], Event[P(1.5,2)-T1], Event[P(6,1)-T2], Event[P(3,4)-T1], Event[P(4,4)-T2], Event[P(1,1)-T1], 
+Event[P(1,1)-T1], Event[P(1.5,2)-T1], Event[P(3,4)-T1], Event[P(4,4)-T2], Event[P(6,1)-T2], Event[P(7,2)-T2], 
+Event[P(1.5,2)-T1], Event[P(3,4)-T1], Event[P(4,4)-T2], Event[P(6,1)-T2], Event[P(7,2)-T2], 
+Segment[P1(1/1), P2(4/4)], 
+Segment[P1(1/1), P2(4/4)], 
+Segment[P1(1/1), P2(4/4)], Segment[P1(1.5/2), P2(7/2)], 
+Event[P(1.5,2)-T1], Event[P(3,4)-T1], Event[P(4,4)-T2], Event[P(6,1)-T2], Event[P(7,2)-T2], 
+Event[P(1.5,2)-T1], Event[P(2,2)-T3], Event[P(3,4)-T1], Event[P(4,4)-T2], Event[P(6,1)-T2], Event[P(7,2)-T2], 
+Event[P(2,2)-T3], Event[P(3,4)-T1], Event[P(4,4)-T2], Event[P(6,1)-T2], Event[P(7,2)-T2], 
+Segment[P1(1/1), P2(4/4)], Segment[P1(1.5/2), P2(7/2)], 
+Schnitt(2,2), 
+Event[P(3,4)-T1], Event[P(4,4)-T2], Event[P(6,1)-T2], Event[P(7,2)-T2], 
+Segment[P1(1.5/2), P2(7/2)], Segment[P1(1/1), P2(4/4)], 
+Schnitt(2,2), 
+Segment[P1(1.5/2), P2(7/2)], Segment[P1(1/1), P2(4/4)], 
+Segment[P1(1.5/2), P2(7/2)], Segment[P1(1/1), P2(4/4)], Segment[P1(3/4), P2(6/1)], 
+Event[P(4,4)-T2], Event[P(6,1)-T2], Event[P(7,2)-T2], 
+Segment[P1(1.5/2), P2(7/2)], Segment[P1(1/1), P2(4/4)], Segment[P1(3/4), P2(6/1)], 
+Schnitt(1,1), Schnitt(2,2), 
+Event[P(6,1)-T2], Event[P(7,2)-T2], 
+Segment[P1(1.5/2), P2(7/2)], Segment[P1(3/4), P2(6/1)], 
+Schnitt(1.66667,2), Schnitt(1,1), Schnitt(2,2), 
+Event[P(7,2)-T2], 
+Segment[P1(1.5/2), P2(7/2)], 
+Schnitt(1.66667,2), Schnitt(1,1), Schnitt(2,2), 
+-------------------------------------
+-----------Aufg 3 - Sweep------------
+Intersected lines: 3
+DeltaT: 0.015 seconds
+-------------------------------------
+\end{lstlisting}
+
+
+
+
+
 
 
 
